@@ -74,7 +74,8 @@ export async function run(opts, { data = process.env.BRAND_DATA || join(ROOT, 'd
                     brands: brands.length, searches: plan.length, sources: {} };
   const diag = {};
   const reqs = (host) => requestCounts()[host] || 0;
-  const kept = (items) => items.filter((it) => !it.sold && brandsOf(it.title, designatedOf(it)).b.length).length;
+  // kept: listings of our brands (on a sale-record page, the sale records of our brands)
+  const kept = (items) => items.filter((it) => brandsOf(it.title, designatedOf(it)).b.length).length;
   const sec = (t0) => Math.round((Date.now() - t0) / 1000);
   const failed = (file, e, extra = {}) => {
     summary.sources[file] = { ok: false, refused: e instanceof Refused, error: String((e && e.message) || e).slice(0, 300), ...extra };

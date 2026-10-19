@@ -185,7 +185,11 @@
    "latin": [
     "ann demeulemeester"
    ],
-   "noisy": false
+   "noisy": false,
+   "also": [
+    "demeulemeester",
+    "ドゥムルメステール"
+   ]
   },
   {
    "slug": "avant-toi",
@@ -276,7 +280,12 @@
    "latin": [
     "boris bidjan saberi"
    ],
-   "noisy": false
+   "noisy": false,
+   "also": [
+    "boris bidjan",
+    "11 by bbs",
+    "ボリス ビジャン"
+   ]
   },
   {
    "slug": "both",
@@ -479,7 +488,8 @@
    "latin": [
     "noir kei ninomiya"
    ],
-   "noisy": false
+   "noisy": false,
+   "line": "comme-des-garcons"
   },
   {
    "slug": "comme-des-garcons-play",
@@ -499,7 +509,8 @@
     "play comme des garcons",
     "cdg play"
    ],
-   "noisy": false
+   "noisy": false,
+   "line": "comme-des-garcons"
   },
   {
    "slug": "coperni",
@@ -605,7 +616,8 @@
     "drkshdw",
     "dark shadow"
    ],
-   "noisy": false
+   "noisy": false,
+   "line": "rick-owens"
   },
   {
    "slug": "dr-martens-x-rick-owens",
@@ -812,7 +824,11 @@
    "latin": [
     "guidi"
    ],
-   "noisy": false
+   "noisy": false,
+   "excludeDesigners": [
+    "Piero Guidi"
+   ],
+   "note": "Piero Guidi (bags) is another house: left out by name, in every script"
   },
   {
    "slug": "haider-ackermann",
@@ -1004,7 +1020,8 @@
    "latin": [
     "junya watanabe"
    ],
-   "noisy": false
+   "noisy": false,
+   "line": "comme-des-garcons"
   },
   {
    "slug": "juun-j",
@@ -1113,7 +1130,10 @@
     "ma+",
     "m.a+ "
    ],
-   "noisy": false
+   "noisy": false,
+   "also": [
+    "maクロス"
+   ]
   },
   {
    "slug": "made-on-grand",
@@ -2035,13 +2055,17 @@
    "grailedCount": 817,
    "big": false,
    "ja": [
-    "ウマワン"
+    "ユマワン"
    ],
    "ko": [],
    "latin": [
     "uma wang"
    ],
-   "noisy": false
+   "noisy": false,
+   "also": [
+    "ユマ ワン",
+    "ウマワン"
+   ]
   },
   {
    "slug": "undercover",

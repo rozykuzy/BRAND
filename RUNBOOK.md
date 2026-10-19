@@ -36,13 +36,13 @@ Carol Christian Poell 인덱스(`rozykuzy/ccp`)의 수집기·대장·조판을 
 | `mercari` | 메루카리 | `/search?keyword=&status=on_sale` (브라우저로 그림) | 검색어마다 1쪽(120건) | 수집 |
 | `rakuma` | 라쿠마 | `fril.jp/s?query=` (+`&page=`) | 검색어마다 2쪽(40건) | 수집 |
 | `yfm` | 야후 플리마 | `/search/<검색어>` (+`?withSpeller=0&page=`) | 검색어마다 2쪽(100건) | 수집 |
-| `second` | 2nd STREET | `/search?keyword=` (+`&page=`) | 검색어마다 2쪽(60건) | 수집. 제목 = 매장이 적은 브랜드 줄 + 칸들 |
+| `second` | 2nd STREET | `/search?keyword=` (+`&page=`) | 검색어마다 2쪽(60건) | 수집. 제목 = 매장이 적은 브랜드 줄 + 칸들. **10/18부터 robots.txt 자리에 HTML 페이지(200, `noindex,nofollow`)가 와서 읽지 않는다** — CCP도 10/17이 마지막. 진짜 robots.txt가 돌아오면 저절로 다시 읽는다 |
 | `fruits` | 후루츠패밀리 | `/brand/<브랜드 이름>` · `/product/<id>/` | 브랜드 페이지 1쪽(40건) + 대장 매물 하루 200건까지 다시 보기(3일 간격) | 수집. 브랜드 페이지는 일부뿐이라 안 보였다고 사라짐으로 치지 않는다 |
 | `ebay` | eBay Browse API | `api.ebay.com` (`/sch/` 금지, 공식 API만) | 라틴 이름 1검색, 최신순, 5쪽(1,000건)까지 | 키가 있을 때만 |
 | — | Depop · Vestiaire · The RealReal · Mercari US · RAGTAG · Vinted · Poshmark · 1stDibs · 번개장터 | — | — | 수집하지 않음 |
 
 **검색어** — 브랜드마다 `latin[0]` 과 일본어 표기 전부. 띄어쓰기·가운뎃점만 다른 표기는 한 번만(`アン ドゥムルメステール` = `アンドゥムルメステール`).
-같은 검색어는 하루 한 번만 묻고, 그 결과를 모든 브랜드가 함께 쓴다. 130개 브랜드에 검색어 210개(라틴 130 · 일본어 80).
+같은 검색어는 하루 한 번만 묻고, 그 결과를 모든 브랜드가 함께 쓴다. 130개 브랜드에 검색어 204개(라틴 126 · 일본어 78). 흔한 낱말이라 검색하지 않는 브랜드 4개(White · Warm Me · Tacet · Aalto)는 Grailed · 브랜드 페이지의 분류로만 들어온다.
 Dr. Martens x Rick Owens는 라틴 이름이 Rick Owens와 같아서 `rick owens dr. martens` 로 묻는다(titleMust 첫 낱말을 붙임).
 
 **검색 결과는 아직 누구의 매물도 아니다.** 검색 페이지는 설명에만 이름이 있는 다른 물건도 돌려준다. 어느 브랜드인지는 제목이 정한다(아래).
@@ -50,7 +50,7 @@ Dr. Martens x Rick Owens는 라틴 이름이 Rick Owens와 같아서 `rick owens
 ## 제목으로 브랜드 읽기 (`brands.mjs`)
 
 - 검색 페이지 매물은 **제목에 브랜드 이름이 있을 때만** 그 브랜드의 것. 라틴 표기는 대소문자·전각/반각·악센트·띄어쓰기·구두점을 가리지 않는다(`rickowens` · `Rick-Owens` · `ﾘｯｸｵｳｴﾝｽ`). 이름은 낱말이 시작하는 곳에서 시작해야 한다(`marceline` 은 Celine이 아니다, `my project` 는 Y/Project가 아니다). 다섯 글자 미만 이름은 낱말 끝에서도 끝나야 한다(`tabis` 의 복수 s는 된다)
-- 일본어·한국어 표기도 같은 방식(띄어쓰기·가운뎃점 무시)
+- 일본어·한국어 표기도 같은 방식. 단 다섯 글자 이하 가타카나 이름은 표기 자체의 띄어쓰기 자리(`ユマ ワン`)에서만 띄어 쓸 수 있고, 더 긴 가타카나 낱말의 끝이면 아니다(`シマウマ ワンポイント` 는 얼룩말, `ピエログイディ` 는 Piero Guidi). 뒤에 붙어 쓴 것(`グイディサイドゴアブーツ`)은 그 브랜드
 - `noisy: true` 브랜드(흔한 낱말)는 이름이 **낱말 하나로 따로** 있어야 한다. 다른 낱말 안에 든 것은 아니다(`bothersome` ≠ Both, `サカイヤ` ≠ sacai)
 - `titleMust` 는 두 번째 필수 낱말(Tabi: `tabi`·`足袋`·`タビ`, Dr. Martens x Rick Owens: `dr martens` 등)
 - 다른 브랜드의 더 긴 이름 안에 든 이름은 그 브랜드의 것(`Comme des Garcons PLAY` 는 Comme des Garcons가 아니다)
@@ -58,8 +58,13 @@ Dr. Martens x Rick Owens는 라틴 이름이 Rick Owens와 같아서 `rick owens
 - 제목이 우리 브랜드 이름을 **다른 것을 설명하는 데** 쓰면 매물 전체를 뺀다: `…風` · `系` · `っぽい` · `ライク` · `スタイル` · `タイプ` · `好きな方` · `のような` · `스타일` · `느낌` · `같은` · `style` · `like` · `type` · `inspired` · `esque` · `inspired by …` · `…ではありません` · `元…` · `not …` (`like new` · `type-2` · `Style RO1234` 는 해당 없음)
 - `マルジェラ期` 처럼 이름 바로 뒤 `期` 는 다른 하우스의 그 시기(에르메스 등) — 그 브랜드가 아니다. `本人期` 는 그 브랜드의 시기 표기
 - **큰 브랜드(`big: true`, 20개)는 모든 곳에서 제목에 연도나 시즌이 적힌 것(A)만**. 작은 브랜드는 브랜드 확인과 제외를 통과한 것 전부(A·B·C)
-- 제목이 우리 브랜드 여럿을 대면 그 모두의 매물이다(대장 항목 하나에 `b: [slug, …]`)
-- Grailed(디자이너 필터)와 후루츠패밀리 브랜드 페이지는 사이트가 그 브랜드로 분류한 것이라 제목에 이름이 없어도 된다. 그 밖의 규칙(제외 · 큰 브랜드 연도 · titleMust)은 같다. Tabi는 Grailed에서 Maison Margiela로 분류되므로 제목에 tabi가 있어야 한다. Dr. Martens x Rick Owens는 두 디자이너가 모두 붙은 것(AND)이라 titleMust가 필요 없다
+- **처음 적힌 하우스가 만든 것이다.** 판매자는 검색에 걸리려고 다른 이름을 덧붙인다(`JULIUS … incarnation guidi rick owens yohji yamamoto`). 그래서 검색 페이지 매물은 제목에서 **가장 먼저 나오는 하우스**의 것이고, 그 뒤의 이름은 검색어다. 예외 둘:
+  - 협업 낱말로 이어진 이름(`x` · `×` · `+` · `for` · `with` · `by` · `コラボ`): `guidi × alyx` → Guidi와 1017 ALYX 9SM, `Rick Owens x Moncler` → 둘 다. 띄어쓰기만 있으면(`Rick Owens Moncler`) 처음 것만
+  - 그 하우스의 라인(`line`): `Rick Owens DRKSHDW` · `DRKSHDW by Rick Owens` → DRKSHDW만. Junya Watanabe · Comme des Garçons Play · Noir Kei Ninomiya는 Comme des Garçons의 라인
+- 제목이 **다른 하우스로 시작하면** 우리 것이 아니다(`DEVOA … GUIDI レザー` · `BACKLASH GUIDI` · `The Viridi-anne … GUIDIレザー` 처럼 Guidi 가죽으로 만든 다른 집 물건도). 다른 하우스 목록은 `brands.mjs` 의 `OTHER_TERMS` — Carol Christian Poell · Helmut Lang(이 사이트의 두 아카이브), CCP 인덱스가 배운 이웃들, 10/19 첫 읽기에서 나온 이름들(Piero Guidi · JULIUS · DEVOA · BACKLASH · incarnation · Paul Smith …). 우리 브랜드와 협업하는 큰 회사(Converse · Champion · adidas · Nike · Dr. Martens · Vans · Birkenstock)는 일부러 넣지 않았다(`Converse DRKSHDW` 는 DRKSHDW)
+- 설명 뒤에 하우스 이름이 **셋 이상 나열**되면(`dunhill … dior gucci guidi FENDI` · `yoshio kubo 足袋 … マルジェラ comoli guidi`) 판매자의 검색어 목록이라 누구의 것도 아니다(`brand-list`). 제목 맨 앞의 나열(`【美品】GUIDI / CCP / m.a+ …`)은 첫 이름의 것
+- `…風` · `好きな方` · `style` 이 이름 목록 뒤에 오면 목록 전체에 걸린다(`ブーツ guidi ccp 好きな方に` → 빼기)
+- Grailed(디자이너 필터)와 후루츠패밀리 브랜드 페이지는 사이트가 그 브랜드로 분류한 것이라 제목에 이름이 없어도 된다. 다만 CCP 인덱스처럼, 제목이 **분류된 브랜드보다 다른 하우스를 먼저** 대거나, 분류된 브랜드는 없이 **다른 하우스만** 대거나, 분류된 브랜드 이름 없이 **어느 하우스에 빗대면**(`Yohji Yamamoto style` · `Like Isaac Reina`) 그 분류를 믿지 않는다. 그 밖의 규칙(제외 · 큰 브랜드 연도 · titleMust)은 같다
 - 메종 마르지엘라 이름이 있으면 `Replica` · `レプリカ` 는 그 라인 이름이라 가품 제외를 하지 않는다
 
 ## Grailed (`grailed.mjs`)
@@ -128,15 +133,15 @@ node test.mjs && node collect.mjs --only=yahoo --brands=guidi,uma-wang,rick-owen
 
 ## 하루 요청 수 (예상, 호스트별, robots.txt 포함)
 
-검색어 210개 기준. 결과가 한 쪽보다 적은 검색은 1쪽에서 멈추므로 실제는 최대치보다 적다.
+검색어 204개 기준. 결과가 한 쪽보다 적은 검색은 1쪽에서 멈추므로 실제는 최대치보다 적다.
 
 | 호스트 | 최대 | 예상 | 시간(2.5초 간격) |
 |---|---|---|---|
-| `auctions.yahoo.co.jp` | 631 (진행 420 + 낙찰 210 + 1) | 450–630 | 20–26분 |
-| `fril.jp` | 421 | 300–420 | 13–18분 |
-| `paypayfleamarket.yahoo.co.jp` | 421 | 250–420 | 11–18분 |
-| `www.2ndstreet.jp` | 421 | 250–420 | 11–18분 |
-| `jp.mercari.com` | 211 페이지(브라우저가 그 안에서 부르는 요청은 따로) | 211 | 50–60분(검색마다 4초 간격 + 스크롤) |
+| `auctions.yahoo.co.jp` | 613 (진행 408 + 낙찰 204 + 1) | 450–610 | 19–26분 |
+| `fril.jp` | 409 | 300–409 | 13–17분 |
+| `paypayfleamarket.yahoo.co.jp` | 409 | 250–409 | 11–17분 |
+| `www.2ndstreet.jp` | 409 (지금은 robots.txt 1번) | 1 | — |
+| `jp.mercari.com` | 205 페이지(브라우저가 그 안에서 부르는 요청은 따로) | 205 | 약 35–60분(10/19 시험: 검색 6개 64초) |
 | `fruitsfamily.com` | 331 (브랜드 페이지 130 + 다시 보기 200 + 1) | 150–330 | 6–14분 |
 | `mnrwefss2q-dsn.algolia.net` (Grailed) | 1,501 (한도 1,500 + 1) | 1,500 (작은 브랜드 약 470 + 큰 브랜드 나머지) | 약 63분 |
 | `api.ebay.com` | 652 (토큰 1 + 130 × 5쪽 + 1) | 200–350 | 8–27분 |
@@ -154,10 +159,14 @@ node test.mjs && node collect.mjs --only=yahoo --brands=guidi,uma-wang,rick-owen
 - 후루츠패밀리 브랜드 페이지가 없으면(404) `missing` 에 적힌다. 주소는 `brands.json` 의 `name` 을 그대로 쓴다 — 후루츠패밀리 표기와 다르면 거기서 고친다
 - 한 브랜드가 엉뚱한 매물로 찬다면(흔한 낱말 이름) `brands.json` 의 별칭을 더 좁게 바꾼다. 특히 `White`(white) · `Both`(both) · `Off-White`(색 이름 off white)
 
-## 확인하지 못한 것 (2026-10-19, 클라우드에서는 판매처에 닿지 않는다)
+## PC 시험 (2026-10-19, guidi · uma-wang · rick-owens, 검색어마다 1쪽)
 
-- 수집기는 실제 판매처 페이지에 대 보지 않았다. 페이지 읽기는 CCP가 2026-09-28부터 매일 읽는 것과 같은 코드이고, 시험은 그 모양을 본뜬 견본이다. PC에서 소스마다 한 번 돌려 `read` 가 0이 아닌지 본다
-- 메루카리가 `ArchiveIndex` UA의 브라우저를 받아 주는지(CCP는 브라우저 기본 UA였다). 막히면 그날 메루카리는 관측 안 됨
+- 10개 소스 중 7개 정상: Grailed 101번(18,013건 읽음) · 야후옥션 13 · 메루카리(ArchiveIndex UA 브라우저를 받아 줌, 508건) · 라쿠마 7 · 야후 플리마 7 · 후루츠패밀리 4(브랜드 페이지 셋 열림). 2nd STREET 거절(위), eBay 키 없음
+- Grailed 결과에 `designers` 칸이 있다. 큰 브랜드(Rick Owens)는 A만 남는다(7,076장, 전부 시즌·연도)
+- 처음 빌드에서 고친 것: 검색어 나열 매물이 여러 브랜드로 들어감(→ 처음 하우스 규칙), Piero Guidi 가방 약 45건이 Guidi로(→ 다른 하우스), `シマウマ ワンポイント` 가 Uma Wang으로(→ 짧은 가타카나 규칙), Uma Wang의 일본어는 `ユマワン` 이 거의 전부(`ウマワン` 검색은 대부분 우마무스메 상품을 돌려줘서 검색에서 뺐다, 제목 읽기에는 남김)
+- 로그의 `yahoo_sold … kept` 는 우리 브랜드 낙찰 기록 수(전에는 0으로 찍혔다)
+
+## 확인하지 못한 것 (2026-10-19)
+
 - `api.ebay.com/robots.txt` 가 API 경로를 막는지. 막으면 eBay는 쓰지 않는다
-- 후루츠패밀리 브랜드 페이지 주소가 `brands.json` 의 이름으로 열리는지
-- Grailed 검색 결과의 `designers` 칸 모양(없으면 그 브랜드 검색의 필터로 판단한다)과 큰 브랜드 낱말 검색이 한도 안에서 몇 개 브랜드까지 끝나는지
+- 130개 브랜드 전체를 하루에 돌렸을 때의 시간과 Grailed 한도(1,500번) 안에서 몇 개 큰 브랜드가 끝나는지 — 첫 실제 실행의 `status.json` 으로 본다

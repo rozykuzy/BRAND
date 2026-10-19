@@ -439,8 +439,8 @@ await group('brands in titles: names, noisy words, look-alikes, several brands, 
   const C = [
     // English
     ['Rick Owens 2019SS Geobasket sneakers 42', ['rick-owens']], ['Rick Owens Geobasket sneakers 42', [], 'big-undated'],
-    ['RICK OWENS DRKSHDW Ramones low', ['drkshdw']], ['Rick Owens DRKSHDW FW19 Larry Ramones', ['rick-owens', 'drkshdw']],
-    ['rickowens drkshdw 2019ss', ['rick-owens', 'drkshdw']], ['Rick-Owens leather jacket FW08 Stag', ['rick-owens']],
+    ['RICK OWENS DRKSHDW Ramones low', ['drkshdw']], ['Rick Owens DRKSHDW FW19 Larry Ramones', ['drkshdw']],
+    ['rickowens drkshdw 2019ss', ['drkshdw']], ['Rick-Owens leather jacket FW08 Stag', ['rick-owens']],
     ['Guidi 988 back zip boots 42', ['guidi']], ['GUIDI x Rick Owens horse leather boots', ['guidi']],
     ['Boris Bidjan Saberi x Guidi boots', ['boris-bidjan-saberi', 'guidi']], ['Ann Demeulemeester lace up boots 39', ['ann-demeulemeester']],
     ['Comme des Garcons PLAY heart tee', ['comme-des-garcons-play']], ['Play Comme des Garcons cardigan', ['comme-des-garcons-play']],
@@ -472,14 +472,14 @@ await group('brands in titles: names, noisy words, look-alikes, several brands, 
     // Japanese
     ['リックオウエンス 19SS レザージャケット 48', ['rick-owens']], ['リック オウエンス ブーツ', [], 'big-undated'], ['リックオウエンス風 2019 ブーツ', [], 'style-of'],
     ['マルジェラ好きな方に 2005 ニット', [], 'style-of'], ['ヨウジヤマモト コムデギャルソン 好きな方に 2010 シャツ', [], 'style-of'],
-    ['エルメス マルジェラ期 2003 ニット', [], 'period-of'], ['マルタンマルジェラ 本人期 ジャケット', [], 'big-undated'],
+    ['エルメス マルジェラ期 2003 ニット', [], 'other-brand'], ['マルジェラ期 2003 ニット', [], 'period-of'], ['マルタンマルジェラ 本人期 ジャケット', [], 'big-undated'],
     ['メゾンマルジェラ 2019AW 足袋ブーツ', ['maison-margiela']], ['タビ ブーツ マルジェラ', [], 'big-undated'],
-    ['グイディ バックジップ ブーツ 42', ['guidi']], ['ボリスビジャンサベリ グイディ ブーツ', ['boris-bidjan-saberi', 'guidi']],
+    ['グイディ バックジップ ブーツ 42', ['guidi']], ['ボリスビジャンサベリ グイディ ブーツ', ['boris-bidjan-saberi']], ['ボリスビジャンサベリ × グイディ ブーツ', ['boris-bidjan-saberi', 'guidi']],
     ['プレイコムデギャルソン Tシャツ', ['comme-des-garcons-play']], ['ユニクロ ジルサンダー +J 2021AW', [], 'excluded-designer'],
     ['リックオウエンスではありません 2019', [], 'not-brand'], ['元マルジェラ デザイナー 2010 コート', [], 'not-brand'],
     ['サカイ 2019AW ブルゾン', ['sacai']], ['サカイヤ 2019 ブルゾン', [], 'no-brand'], ['アンダーカバー 2003SS ジャケット', ['undercover']],
     ['エンジン アンダーカバー 2015年式', [], 'not-garment'], ['ディーゼル 2016 デニム', ['diesel']], ['セリーヌ 香水 2019', [], 'not-garment'],
-    ['コムデギャルソン 雑誌掲載 2004AW ジャケット', ['comme-des-garcons']], ['ジュンヤワタナベ コムデギャルソン 2006AW パッチワーク', ['junya-watanabe', 'comme-des-garcons']],
+    ['コムデギャルソン 雑誌掲載 2004AW ジャケット', ['comme-des-garcons']], ['ジュンヤワタナベ コムデギャルソン 2006AW パッチワーク', ['junya-watanabe']], ['COMME des GARCONS JUNYA WATANABE MAN 2006AW パッチワーク', ['junya-watanabe']],
     ['ﾘｯｸｵｳｴﾝｽ 2019SS ﾌﾞｰﾂ', ['rick-owens']],
     // Korean
     ['릭오웬스 19SS 가죽 자켓', ['rick-owens']], ['릭 오웬스 스타일 자켓 2019', [], 'style-of'], ['꼼데가르송 2005AW 셔츠', ['comme-des-garcons']],
@@ -503,9 +503,97 @@ await group('brands in titles: names, noisy words, look-alikes, several brands, 
   A.deepEqual(brandsOf('Rick Owens jacket 1990s', ['rick-owens']).b, []);
   A.deepEqual(brandsOf('jacket', ['guidi']).b, ['guidi']);
   // a filed listing keeps its brand when another of ours is named "…風"; on a search page the whole title goes
-  A.deepEqual(brandsOf('Boris Bidjan Saberi rick owens style boots', ['boris-bidjan-saberi']).b, ['boris-bidjan-saberi']);
-  A.deepEqual(brandsOf('Boris Bidjan Saberi rick owens style boots').b, []);
+  A.deepEqual(brandsOf('Boris Bidjan Saberi boots rick owens style', ['boris-bidjan-saberi']).b, ['boris-bidjan-saberi']);
+  A.deepEqual(brandsOf('Boris Bidjan Saberi boots rick owens style').b, []);
+  // …and "style" after a list of names is said of all of them
+  A.deepEqual(brandsOf('Boris Bidjan Saberi rick owens style boots', ['boris-bidjan-saberi']).b, []);
   A.deepEqual(brandsOf('Rick Owens style boots 2019', ['rick-owens']).b, []);
+});
+
+// ── who made it: the first house named, keywords, collaborations, lines (titles of 2026-10-19) ──
+await group('brands in titles: the house named first made it; the rest are keywords unless joined', () => {
+  const C = [
+    // a name after the maker's is a word added for search
+    ['18ss 定価46200円 JULIUS ユリウス チェック シャツ size2 incarnation guidi rick owens yohji yamamoto', [], 'other-brand'],
+    ['JULIUS シャークソールレザーシューズ ブーツ 2 ユリウス 黒 Rick Owens リックオウエンス DRKSHDW Yohji Yamamoto GUIDI Viridi-anne', [], 'other-brand'],
+    ['新品未使用 定価15万 JUUN.J Washed Denim Wide Pants professor E ziggy chen バレンシアガ guidi ワイドフレア', ['juun-j']],
+    ['UMA WANG 18AW ユマワン ドッキングバルーンパンツ 美品 アルチザン BORIS ボリス Paul Harnden ポールハーデン', ['uma-wang']],
+    ['UMA WANG 18AW ユマワン ドッキングバルーンパンツ ヨウジヤマモト', ['uma-wang']],
+    ['ZIGGY CHEN 22AW ジャケット 50 uma wang paul harnden archivio j.m ribot', [], 'other-brand'],
+    ['m.a＋ エムエークロス バッグ guidi a1923 carol christian poell', ['m-a-plus']],
+    ['m.a+ snale bag エムエークロス スネイルバッグ Boris Bidjan Saberi', ['m-a-plus']],
+    ['GUIDI Hiking Boots ハイキングブーツ 42 1/2 C-Diem CCP m.a+ グイディ', ['guidi']],
+    ['guidi PL1V 新品未使用 ブーツ レザー ユリウス エムエークロス', ['guidi']],
+    ['Paul Harnden ポールハーデン ショルダーハンドバッグ/bag鞄 カルペディエム guidi エレナドーソン Geoffrey B.Smallmaクロスtoogood', ['paul-harnden']],
+    ['¥198000 yohji yamamoto アシンメトリーパッチワークブーツ dior homme/rick owens/damir doma/maison margiela/guidi/drkshdw/santoni', [], 'big-undated'],
+    ['90’s Jean Paul Gaultier Homme ゴルチエ Student-Style Collared Wool Sweater JPG アーカイブ rick owens archive Ann demeulemeester', [], 'other-brand'],
+    // another house's piece in Guidi leather is that house's
+    ['【名作】DEVOA デヴォア GUIDI グイディ レザー サイドジップ アンクル ブーツ 43', [], 'other-brand'],
+    ['[Incarnation] GUIDI exclusive BANDNECK OILCALF オイルカーフ グイディレザージャケット ライダース S イタリア製', [], 'other-brand'],
+    ['The Viridi-anne / ザ・ヴィリジアン Derby Shoes ダービーシューズ GUIDIレザー メンズ サイズ : 1 ブラック', [], 'other-brand'],
+    ['ISAMUKATAYAMA GUIDI オイルカーフ ウォレット ブラック', [], 'other-brand'],
+    ['BONUM Cyrillus リメイク 再構築 ショートミリタリーシャツ エムエークロス リックオウエンス', [], 'other-brand'],
+    ['新品 カンペール トルメンタ ブラック 黒 42 Camper Tormenta 27 スニーカー/ミハラヤスヒロ/リックオウエンス/バレンシアガ/アミリ', [], 'other-brand'],
+    // three houses or more after the description: a seller's keywords, nobody's
+    ['ARTEFACT backlash guidi incarnation', [], 'brand-list'],
+    ['Attachment レザーブレスレット guidi julius yohji', [], 'brand-list'],
+    ['yoshio kubo 足袋 ブーツ 靴 マルジェラ comoli guidi', [], 'brand-list'],
+    ['dunhill ダンヒル メガネフレーム べっ甲柄 レッド系 ヴィンテージ dior gucci guidi FENDI', [], 'brand-list'],
+    ['スニーカー/ミハラヤスヒロ/リックオウエンス/バレンシアガ', [], 'brand-list'],
+    ['【美品】GUIDI グイディ / CCP / m.a+ バックジップ ブーツ 42', ['guidi']],
+    ['ierib backlash guidi incarnation strum ma+', [], 'other-brand'],
+    // Piero Guidi is another house, in every script; a zebra is not Uma Wang
+    ['PIERO GUIDI ハンドバッグ サーカス柄', [], 'other-brand'], ['ピエログイディ 長財布 マジックサーカス ラウンドファスナー型', [], 'other-brand'],
+    ['♥♥14362 PIEROGUIDI ピエログイディ マジックサーカス ポーチ 未使用♥♥', [], 'other-brand'], ['美品【ピエログイディ】2wayミニボストンバッグ', [], 'other-brand'],
+    ['ピエロ・グイディ トートバッグ', [], 'other-brand'],
+    ['ピーエスポールスミス PS Paul Smith ポロシャツ シマウマ ワンポイント 鹿の子 半袖 XL 黒 メンズ', [], 'other-brand'],
+    ['シマウマワンピース 6月まで', [], 'no-brand'], ['ユーエスポロアッスン ロゴ 刺繍 半袖 グレー Tシャツ ウマ ワンポイント L', [], 'no-brand'],
+    ['UMA WANG / ユマワン | TAB TOP シャツ_長袖 UM1502', ['uma-wang']], ['ユマ・ワン UMA WANG 21SS イージーパンツ', ['uma-wang']],
+    ['ユマワン ロングコート', ['uma-wang']], ['ウマワン カシミヤ ワンピース', ['uma-wang']],
+    ['グイディサイドゴアブーツ ブラック Vibramソール', ['guidi']], ['GUIDI(グイディ) 988 バックジップ', ['guidi']],
+    // joined: a collaboration word, the same house written twice, a line with its house
+    ['guidi × alyx フロントジップ ブーツ 42 グイディ レザー コラボ', ['guidi', '1017-alyx-9sm']],
+    ['Rick Owens x Dr. Martens コラボレーション ブーツ 28cm 26年製 STEEL TOE QUAD', ['dr-martens-x-rick-owens', 'rick-owens']],
+    ['リックオウエンスRick Owens×Dr.Martensドクターマーチン1461BEX3ホール厚底黒', ['dr-martens-x-rick-owens']],
+    ['DRKSHDW by Rick Owens ダークシャドウバイリックオウエンス 2007SS コットントラッカージャケット', ['drkshdw']],
+    ['正規品 25fw RICK OWENS drkshdw リックオウエンス ダークシャドウ スニーカー sneaks サイズ41', ['drkshdw']],
+    ['未使用品 ダークシャドウ DRKSHDW RICK OWENS 25AW JUMBO TABARD BLACK', ['drkshdw']],
+    ['Rick Owens Moncler 2020AW down jacket', ['rick-owens']], ['Rick Owens x Moncler 2020AW down jacket', ['rick-owens', 'moncler']],
+    ['Converse x DRKSHDW TURBOWPN high', ['drkshdw']], ['DRKSHDW CONVERSE TURBOWPN', ['drkshdw']],
+    // a look-alike word covers the list it follows
+    ['ブーツ guidi ccp 好きな方に', [], 'style-of'], ['GUIDI 988 バックジップ ccp好きな方に', ['guidi']],
+  ];
+  A.ok(C.length >= 50, 'cases ' + C.length);
+  for (const [t, want, why] of C) {
+    const r = brandsOf(t);
+    A.deepEqual([...r.b].sort(), [...want].sort(), 'brands of ' + t);
+    if (why) A.equal(r.why, why, 'why ' + t);
+  }
+  // a filed listing: another house named first, or only another house, or a comparison, takes it away
+  const F = [
+    ['Rick Owens x Moncler SS26 Cyclopic Down Puffer Jacket', ['rick-owens', 'moncler'], ['rick-owens', 'moncler']],
+    ['FW20 Thigh High Stocking Socks dust OneSize', ['moncler'], ['moncler']],
+    ['1017 Alyx 9SM Guidi Zipper Boots Pink Suede', ['1017-alyx-9sm', 'guidi'], ['1017-alyx-9sm', 'guidi']],
+    ['1017 Alyx 9SM Guidi Zipper Boots Pink Suede', ['guidi'], []],
+    ['Guidi x StyleZeitgeist ER01V Bison Leather Combat Boots', ['guidi'], ['guidi']],
+    ['Leather Mens Boots AS 98 Style Rick Owens Meltal Zip Italy', ['guidi'], []],
+    ['Avant garde moto Yohji Yamamoto style leather boots hype', ['guidi'], []],
+    ['992.Like Boris Bidjan Saberi or Paul Harnden', ['guidi'], []],
+    ['Maxim Sharov waist bag. Like Isaac Reina bags', ['guidi'], []],
+    ['Versace Brown Leather Vintage Boots Luxury Streetwear Style', ['guidi'], []],
+    ['Punk Avantgarde A.S. 98 Airsteps Style Ankle Boots Y2K Guidi', ['guidi'], []],
+    ['Gothic opium platform boots new Rock style avant garde', ['guidi'], []],
+    ['Moto studded suede boots guidi suede boots punk style', ['guidi'], ['guidi']],
+    ['Leather Suede Boots 42', ['guidi'], ['guidi']],
+    ['Rick Owens Drkshdw 23SS Vans Inspired Suede', ['rick-owens'], ['drkshdw']],
+    ['Rick Owens 24FW Flame Vans‑Style Low', ['rick-owens'], ['rick-owens']],
+    ['Uma Wang 23 Floral Shorts L Cupro Viscose Silk-like', ['uma-wang'], ['uma-wang']],
+    ['Mask terry top.Like Paul Harnden or Archivio J.M. Ribot', ['uma-wang'], []],
+    ['Piero Guidi Magic Circus tote', ['guidi'], []],
+    ['ZIGGY CHEN jacket 50', ['uma-wang'], []],
+  ];
+  for (const [t, des, want] of F) A.deepEqual([...brandsOf(t, des).b].sort(), [...want].sort(), 'filed ' + des + ': ' + t);
+  A.deepEqual(grailedDesignated(['Piero Guidi'], []), []); A.deepEqual(grailedDesignated(['Guidi', 'Piero Guidi'], ['guidi']), []);
 });
 
 // ── reading years, seasons, sizes ──────────────────────────────────────────
@@ -737,7 +825,7 @@ await group('build: outputs — index.json, b/<slug>.json, new.json, index.html,
   A.deepEqual([gd.c, gd.nw, gd.big, gd.so, gd.srcs, gd.upd, gd.q], [4, 1, false, 0, { '야후옥션': 4 }, '2026-10-02', { en: 'guidi', ja: 'グイディ', ko: '구이디' }]);
   A.deepEqual(gd.ph, ['https://auc-pctr.c.yimg.jp/i/n1.jpg', 'https://auc-pctr.c.yimg.jp/i/y2.jpg']);    // the dated one first
   A.deepEqual([ro.c, ro.nw, ro.big, ro.srcs], [2, 1, true, { Grailed: 2 }]);                              // the undated Geobasket is not a big brand's
-  A.deepEqual([um.c, um.nw, um.ph, um.upd, um.q], [0, 0, [], null, { en: 'uma wang', ja: 'ウマワン', ko: null }]);
+  A.deepEqual([um.c, um.nw, um.ph, um.upd, um.q], [0, 0, [], null, { en: 'uma wang', ja: 'ユマワン', ko: null }]);
   A.deepEqual(ix.counts, { brands: 2, cards: 6, fresh: 2, entries: 6, sold: 0 });
   A.ok(ix.sources.some((s) => s.name === '야후옥션' && s.seen === '2026-10-02'));
   // b/<slug>.json: the CCP page's shape, plus the brand
