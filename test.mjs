@@ -560,6 +560,16 @@ await group('brands in titles: the house named first made it; the rest are keywo
     ['未使用品 ダークシャドウ DRKSHDW RICK OWENS 25AW JUMBO TABARD BLACK', ['drkshdw']],
     ['Rick Owens Moncler 2020AW down jacket', ['rick-owens']], ['Rick Owens x Moncler 2020AW down jacket', ['rick-owens', 'moncler']],
     ['Converse x DRKSHDW TURBOWPN high', ['drkshdw']], ['DRKSHDW CONVERSE TURBOWPN', ['drkshdw']],
+    // Guidi is also a tannery: GUIDIレザー with another house named is that house's piece
+    ['FG415 GUIDIコードヴァンレザーシューズ / F.LLI. Giacometti(フラテッリジャコメッティ) D-00595', [], 'material-of'],
+    ['最終値下げ GUIDI グイディ ホースレザー 限定 バックパック リュック 馬革 キャロルクリスチャンポエル CAROL CHRISTIAN POELL', ['guidi']],
+    ['GUIDIレザー トートバッグ', ['guidi']], ['BACKLASH GUIDIレザーコインケース', [], 'other-brand'],
+    ['【CTHY】GUIDI LEATHER ANONYMOUS WALLET', [], 'other-brand'], ['3S5411/wjk center seam backzip boots 8321 GUIDI VITTERO FIORE', [], 'other-brand'],
+    ['美品 10sei0otto ディエチセイゼロオット オーバーロック レースアップブーツ 42 DIECISEIZEROOTTO GUIDI メンズ', [], 'other-brand'],
+    // two houses that end a title after its description are keywords too
+    ['entire studios パンツ guidi devoa', [], 'other-brand'], ['レザー パンツ guidi devoa', [], 'brand-list'], ['レザー パンツ guidi 42', ['guidi']],
+    ['2WAY レザーボストンバッグ トートバッグ / GUIDI(グイディ) D-01086', ['guidi']], ['GUIDI × nonnative × UNDERCOVER ビッグダディブーツ 42', ['guidi']],
+    ['新品CONVERSE×RICK OWENS ダークシャドウ (DRKSHDW)', ['drkshdw']],
     // a look-alike word covers the list it follows
     ['ブーツ guidi ccp 好きな方に', [], 'style-of'], ['GUIDI 988 バックジップ ccp好きな方に', ['guidi']],
   ];

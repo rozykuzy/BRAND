@@ -828,7 +828,20 @@
    "excludeDesigners": [
     "Piero Guidi"
    ],
-   "note": "Piero Guidi (bags) is another house: left out by name, in every script"
+   "note": "Piero Guidi (bags) is another house: left out by name, in every script. Guidi is also a tannery: GUIDIレザー with another house named is that house's piece",
+   "material": [
+    "レザー",
+    "カーフ",
+    "コードバン",
+    "コードヴァン",
+    "革",
+    "ヌメ",
+    "社",
+    "ベビーカーフ",
+    "ホースレザー",
+    "バイソンレザー",
+    "ホースバット"
+   ]
   },
   {
    "slug": "haider-ackermann",

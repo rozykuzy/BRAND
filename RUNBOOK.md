@@ -62,7 +62,8 @@ Dr. Martens x Rick Owens는 라틴 이름이 Rick Owens와 같아서 `rick owens
   - 협업 낱말로 이어진 이름(`x` · `×` · `+` · `for` · `with` · `by` · `コラボ`): `guidi × alyx` → Guidi와 1017 ALYX 9SM, `Rick Owens x Moncler` → 둘 다. 띄어쓰기만 있으면(`Rick Owens Moncler`) 처음 것만
   - 그 하우스의 라인(`line`): `Rick Owens DRKSHDW` · `DRKSHDW by Rick Owens` → DRKSHDW만. Junya Watanabe · Comme des Garçons Play · Noir Kei Ninomiya는 Comme des Garçons의 라인
 - 제목이 **다른 하우스로 시작하면** 우리 것이 아니다(`DEVOA … GUIDI レザー` · `BACKLASH GUIDI` · `The Viridi-anne … GUIDIレザー` 처럼 Guidi 가죽으로 만든 다른 집 물건도). 다른 하우스 목록은 `brands.mjs` 의 `OTHER_TERMS` — Carol Christian Poell · Helmut Lang(이 사이트의 두 아카이브), CCP 인덱스가 배운 이웃들, 10/19 첫 읽기에서 나온 이름들(Piero Guidi · JULIUS · DEVOA · BACKLASH · incarnation · Paul Smith …). 우리 브랜드와 협업하는 큰 회사(Converse · Champion · adidas · Nike · Dr. Martens · Vans · Birkenstock)는 일부러 넣지 않았다(`Converse DRKSHDW` 는 DRKSHDW)
-- 설명 뒤에 하우스 이름이 **셋 이상 나열**되면(`dunhill … dior gucci guidi FENDI` · `yoshio kubo 足袋 … マルジェラ comoli guidi`) 판매자의 검색어 목록이라 누구의 것도 아니다(`brand-list`). 제목 맨 앞의 나열(`【美品】GUIDI / CCP / m.a+ …`)은 첫 이름의 것
+- 설명 뒤에 하우스 이름이 **셋 이상 나열**되거나, **둘 이상이 제목 끝을 이루면**(`dunhill … dior gucci guidi FENDI` · `yoshio kubo 足袋 … マルジェラ comoli guidi` · `レザー パンツ guidi devoa`) 판매자의 검색어 목록이라 누구의 것도 아니다(`brand-list`). 제목 맨 앞의 나열(`【美品】GUIDI / CCP / m.a+ …`)은 첫 이름의 것
+- **Guidi는 무두질 공장이기도 하다.** `GUIDIレザー` · `グイディカーフ` · `GUIDIコードヴァン` · `GUIDI社` 처럼 이름에 가죽 낱말을 붙여 쓰고 제목에 다른 하우스가 있으면 그 하우스의 물건(`material-of`). 띄어 쓴 `GUIDI グイディ ホースレザー` 는 Guidi 자신의 표기라 그대로 Guidi
 - `…風` · `好きな方` · `style` 이 이름 목록 뒤에 오면 목록 전체에 걸린다(`ブーツ guidi ccp 好きな方に` → 빼기)
 - Grailed(디자이너 필터)와 후루츠패밀리 브랜드 페이지는 사이트가 그 브랜드로 분류한 것이라 제목에 이름이 없어도 된다. 다만 CCP 인덱스처럼, 제목이 **분류된 브랜드보다 다른 하우스를 먼저** 대거나, 분류된 브랜드는 없이 **다른 하우스만** 대거나, 분류된 브랜드 이름 없이 **어느 하우스에 빗대면**(`Yohji Yamamoto style` · `Like Isaac Reina`) 그 분류를 믿지 않는다. 그 밖의 규칙(제외 · 큰 브랜드 연도 · titleMust)은 같다
 - 메종 마르지엘라 이름이 있으면 `Replica` · `レプリカ` 는 그 라인 이름이라 가품 제외를 하지 않는다

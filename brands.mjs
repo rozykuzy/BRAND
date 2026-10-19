@@ -146,7 +146,8 @@ const OTHER_TERMS = [
   '(?<![a-z])detaj(?![a-z])', 'gianveer', '(?<![a-z])bonum(?![a-z])', 'elena\\s*dawson', 'エレナ\\s*ドーソン', 'camper', 'カンペール',
   'amiri', 'アミリ', '(?<![a-z])dior(?![a-z])', 'ディオール', 'santoni', 'trippen', 'トリッペン', 'versace', 'ヴェルサーチ',
   'fly\\s*london', 'h(?:e|ei)di\\s*slimane', '(?<![a-z0-9])a\\.?\\s?s\\.?\\s?98(?![0-9])', 'airstep', 'isaac\\s*reina', 'gareth\\s*pugh',
-  '14th\\s*addiction', 'new\\s*rock(?![a-z])', 'kmrii', 'if\\s*six\\s*was\\s*nine', 'ifsixwasnine', 'paul\\s*smith', 'ポール\\s*スミス', 'hermes', 'エルメス',
+  '(?<![a-z])wjk(?![a-z])', '10sei0otto', 'dieci\\s*sei\\s*zero\\s*otto', 'ディエチセイゼロオット', '(?<![a-z])cthy(?![a-z])', 'entire\\s*studios',
+  'wolf\\s*&\\s*dog', '14th\\s*addiction', 'new\\s*rock(?![a-z])', 'kmrii', 'if\\s*six\\s*was\\s*nine', 'ifsixwasnine', 'paul\\s*smith', 'ポール\\s*スミス', 'hermes', 'エルメス',
   // the large houses that are not among ours
   'prada', 'プラダ', 'gucci', 'グッチ', 'louis\\s*vuitton', 'ルイ\\s*ヴィトン', 'chanel', 'シャネル', 'bottega\\s*veneta', 'loewe', 'ロエベ',
   'acne\\s*studios', 'number\\s*\\(?n\\)?ine', 'ナンバーナイン', 'kapital', 'キャピタル', 'visvim', 'ビズビム', '(?<![a-z])zara(?![a-z])',
@@ -156,6 +157,10 @@ const OTHER = new RegExp(OTHER_TERMS.join('|'), 'gu');
 // a line of another of our houses (DRKSHDW is Rick Owens's): named with its house, the piece is the line's
 const LINE = new Map(ACTIVE.filter((b) => b.line).map((b) => [b.slug, b.line]));
 const related = (a, b) => a === b || LINE.get(a) === b || LINE.get(b) === a;
+// a house that is also a tannery: the words that, written onto its name, make it a material
+// (GUIDIレザー · グイディカーフ · GUIDI社 — not "GUIDI グイディ ホースレザー", Guidi's own wording for its pieces)
+const MATERIAL = new Map(ACTIVE.filter((b) => b.material).map((b) => [b.slug,
+  new RegExp('^(?:' + b.material.map((w) => esc(fold(w))).join('|') + ')', 'u')]));
 
 // ── a name used for something other than this brand ──────────────────────
 // after the name: …風 · 系 · っぽい · ライク · スタイル · タイプ · 好きな方 · のような · 스타일 · 느낌 · 같은 ·
@@ -281,8 +286,13 @@ export function brandsOf(title, designated = []) {
     if (!plain.length) return { ...out, why: period.size ? 'period-of' : 'no-brand' };
     // the run of names the first one stands in: three houses or more after a description are keywords
     let k = 0; while (k + 1 < plain.length && LIST_GAP.test(gapOf(t, plain[k], plain[k + 1]))) k++;
-    const houses = new Set(plain.slice(0, k + 1).map((sp) => sp.slug ? (LINE.get(sp.slug) || sp.slug) : 'o:' + sp.o));
-    if (houses.size >= 3 && !leadIsNoise(t.slice(0, plain[0].s))) return { ...out, why: 'brand-list' };
+    // one house a place (Rick Owens and Dr. Martens x Rick Owens share a name), a line with its house
+    const houses = new Set(plain.slice(0, k + 1).filter((sp, i, a) => !i || sp.s !== a[i - 1].s).map((sp) => sp.slug ? (LINE.get(sp.slug) || sp.slug) : 'o:' + sp.o));
+    // …and two or more that end the title after a description (entire studios パンツ guidi devoa)
+    // (a partner joined to the first name, CONVERSE×RICK OWENS, is not a description)
+    const described = !leadIsNoise(t.slice(0, plain[0].s)) && !/(?:[x×✕╳+＋]|コラボ)\s*$/u.test(t.slice(0, plain[0].s));
+    const endsTitle = leadIsNoise(t.slice(Math.max(...plain.slice(0, k + 1).map((sp) => sp.e))));
+    if (described && (houses.size >= 3 || (houses.size >= 2 && endsTitle))) return { ...out, why: 'brand-list' };
     const maker = [...joined(0)].map((i) => plain[i]);
     cand = [...new Set(maker.filter((sp) => sp.slug).map((sp) => sp.slug))];
     if (!cand.length) return { ...out, why: 'other-brand' };
@@ -305,6 +315,16 @@ export function brandsOf(title, designated = []) {
   for (const [line, house] of LINE) {
     if (cand.includes(house) && (cand.includes(line) || named.has(line))) cand = cand.filter((s) => s !== house).concat(cand.includes(line) ? [] : [line]);
   }
+  // a house that is also a tannery (Guidi): its name written as a material (GUIDIコードヴァン), with
+  // another house named in the title that is not its partner, is that house's piece in its leather
+  cand = cand.filter((slug) => {
+    const re = MATERIAL.get(slug); if (!re) return true;
+    const mine = plain.map((sp, i) => (sp.slug === slug ? i : -1)).filter((i) => i >= 0);
+    if (!mine.some((i) => re.test(t.slice(plain[i].e, plain[i].e + 16)))) return true;
+    const near = new Set(mine.flatMap((i) => [...joined(i)]));
+    if (plain.some((sp, i) => !near.has(i) && !(sp.slug && (related(sp.slug, slug) || cand.includes(sp.slug))))) { out.drop[slug] = 'material-of'; return false; }
+    return true;
+  });
   let tierA = null;
   for (const slug of [...new Set(cand)]) {
     const m = M.get(slug), b = m.b, filed = des.includes(slug);
@@ -324,7 +344,7 @@ export function brandsOf(title, designated = []) {
   return out;
 }
 // when no brand is left, the reason said is the one that tells most
-const WHY = ['not-brand', 'style-of', 'other-brand', 'excluded-designer', 'big-undated', 'period-of', 'title-must'];
+const WHY = ['not-brand', 'style-of', 'other-brand', 'material-of', 'excluded-designer', 'big-undated', 'period-of', 'title-must'];
 
 // ── what is searched ──────────────────────────────────────────────────────
 // A brand's searches: its plain Latin name (latin[0]) and each Japanese alias.
