@@ -1,0 +1,97 @@
+# Archive Index — Brands (rozykuzy/BRAND). Collect, build and publish once a day.
+#
+# 21:41 UTC is 06:41 KST. The build counts days in KST (lib.mjs today()).
+# Thirty-odd minutes of searches per host, the hosts side by side; Mercari draws
+# each of its ~210 search pages in a browser, so the whole run takes one to two
+# hours. GitHub may start a scheduled run late; the timeout leaves room for both.
+#
+# Once, by the repository owner:
+#   Settings → Pages → Source: "GitHub Actions"
+#   (optional) Settings → Secrets and variables → Actions: EBAY_CLIENT_ID, EBAY_CLIENT_SECRET
+#     — without them the eBay step is skipped and nothing fails
+
+name: daily
+on:
+  schedule:
+    - cron: '41 21 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write     # keep the ledger and the day's data in the repository
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      # first, so a repository whose Pages is not yet set to "GitHub Actions"
+      # stops here — before anything is collected or committed
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Tests (robots, page reading, brands in titles, title reading, the build)
+        run: node test.mjs
+
+      # without it Mercari is skipped for the day; everything else goes on
+      - name: Browser for the Mercari search page
+        continue-on-error: true
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1
+          npx playwright install --with-deps chromium
+
+      - name: Collect
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+        run: node collect.mjs
+
+      - name: Build the brands' data
+        run: node build.mjs
+
+      - name: Keep the ledger and the day's data
+        run: |
+          git config user.name  'archive-index'
+          git config user.email 'archive-index@users.noreply.github.com'
+          # named one by one, so the day's raw pages stay out even without .gitignore
+          git add -- data/*.json data/ledger/*.json data/sold/*.json data/mail_lines.txt data/raw/_summary.json data/raw/_diag.json
+          git commit -m "$(node -e "const e=require('./data/edition.json');console.log('BRAND Issue '+String(e.issue).padStart(3,'0')+' · '+e.date)")" || echo "nothing new"
+          for i in 1 2 3; do
+            if git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME"; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 10))
+          done
+          echo "::error::the ledger could not be pushed — it is kept as this run's artifact 'data'"
+          exit 1
+
+      # if the push failed, the day's ledger is not lost with the runner
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: data
+          path: data
+          retention-days: 14
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

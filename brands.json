@@ -1,0 +1,2251 @@
+{
+ "source": "leclaireur.com/en-int createur pages, read 2026-10-19; Grailed counts 2026-10-19",
+ "brands": [
+  {
+   "slug": "07a",
+   "name": "07A",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "07a"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "1017-alyx-9sm",
+   "name": "1017 ALYX 9SM",
+   "grailed": [
+    "1017 ALYX 9SM",
+    "Alyx"
+   ],
+   "grailedCount": 2410,
+   "big": false,
+   "ja": [
+    "アリクス"
+   ],
+   "ko": [
+    "알릭스"
+   ],
+   "latin": [
+    "1017 alyx 9sm",
+    "alyx"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "69-by-isaac-sellam",
+   "name": "69 by Isaac Sellam",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "69 by isaac sellam"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "a-cold-wall",
+   "name": "A-COLD-WALL*",
+   "grailed": [
+    "A-COLD-WALL*"
+   ],
+   "grailedCount": 1206,
+   "big": false,
+   "ja": [
+    "アコールドウォール"
+   ],
+   "ko": [],
+   "latin": [
+    "a-cold-wall",
+    "a cold wall"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "aalto",
+   "name": "Aalto",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [],
+   "noisy": true,
+   "pages": false,
+   "note": "common word: only a site that files the listing under this brand counts (no title matching, no searches)"
+  },
+  {
+   "slug": "aganovich",
+   "name": "Aganovich",
+   "grailed": [
+    "Aganovich"
+   ],
+   "grailedCount": 22,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "aganovich"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "agnona",
+   "name": "Agnona",
+   "grailed": [
+    "Agnona"
+   ],
+   "grailedCount": 132,
+   "big": false,
+   "ja": [
+    "アニオナ"
+   ],
+   "ko": [],
+   "latin": [
+    "agnona"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "akillis",
+   "name": "Akillis",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "akillis"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "alexander-mcqueen",
+   "name": "Alexander McQueen",
+   "grailed": [
+    "Alexander McQueen"
+   ],
+   "grailedCount": 31862,
+   "big": true,
+   "ja": [
+    "アレキサンダーマックイーン",
+    "アレキサンダー マックイーン"
+   ],
+   "ko": [
+    "알렉산더맥퀸",
+    "알렉산더 맥퀸"
+   ],
+   "latin": [
+    "alexander mcqueen"
+   ],
+   "noisy": false,
+   "excludeDesigners": [
+    "McQ Alexander McQueen",
+    "MCQ"
+   ]
+  },
+  {
+   "slug": "ambush",
+   "name": "AMBUSH",
+   "grailed": [
+    "Ambush Design"
+   ],
+   "grailedCount": 1539,
+   "big": false,
+   "ja": [
+    "アンブッシュ"
+   ],
+   "ko": [],
+   "latin": [
+    "ambush"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "ann-demeulemeester",
+   "name": "Ann Demeulemeester",
+   "grailed": [
+    "Ann Demeulemeester"
+   ],
+   "grailedCount": 6637,
+   "big": false,
+   "ja": [
+    "アンドゥムルメステール",
+    "アン ドゥムルメステール"
+   ],
+   "ko": [
+    "앤드뮐미스터",
+    "앤 드뮐미스터"
+   ],
+   "latin": [
+    "ann demeulemeester"
+   ],
+   "noisy": false,
+   "also": [
+    "demeulemeester",
+    "ドゥムルメステール"
+   ]
+  },
+  {
+   "slug": "avant-toi",
+   "name": "Avant Toi",
+   "grailed": [
+    "Avant Toi"
+   ],
+   "grailedCount": 102,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "avant toi"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "balenciaga",
+   "name": "Balenciaga",
+   "grailed": [
+    "Balenciaga"
+   ],
+   "grailedCount": 262951,
+   "big": true,
+   "ja": [
+    "バレンシアガ"
+   ],
+   "ko": [
+    "발렌시아가"
+   ],
+   "latin": [
+    "balenciaga"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "balmain",
+   "name": "Balmain",
+   "grailed": [
+    "Balmain",
+    "Pierre Balmain"
+   ],
+   "grailedCount": 23409,
+   "big": true,
+   "ja": [
+    "バルマン"
+   ],
+   "ko": [],
+   "latin": [
+    "balmain"
+   ],
+   "noisy": false,
+   "excludeDesigners": [
+    "H&M"
+   ]
+  },
+  {
+   "slug": "bode",
+   "name": "Bode",
+   "grailed": [
+    "Bode"
+   ],
+   "grailedCount": 1027,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "bode"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "boris-bidjan-saberi",
+   "name": "Boris Bidjan Saberi",
+   "grailed": [
+    "Boris Bidjan Saberi",
+    "11 By Boris Bidjan Saberi"
+   ],
+   "grailedCount": 3920,
+   "big": false,
+   "ja": [
+    "ボリスビジャンサベリ",
+    "ボリス ビジャン サベリ"
+   ],
+   "ko": [
+    "보리스비잔사베리"
+   ],
+   "latin": [
+    "boris bidjan saberi"
+   ],
+   "noisy": false,
+   "also": [
+    "boris bidjan",
+    "11 by bbs",
+    "ボリス ビジャン"
+   ]
+  },
+  {
+   "slug": "both",
+   "name": "Both",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "both paris"
+   ],
+   "noisy": true,
+   "note": "the label is written BOTH Paris; the word both alone is not the brand"
+  },
+  {
+   "slug": "by-walid",
+   "name": "By Walid",
+   "grailed": [
+    "By Walid"
+   ],
+   "grailedCount": 193,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "by walid"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "ca4la",
+   "name": "CA4LA",
+   "grailed": [
+    "CA4LA"
+   ],
+   "grailedCount": 737,
+   "big": false,
+   "ja": [
+    "カシラ"
+   ],
+   "ko": [],
+   "latin": [
+    "ca4la"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "carol-christian-poell",
+   "name": "Carol Christian Poell",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "carol christian poell"
+   ],
+   "noisy": false,
+   "existing": "ccp"
+  },
+  {
+   "slug": "carven",
+   "name": "Carven",
+   "grailed": [
+    "Carven"
+   ],
+   "grailedCount": 401,
+   "big": false,
+   "ja": [
+    "カルヴェン"
+   ],
+   "ko": [],
+   "latin": [
+    "carven"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "casablanca",
+   "name": "Casablanca",
+   "grailed": [
+    "Casablanca"
+   ],
+   "grailedCount": 6847,
+   "big": false,
+   "ja": [
+    "カサブランカ"
+   ],
+   "ko": [],
+   "latin": [
+    "casablanca"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "celine",
+   "name": "Céline",
+   "grailed": [
+    "Celine"
+   ],
+   "grailedCount": 76157,
+   "big": true,
+   "ja": [
+    "セリーヌ"
+   ],
+   "ko": [
+    "셀린느",
+    "셀린"
+   ],
+   "latin": [
+    "celine"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "cherevichkiotvichki",
+   "name": "Cherevichkiotvichki",
+   "grailed": [
+    "Cherevichkiotvichki"
+   ],
+   "grailedCount": 59,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "cherevichkiotvichki"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "chloe",
+   "name": "Chloé",
+   "grailed": [
+    "Chloe"
+   ],
+   "grailedCount": 11620,
+   "big": true,
+   "ja": [
+    "クロエ"
+   ],
+   "ko": [
+    "끌로에"
+   ],
+   "latin": [
+    "chloe"
+   ],
+   "noisy": false,
+   "excludeDesigners": [
+    "See by Chloe"
+   ]
+  },
+  {
+   "slug": "comme-des-garcons",
+   "name": "Comme des Garçons",
+   "grailed": [
+    "Comme des Garcons",
+    "Comme des Garcons Homme Plus",
+    "Comme des Garcons Homme",
+    "Tricot Comme des Garcons",
+    "Comme des Garcons SHIRT",
+    "Comme des Garcons Homme Deux",
+    "Comme des Garcons Black",
+    "Comme des Garcons Girl",
+    "CDG by Comme des Garcons",
+    "Rei Kawakubo"
+   ],
+   "grailedCount": 58892,
+   "big": true,
+   "ja": [
+    "コムデギャルソン",
+    "コム デ ギャルソン"
+   ],
+   "ko": [
+    "꼼데가르송",
+    "꼼데 가르송"
+   ],
+   "latin": [
+    "comme des garcons"
+   ],
+   "noisy": false,
+   "excludeDesigners": [
+    "Comme des Garcons PLAY",
+    "Noir Kei Ninomiya"
+   ]
+  },
+  {
+   "slug": "comme-des-garcons-noir-kei-ninomiya",
+   "name": "Comme des Garçons Noir Kei Ninomiya",
+   "grailed": [
+    "Noir Kei Ninomiya"
+   ],
+   "grailedCount": 68,
+   "big": false,
+   "ja": [
+    "ノワールケイニノミヤ",
+    "ノワール ケイ ニノミヤ"
+   ],
+   "ko": [],
+   "latin": [
+    "noir kei ninomiya"
+   ],
+   "noisy": false,
+   "line": "comme-des-garcons"
+  },
+  {
+   "slug": "comme-des-garcons-play",
+   "name": "Comme des Garçons Play",
+   "grailed": [
+    "Comme des Garcons PLAY"
+   ],
+   "grailedCount": 1571,
+   "big": false,
+   "ja": [
+    "プレイコムデギャルソン",
+    "プレイ コムデギャルソン"
+   ],
+   "ko": [],
+   "latin": [
+    "comme des garcons play",
+    "play comme des garcons",
+    "cdg play"
+   ],
+   "noisy": false,
+   "line": "comme-des-garcons"
+  },
+  {
+   "slug": "coperni",
+   "name": "Coperni",
+   "grailed": [
+    "Coperni"
+   ],
+   "grailedCount": 500,
+   "big": false,
+   "ja": [
+    "コペルニ"
+   ],
+   "ko": [],
+   "latin": [
+    "coperni"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "cornelian-taurus",
+   "name": "Cornelian Taurus",
+   "grailed": [
+    "Cornelian Taurus By Daisuke Iwanaga"
+   ],
+   "grailedCount": 11,
+   "big": false,
+   "ja": [
+    "コーネリアンタウラス"
+   ],
+   "ko": [],
+   "latin": [
+    "cornelian taurus"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "courreges",
+   "name": "Courrèges",
+   "grailed": [
+    "Courreges",
+    "Andre Courreges"
+   ],
+   "grailedCount": 2623,
+   "big": false,
+   "ja": [
+    "クレージュ"
+   ],
+   "ko": [],
+   "latin": [
+    "courreges"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "diamondogs",
+   "name": "Diamondogs",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "diamondogs"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "diesel",
+   "name": "Diesel",
+   "grailed": [
+    "Diesel",
+    "Diesel Black Gold"
+   ],
+   "grailedCount": 48981,
+   "big": true,
+   "ja": [
+    "ディーゼル"
+   ],
+   "ko": [
+    "디젤"
+   ],
+   "latin": [
+    "diesel"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "drkshdw",
+   "name": "DRKSHDW",
+   "grailed": [
+    "Rick Owens Drkshdw"
+   ],
+   "grailedCount": 8150,
+   "big": false,
+   "ja": [
+    "ダークシャドウ"
+   ],
+   "ko": [
+    "다크쉐도우",
+    "다크섀도우"
+   ],
+   "latin": [
+    "drkshdw",
+    "dark shadow"
+   ],
+   "noisy": false,
+   "line": "rick-owens"
+  },
+  {
+   "slug": "dr-martens-x-rick-owens",
+   "name": "Dr. Martens x Rick Owens",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "rick owens"
+   ],
+   "noisy": false,
+   "titleMust": [
+    "dr. martens",
+    "dr martens",
+    "doc martens",
+    "ドクターマーチン",
+    "닥터마틴"
+   ],
+   "grailedAll": [
+    "Rick Owens",
+    "Dr. Martens"
+   ]
+  },
+  {
+   "slug": "dries-van-noten",
+   "name": "Dries Van Noten",
+   "grailed": [
+    "Dries Van Noten"
+   ],
+   "grailedCount": 15189,
+   "big": true,
+   "ja": [
+    "ドリスヴァンノッテン",
+    "ドリス ヴァン ノッテン"
+   ],
+   "ko": [
+    "드리스반노튼",
+    "드리스 반 노튼"
+   ],
+   "latin": [
+    "dries van noten"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "elina-linardaki",
+   "name": "Elina Linardaki",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "elina linardaki"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "faith-connexion",
+   "name": "Faith Connexion",
+   "grailed": [
+    "Faith Connexion"
+   ],
+   "grailedCount": 645,
+   "big": false,
+   "ja": [
+    "フェイスコネクション"
+   ],
+   "ko": [],
+   "latin": [
+    "faith connexion"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "faliero-sarti",
+   "name": "Faliero Sarti",
+   "grailed": [
+    "Faliero Sarti"
+   ],
+   "grailedCount": 22,
+   "big": false,
+   "ja": [
+    "ファリエロサルティ"
+   ],
+   "ko": [],
+   "latin": [
+    "faliero sarti"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "fatherson-firenze",
+   "name": "Fatherson Firenze",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "fatherson firenze"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "fedeli",
+   "name": "Fedeli",
+   "grailed": [
+    "Fedeli"
+   ],
+   "grailedCount": 307,
+   "big": false,
+   "ja": [
+    "フェデリ"
+   ],
+   "ko": [],
+   "latin": [
+    "fedeli"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "fendi",
+   "name": "Fendi",
+   "grailed": [
+    "Fendi"
+   ],
+   "grailedCount": 77450,
+   "big": true,
+   "ja": [
+    "フェンディ"
+   ],
+   "ko": [
+    "펜디"
+   ],
+   "latin": [
+    "fendi"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "fornasetti",
+   "name": "Fornasetti",
+   "grailed": [
+    "FORNASETTI"
+   ],
+   "grailedCount": 12,
+   "big": false,
+   "ja": [
+    "フォルナセッティ"
+   ],
+   "ko": [],
+   "latin": [
+    "fornasetti"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "frenckenberger",
+   "name": "Frenckenberger",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "frenckenberger"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "gabriela-hearst",
+   "name": "Gabriela Hearst",
+   "grailed": [
+    "Gabriela Hearst"
+   ],
+   "grailedCount": 122,
+   "big": false,
+   "ja": [
+    "ガブリエラハースト"
+   ],
+   "ko": [],
+   "latin": [
+    "gabriela hearst"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "guidi",
+   "name": "Guidi",
+   "grailed": [
+    "Guidi"
+   ],
+   "grailedCount": 2325,
+   "big": false,
+   "ja": [
+    "グイディ"
+   ],
+   "ko": [
+    "구이디"
+   ],
+   "latin": [
+    "guidi"
+   ],
+   "noisy": false,
+   "excludeDesigners": [
+    "Piero Guidi"
+   ],
+   "note": "Piero Guidi (bags) is another house: left out by name, in every script. Guidi is also a tannery: GUIDIレザー with another house named is that house's piece",
+   "material": [
+    "レザー",
+    "カーフ",
+    "コードバン",
+    "コードヴァン",
+    "革",
+    "ヌメ",
+    "社",
+    "ベビーカーフ",
+    "ホースレザー",
+    "バイソンレザー",
+    "ホースバット"
+   ]
+  },
+  {
+   "slug": "haider-ackermann",
+   "name": "Haider Ackermann",
+   "grailed": [
+    "Haider Ackermann"
+   ],
+   "grailedCount": 2468,
+   "big": false,
+   "ja": [
+    "ハイダーアッカーマン",
+    "ハイダー アッカーマン"
+   ],
+   "ko": [
+    "하이더아커만"
+   ],
+   "latin": [
+    "haider ackermann"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "hakusan",
+   "name": "Hakusan",
+   "grailed": [
+    "Hakusan Megane"
+   ],
+   "grailedCount": 25,
+   "big": false,
+   "ja": [
+    "白山眼鏡"
+   ],
+   "ko": [],
+   "latin": [
+    "hakusan megane",
+    "hakusan"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "herno",
+   "name": "Herno",
+   "grailed": [
+    "Herno"
+   ],
+   "grailedCount": 960,
+   "big": false,
+   "ja": [
+    "ヘルノ"
+   ],
+   "ko": [],
+   "latin": [
+    "herno"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "horisaki",
+   "name": "Horisaki",
+   "grailed": [
+    "Horisaki"
+   ],
+   "grailedCount": 13,
+   "big": false,
+   "ja": [
+    "ホリサキ"
+   ],
+   "ko": [],
+   "latin": [
+    "horisaki"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "isaac-sellam",
+   "name": "Isaac Sellam",
+   "grailed": [
+    "Isaac Sellam Experience"
+   ],
+   "grailedCount": 513,
+   "big": false,
+   "ja": [
+    "アイザックセラム"
+   ],
+   "ko": [],
+   "latin": [
+    "isaac sellam"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "issey-miyake",
+   "name": "Issey Miyake",
+   "grailed": [
+    "Issey Miyake",
+    "Pleats Please Issey Miyake",
+    "Homme Plisse Issey Miyake"
+   ],
+   "grailedCount": 54861,
+   "big": true,
+   "ja": [
+    "イッセイミヤケ",
+    "イッセイ ミヤケ"
+   ],
+   "ko": [
+    "이세이미야케",
+    "이세이 미야케"
+   ],
+   "latin": [
+    "issey miyake",
+    "pleats please",
+    "homme plisse"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "j-w-anderson",
+   "name": "J.W Anderson",
+   "grailed": [
+    "JW Anderson"
+   ],
+   "grailedCount": 3856,
+   "big": false,
+   "ja": [
+    "JWアンダーソン",
+    "ジェイダブリューアンダーソン"
+   ],
+   "ko": [],
+   "latin": [
+    "jw anderson",
+    "j.w. anderson",
+    "j.w anderson"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "jil-sander",
+   "name": "Jil Sander",
+   "grailed": [
+    "Jil Sander"
+   ],
+   "grailedCount": 18319,
+   "big": true,
+   "ja": [
+    "ジルサンダー",
+    "ジル サンダー"
+   ],
+   "ko": [
+    "질샌더",
+    "질 샌더"
+   ],
+   "latin": [
+    "jil sander"
+   ],
+   "noisy": false,
+   "excludeDesigners": [
+    "Uniqlo"
+   ]
+  },
+  {
+   "slug": "johanna-parv",
+   "name": "Johanna Parv",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "johanna parv"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "junya-watanabe",
+   "name": "Junya Watanabe",
+   "grailed": [
+    "Junya Watanabe"
+   ],
+   "grailedCount": 13525,
+   "big": true,
+   "ja": [
+    "ジュンヤワタナベ",
+    "ジュンヤ ワタナベ"
+   ],
+   "ko": [
+    "준야와타나베",
+    "준야 와타나베"
+   ],
+   "latin": [
+    "junya watanabe"
+   ],
+   "noisy": false,
+   "line": "comme-des-garcons"
+  },
+  {
+   "slug": "juun-j",
+   "name": "Juun.J",
+   "grailed": [
+    "Juun.J"
+   ],
+   "grailedCount": 579,
+   "big": false,
+   "ja": [
+    "ジュンジー"
+   ],
+   "ko": [],
+   "latin": [
+    "juun.j"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "kassl-editions",
+   "name": "KASSL Editions",
+   "grailed": [
+    "Kassl Editions"
+   ],
+   "grailedCount": 16,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "kassl editions"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "koche",
+   "name": "Koché",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "koche"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "layer-0",
+   "name": "Layer-0",
+   "grailed": [
+    "Layer-0"
+   ],
+   "grailedCount": 108,
+   "big": false,
+   "ja": [
+    "レイヤーゼロ"
+   ],
+   "ko": [],
+   "latin": [
+    "layer-0"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "litkovska",
+   "name": "Litkovska",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "litkovska"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "ludovic-de-saint-sernin",
+   "name": "Ludovic de Saint Sernin",
+   "grailed": [
+    "Ludovic De Saint Sernin"
+   ],
+   "grailedCount": 44,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "ludovic de saint sernin"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "m-a-plus",
+   "name": "M.A+",
+   "grailed": [
+    "Ma+"
+   ],
+   "grailedCount": 599,
+   "big": false,
+   "ja": [
+    "エムエークロス"
+   ],
+   "ko": [],
+   "latin": [
+    "m.a+",
+    "ma+",
+    "m.a+ "
+   ],
+   "noisy": false,
+   "also": [
+    "maクロス"
+   ]
+  },
+  {
+   "slug": "made-on-grand",
+   "name": "Made on Grand",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "made on grand"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "maison-margiela",
+   "name": "Maison Margiela",
+   "grailed": [
+    "Maison Margiela"
+   ],
+   "grailedCount": 44061,
+   "big": true,
+   "ja": [
+    "マルジェラ",
+    "メゾンマルジェラ",
+    "マルタンマルジェラ"
+   ],
+   "ko": [
+    "마르지엘라",
+    "메종마르지엘라"
+   ],
+   "latin": [
+    "maison margiela",
+    "martin margiela",
+    "margiela"
+   ],
+   "noisy": false,
+   "excludeDesigners": [
+    "MM6",
+    "H&M"
+   ]
+  },
+  {
+   "slug": "maison-mihara-yasuhiro",
+   "name": "Maison Mihara Yasuhiro",
+   "grailed": [
+    "Maison MIHARA YASUHIRO"
+   ],
+   "grailedCount": 3748,
+   "big": false,
+   "ja": [
+    "ミハラヤスヒロ",
+    "メゾンミハラヤスヒロ"
+   ],
+   "ko": [
+    "미하라야스히로"
+   ],
+   "latin": [
+    "maison mihara yasuhiro",
+    "mihara yasuhiro",
+    "miharayasuhiro"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "maison-rabih-kayrouz",
+   "name": "Maison Rabih Kayrouz",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "maison rabih kayrouz"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "maison-ullens",
+   "name": "Maison Ullens",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "maison ullens"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "marc-le-bihan",
+   "name": "Marc Le Bihan",
+   "grailed": [
+    "Marc Le Bihan"
+   ],
+   "grailedCount": 71,
+   "big": false,
+   "ja": [
+    "マークルビアン"
+   ],
+   "ko": [],
+   "latin": [
+    "marc le bihan"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "marine-serre",
+   "name": "Marine Serre",
+   "grailed": [
+    "Marine Serre"
+   ],
+   "grailedCount": 655,
+   "big": false,
+   "ja": [
+    "マリーンセル"
+   ],
+   "ko": [],
+   "latin": [
+    "marine serre"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "marsell",
+   "name": "Marsèll",
+   "grailed": [
+    "Marsell"
+   ],
+   "grailedCount": 821,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "marsell"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "masnada",
+   "name": "Masnada",
+   "grailed": [
+    "Masnada"
+   ],
+   "grailedCount": 164,
+   "big": false,
+   "ja": [
+    "マスナダ"
+   ],
+   "ko": [],
+   "latin": [
+    "masnada"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "moncler",
+   "name": "Moncler",
+   "grailed": [
+    "Moncler",
+    "Moncler Grenoble",
+    "Moncler Genius",
+    "Moncler Gamme Bleu"
+   ],
+   "grailedCount": 58260,
+   "big": true,
+   "ja": [
+    "モンクレール"
+   ],
+   "ko": [
+    "몽클레르",
+    "몽클레어"
+   ],
+   "latin": [
+    "moncler"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "monse",
+   "name": "Monse",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "monse"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "munoz-vrandecic",
+   "name": "Muñoz Vrandecic",
+   "grailed": [
+    "munoz vrandecic"
+   ],
+   "grailedCount": 12,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "munoz vrandecic"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "msais",
+   "name": "MØSAIS",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "msais"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "nanushka",
+   "name": "Nanushka",
+   "grailed": [
+    "Nanushka"
+   ],
+   "grailedCount": 552,
+   "big": false,
+   "ja": [
+    "ナヌーシュカ"
+   ],
+   "ko": [],
+   "latin": [
+    "nanushka"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "natasha-zinko",
+   "name": "Natasha Zinko",
+   "grailed": [
+    "Natasha Zinko"
+   ],
+   "grailedCount": 87,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "natasha zinko"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "nina-ricci",
+   "name": "Nina Ricci",
+   "grailed": [
+    "Nina Ricci"
+   ],
+   "grailedCount": 750,
+   "big": false,
+   "ja": [
+    "ニナリッチ"
+   ],
+   "ko": [],
+   "latin": [
+    "nina ricci"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "off-white",
+   "name": "Off-White",
+   "grailed": [
+    "Off-White"
+   ],
+   "grailedCount": 34317,
+   "big": true,
+   "ja": [],
+   "ko": [
+    "오프화이트"
+   ],
+   "latin": [
+    "off-white"
+   ],
+   "noisy": false,
+   "note": "Grailed by designer; on search pages the name must be written OFF-WHITE as a brand, the colour is not the brand"
+  },
+  {
+   "slug": "orolog",
+   "name": "Orolog",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "orolog"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "oscar-de-la-renta",
+   "name": "Oscar de la Renta",
+   "grailed": [
+    "Oscar De La Renta"
+   ],
+   "grailedCount": 1818,
+   "big": false,
+   "ja": [
+    "オスカーデラレンタ"
+   ],
+   "ko": [],
+   "latin": [
+    "oscar de la renta"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "paco-rabanne",
+   "name": "Paco Rabanne",
+   "grailed": [
+    "Paco Rabanne"
+   ],
+   "grailedCount": 545,
+   "big": false,
+   "ja": [
+    "パコラバンヌ"
+   ],
+   "ko": [],
+   "latin": [
+    "paco rabanne"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "palmer-uk",
+   "name": "Palmer Uk",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "palmer uk"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "parts-of-four",
+   "name": "Parts of Four",
+   "grailed": [
+    "Parts Of Four"
+   ],
+   "grailedCount": 64,
+   "big": false,
+   "ja": [
+    "パーツオブフォー"
+   ],
+   "ko": [],
+   "latin": [
+    "parts of four"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "paul-harnden",
+   "name": "Paul Harnden",
+   "grailed": [
+    "Paul Harnden Shoemakers"
+   ],
+   "grailedCount": 513,
+   "big": false,
+   "ja": [
+    "ポールハーデン"
+   ],
+   "ko": [
+    "폴하든"
+   ],
+   "latin": [
+    "paul harnden"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "peter-do",
+   "name": "Peter Do",
+   "grailed": [
+    "Peter Do"
+   ],
+   "grailedCount": 211,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "peter do"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "peter-pilotto",
+   "name": "Peter Pilotto",
+   "grailed": [
+    "Peter Pilotto"
+   ],
+   "grailedCount": 50,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "peter pilotto"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "petrosolaum",
+   "name": "Petrosolaum",
+   "grailed": [
+    "PETROSOLAUM"
+   ],
+   "grailedCount": 6,
+   "big": false,
+   "ja": [
+    "ペトロソラウム"
+   ],
+   "ko": [],
+   "latin": [
+    "petrosolaum"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "phaedo",
+   "name": "Phaedo",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "phaedo"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "pierre-louis-mascia",
+   "name": "Pierre-Louis Mascia",
+   "grailed": [
+    "Pierre-Louis Mascia"
+   ],
+   "grailedCount": 73,
+   "big": false,
+   "ja": [
+    "ピエールルイマシア"
+   ],
+   "ko": [],
+   "latin": [
+    "pierre-louis mascia"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "poiret",
+   "name": "Poiret",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "poiret"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "preciously",
+   "name": "Preciously",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "preciously"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "projekt-produkt",
+   "name": "Projekt Produkt",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "projekt produkt"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "quetsche",
+   "name": "Quetsche",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "quetsche"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "r13",
+   "name": "R13",
+   "grailed": [
+    "R13"
+   ],
+   "grailedCount": 1758,
+   "big": false,
+   "ja": [
+    "アールサーティーン"
+   ],
+   "ko": [],
+   "latin": [
+    "r13"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "rave-review",
+   "name": "Rave Review",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "rave review"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "richard-quinn",
+   "name": "Richard Quinn",
+   "grailed": [
+    "Richard Quinn"
+   ],
+   "grailedCount": 5,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "richard quinn"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "rick-owens",
+   "name": "Rick Owens",
+   "grailed": [
+    "Rick Owens"
+   ],
+   "grailedCount": 59616,
+   "big": true,
+   "ja": [
+    "リックオウエンス",
+    "リック オウエンス"
+   ],
+   "ko": [
+    "릭오웬스",
+    "릭 오웬스"
+   ],
+   "latin": [
+    "rick owens"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "rokh",
+   "name": "Rokh",
+   "grailed": [
+    "rokh"
+   ],
+   "grailedCount": 80,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "rokh"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "rosantica",
+   "name": "Rosantica",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "rosantica"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "sacai",
+   "name": "Sacai",
+   "grailed": [
+    "Sacai"
+   ],
+   "grailedCount": 4689,
+   "big": false,
+   "ja": [
+    "サカイ"
+   ],
+   "ko": [
+    "사카이"
+   ],
+   "latin": [
+    "sacai"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "saint-laurent",
+   "name": "Saint Laurent",
+   "grailed": [
+    "Saint Laurent Paris",
+    "Yves Saint Laurent"
+   ],
+   "grailedCount": 107685,
+   "big": true,
+   "ja": [
+    "サンローラン",
+    "イヴサンローラン"
+   ],
+   "ko": [
+    "생로랑"
+   ],
+   "latin": [
+    "saint laurent",
+    "yves saint laurent",
+    "ysl"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "sara-lanzi",
+   "name": "Sara Lanzi",
+   "grailed": [
+    "Sara Lanzi"
+   ],
+   "grailedCount": 9,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "sara lanzi"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "scunzani-ivo",
+   "name": "Scunzani Ivo",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "scunzani ivo"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "sener-besim",
+   "name": "Sener Besim",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "sener besim"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "shiro-sakai",
+   "name": "Shiro Sakai",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "shiro sakai"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "sies-marjan",
+   "name": "Sies Marjan",
+   "grailed": [
+    "Sies Marjan"
+   ],
+   "grailedCount": 69,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "sies marjan"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "simone-rocha",
+   "name": "Simone Rocha",
+   "grailed": [
+    "Simone Rocha"
+   ],
+   "grailedCount": 421,
+   "big": false,
+   "ja": [
+    "シモーネロシャ"
+   ],
+   "ko": [
+    "시몬로샤"
+   ],
+   "latin": [
+    "simone rocha"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "sofie-d-hoore",
+   "name": "Sofie d'Hoore",
+   "grailed": [
+    "SOFIE D'HOORE"
+   ],
+   "grailedCount": 62,
+   "big": false,
+   "ja": [
+    "ソフィードール"
+   ],
+   "ko": [],
+   "latin": [
+    "sofie d'hoore"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "song-for-the-mute",
+   "name": "Song for the Mute",
+   "grailed": [
+    "Song For The Mute"
+   ],
+   "grailedCount": 1791,
+   "big": false,
+   "ja": [
+    "ソングフォーザミュート"
+   ],
+   "ko": [
+    "송포더뮤트"
+   ],
+   "latin": [
+    "song for the mute"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "stella-mccartney",
+   "name": "Stella McCartney",
+   "grailed": [
+    "Stella McCartney"
+   ],
+   "grailedCount": 4711,
+   "big": false,
+   "ja": [
+    "ステラマッカートニー"
+   ],
+   "ko": [
+    "스텔라매카트니"
+   ],
+   "latin": [
+    "stella mccartney"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "suzusan",
+   "name": "Suzusan",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [
+    "スズサン"
+   ],
+   "ko": [],
+   "latin": [
+    "suzusan"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "tabi-footwear",
+   "name": "Tabi Footwear",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "tabi footwear"
+   ],
+   "noisy": false,
+   "note": "only the exact name; not mapped to any other house (unverified what the label is)"
+  },
+  {
+   "slug": "tacet",
+   "name": "Tacet",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [],
+   "noisy": true,
+   "pages": false,
+   "note": "common word: only a site that files the listing under this brand counts (no title matching, no searches)"
+  },
+  {
+   "slug": "texas-robot",
+   "name": "Texas Robot",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "texas robot"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "thom-browne",
+   "name": "Thom Browne",
+   "grailed": [
+    "Thom Browne"
+   ],
+   "grailedCount": 41634,
+   "big": true,
+   "ja": [
+    "トムブラウン",
+    "トム ブラウン"
+   ],
+   "ko": [
+    "톰브라운",
+    "톰 브라운"
+   ],
+   "latin": [
+    "thom browne"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "tobias-wistisen",
+   "name": "Tobias Wistisen",
+   "grailed": [
+    "Tobias Wistisen"
+   ],
+   "grailedCount": 7,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "tobias wistisen"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "toogood",
+   "name": "Toogood",
+   "grailed": [
+    "Toogood"
+   ],
+   "grailedCount": 101,
+   "big": false,
+   "ja": [
+    "トゥーグッド"
+   ],
+   "ko": [],
+   "latin": [
+    "toogood"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "tuinch",
+   "name": "Tuinch",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "tuinch"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "uma-wang",
+   "name": "Uma Wang",
+   "grailed": [
+    "Uma Wang"
+   ],
+   "grailedCount": 817,
+   "big": false,
+   "ja": [
+    "ユマワン"
+   ],
+   "ko": [],
+   "latin": [
+    "uma wang"
+   ],
+   "noisy": false,
+   "also": [
+    "ユマ ワン",
+    "ウマワン"
+   ]
+  },
+  {
+   "slug": "undercover",
+   "name": "Undercover",
+   "grailed": [
+    "Undercover"
+   ],
+   "grailedCount": 28455,
+   "big": true,
+   "ja": [
+    "アンダーカバー"
+   ],
+   "ko": [
+    "언더커버"
+   ],
+   "latin": [
+    "undercover"
+   ],
+   "noisy": false,
+   "excludeDesigners": [
+    "Uniqlo",
+    "GU"
+   ]
+  },
+  {
+   "slug": "vbh",
+   "name": "VBH",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "vbh"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "warm-me",
+   "name": "Warm Me",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [],
+   "noisy": true,
+   "pages": false,
+   "note": "common word: only a site that files the listing under this brand counts (no title matching, no searches)"
+  },
+  {
+   "slug": "weinsanto",
+   "name": "Weinsanto",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "weinsanto"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "werkstatt-munchen",
+   "name": "Werkstatt:Munchen",
+   "grailed": [
+    "Werkstatt Munchen"
+   ],
+   "grailedCount": 218,
+   "big": false,
+   "ja": [
+    "ヴェルクシュタットミュンヘン"
+   ],
+   "ko": [],
+   "latin": [
+    "werkstatt munchen",
+    "werkstatt münchen",
+    "werkstatt:münchen"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "white",
+   "name": "White",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [],
+   "noisy": true,
+   "pages": false,
+   "note": "common word: only a site that files the listing under this brand counts (no title matching, no searches)"
+  },
+  {
+   "slug": "y-project",
+   "name": "Y/Project",
+   "grailed": [
+    "Y/Project"
+   ],
+   "grailedCount": 2077,
+   "big": false,
+   "ja": [
+    "ワイプロジェクト"
+   ],
+   "ko": [
+    "와이프로젝트"
+   ],
+   "latin": [
+    "y/project"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "yesey",
+   "name": "Yesey",
+   "grailed": [],
+   "grailedCount": 0,
+   "big": false,
+   "ja": [],
+   "ko": [],
+   "latin": [
+    "yesey"
+   ],
+   "noisy": true
+  },
+  {
+   "slug": "yohji-yamamoto",
+   "name": "Yohji Yamamoto",
+   "grailed": [
+    "Yohji Yamamoto",
+    "Y's",
+    "Y's for Men"
+   ],
+   "grailedCount": 59242,
+   "big": true,
+   "ja": [
+    "ヨウジヤマモト",
+    "ヨウジ ヤマモト"
+   ],
+   "ko": [
+    "요지야마모토",
+    "요지 야마모토"
+   ],
+   "latin": [
+    "yohji yamamoto",
+    "y's for men"
+   ],
+   "noisy": false
+  },
+  {
+   "slug": "zimmermann",
+   "name": "Zimmermann",
+   "grailed": [
+    "Zimmermann"
+   ],
+   "grailedCount": 5715,
+   "big": false,
+   "ja": [
+    "ジマーマン"
+   ],
+   "ko": [],
+   "latin": [
+    "zimmermann"
+   ],
+   "noisy": false
+  }
+ ]
+}

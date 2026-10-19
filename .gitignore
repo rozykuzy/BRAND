@@ -1,0 +1,7 @@
+node_modules/
+site/
+.debug/
+# the day's raw readings stay on the runner; their summary and page shapes are kept
+data/raw/*
+!data/raw/_summary.json
+!data/raw/_diag.json
