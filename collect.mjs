@@ -27,6 +27,7 @@ import { collectMercari } from './mercari.mjs';
 import { collectBrandPages, readProduct, dueForRecheck } from './fruitsfamily.mjs';
 import { writeRaw, Refused, diagOf, today, requestCounts } from './lib.mjs';
 import { ACTIVE, BY_SLUG, queryPlan, brandsOf, designatedOf } from './brands.mjs';
+import { readLedger } from './store.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 export const FILES = ['grailed', 'yahoo', 'yahoo_sold', 'mercari', 'rakuma', 'yfm', 'second', 'fruits', 'fruits_check', 'ebay'];
@@ -134,7 +135,7 @@ export async function run(opts, { data = process.env.BRAND_DATA || join(ROOT, 'd
   async function fruitsCheck() {
     const t0 = Date.now(), r0 = reqs('fruitsfamily.com');
     try {
-      const ledger = readJson(join(data, 'ledger.json'), { items: {}, state: {} });
+      const ledger = readLedger(data) || { items: {}, state: {} };
       const fr = summary.sources.fruits && summary.sources.fruits.ok ? readJson(join(OUT, 'fruits.json'), { items: [] }) : { items: [] };
       const seenToday = new Set((fr.items || []).map((x) => x.id));
       let due = dueForRecheck(ledger, seenToday, today(), { checked: (ledger.state || {}).ffChecked || {} });

@@ -64,7 +64,7 @@ jobs:
           git config user.name  'archive-index'
           git config user.email 'archive-index@users.noreply.github.com'
           # named one by one, so the day's raw pages stay out even without .gitignore
-          git add -- data/*.json data/mail_lines.txt data/raw/_summary.json data/raw/_diag.json
+          git add -- data/*.json data/ledger/*.json data/sold/*.json data/mail_lines.txt data/raw/_summary.json data/raw/_diag.json
           git commit -m "$(node -e "const e=require('./data/edition.json');console.log('BRAND Issue '+String(e.issue).padStart(3,'0')+' · '+e.date)")" || echo "nothing new"
           for i in 1 2 3; do
             if git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME"; then exit 0; fi

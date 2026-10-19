@@ -2,10 +2,11 @@
 //
 //   node build.mjs              reads data/raw/, writes data/ and site/
 //
-// data/ledger.json is the record of every listing this index has ever shown:
+// data/ledger/ is the record of every listing this index has ever shown:
 // which of our brands it is (b), when it was first and last seen, and every price
 // the seller asked (h). It is only ever added to. A listing that leaves the market
-// is marked, not deleted. data/sold.json keeps the sale records.
+// is marked, not deleted. data/sold/ keeps the sale records. (How they lie on disk,
+// in pieces: store.mjs.)
 //
 // Rules this file keeps (Carol Christian Poell's, for many brands):
 //   · a source that failed today was not observed: none of its listings is
@@ -24,14 +25,15 @@
 //   site/b/<slug>.json   one brand's room, in the Carol Christian Poell page's data shape
 //   site/new.json        today's new cards across brands (at most 400)
 //   site/index.html      a page that links to the brands on the Archive Index site
-//   data/ledger.json · data/sold.json · data/status.json · data/rates.json · data/edition.json
+//   data/ledger/ · data/sold/ · data/status.json · data/rates.json · data/edition.json
 //   data/mail_meta.json · data/mail_lines.txt (the brands with the most new cards, one line each)
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync, realpathSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, realpathSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classify } from './classify.mjs';
 import { BRANDS, ACTIVE, brandsOf, designatedOf } from './brands.mjs';
+import { readLedger, writeLedger, readSold, writeSold } from './store.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const DATA = process.env.BRAND_DATA || join(ROOT, 'data');
@@ -42,13 +44,6 @@ export const BRANDS_URL = 'https://rozykuzy.github.io/?view=brands';
 const kst = (t = Date.now()) => new Date(t + 9 * 3600e3).toISOString().slice(0, 10);
 const TODAY = process.env.BRAND_TODAY || kst();
 const readJson = (f, d) => { try { return JSON.parse(readFileSync(f, 'utf8')); } catch { return d; } };
-// the ledger and the sale records: absent is a first run; present but unreadable
-// is a stop — rewriting it from nothing would lose every first-seen date
-function readRecord(f, empty) {
-  if (!existsSync(f)) return empty;
-  const txt = readFileSync(f, 'utf8');
-  try { return JSON.parse(txt); } catch (e) { throw new Error(f + ' is unreadable (' + e.message + ') — not overwriting it'); }
-}
 const dayDiff = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
 
 // how each collector's file is read
@@ -106,7 +101,7 @@ function observe(L, it, file, day, rates, stats, asg) {
     L.items[it.id] = {
       id: it.id, file, src: cfg.name, m: cfg.m, t: it.title, u: it.url, img: it.img || null, p: it.price, cur: it.cur || 'KRW', k,
       first: day, last: day, gone: null, miss: 0, h: [[day, k, it.price]], b: asg.b,
-      ...(asg.d && asg.d.length ? { d: asg.d } : {}), ...(asg.qs && asg.qs.length ? { qs: asg.qs } : {}),
+      ...(asg.d && asg.d.length ? { d: asg.d } : {}), ...(asg.qs && asg.qs.length ? { qs: [...asg.qs].sort() } : {}),
       ...(it.size ? { z: it.size } : {}), ...(it.brandTagged ? { tagged: 1 } : {}), ...(it.cond === 'new' ? { cn: 'new' } : {}),
       ...(it.cat ? { cat: it.cat } : {}),
       ...(Number.isFinite(it.bids) ? { bids: it.bids } : {}), ...(it.endsAt ? { ends: it.endsAt, endsPrec: it.endsPrec || 'd' } : {}),
@@ -116,10 +111,12 @@ function observe(L, it, file, day, rates, stats, asg) {
   }
   // seen again. The seller's own number decides whether the price moved.
   if (cur.gone) { cur.gone = null; delete cur.ls; stats.back++; }
-  cur.last = day; cur.miss = 0; cur.t = it.title || cur.t; cur.u = it.url || cur.u; if (k) cur.k = k;
+  // (k, the won figure, moves with the seller's price, not with each day's rate: the page
+  // reckons today's won itself, and the ledger does not change for a rate)
+  cur.last = day; cur.miss = 0; cur.t = it.title || cur.t; cur.u = it.url || cur.u; if (k && !cur.k) cur.k = k;
   cur.b = asg.b;
   if (asg.d && asg.d.length) cur.d = asg.d; else delete cur.d;
-  if (asg.qs && asg.qs.length) cur.qs = asg.qs;
+  if (asg.qs && asg.qs.length) cur.qs = [...asg.qs].sort();
   if (!(it.price > 0)) return true;
   if (it.img) cur.img = it.img;
   if (it.size) cur.z = it.size;
@@ -136,7 +133,7 @@ function observe(L, it, file, day, rates, stats, asg) {
     if (lastH && lastH[0] === day) {
       lastH[1] = k || lastH[1]; lastH[2] = it.price; cur.p = it.price;
       if (cur.h.length === 1) cur.k = k || cur.k;
-    } else { cur.h.push([day, k || cur.k, it.price]); if (it.price < cur.p) stats.drops++; else stats.rises++; cur.p = it.price; stats.changed++; }
+    } else { cur.h.push([day, k || cur.k, it.price]); if (it.price < cur.p) stats.drops++; else stats.rises++; cur.p = it.price; if (k) cur.k = k; stats.changed++; }
   }
   return true;
 }
@@ -442,14 +439,16 @@ async function main() {
   for (const f of Object.keys(FILES)) { const r = readJson(join(RAW, f + '.json'), null); if (r) raw[f] = r; }
 
   const status = readJson(join(DATA, 'status.json'), null);
-  const L = readRecord(join(DATA, 'ledger.json'), null) || { v: 1, start: TODAY, items: {}, state: {} };
+  const L = readLedger(DATA) || { v: 1, start: TODAY, items: {}, state: {} };
   // the last build said how many it kept; a ledger with fewer has lost some, however it parses
   if (status && status.counts && status.counts.entries > Object.keys(L.items || {}).length)
-    throw new Error('data/ledger.json has ' + Object.keys(L.items || {}).length + ' entries, the last build kept ' + status.counts.entries + ' — not overwriting it');
+    throw new Error('the ledger has ' + Object.keys(L.items || {}).length + ' entries, the last build kept ' + status.counts.entries + ' — not overwriting it');
   L.state = L.state || {}; L.start = L.start || TODAY;
   const before = { n: Object.keys(L.items).length, first: Object.fromEntries(Object.values(L.items).map((x) => [x.id, x.first])) };
-  const S = readRecord(join(DATA, 'sold.json'), null) || { v: 1, items: {} };
+  const S = readSold(DATA) || { v: 1, items: {} };
   const soldBefore = Object.keys(S.items).length;
+  if (status && status.counts && status.counts.sold > soldBefore)
+    throw new Error('the sale records are ' + soldBefore + ', the last build kept ' + status.counts.sold + ' — not overwriting them');
   const prevRates = readJson(join(DATA, 'rates.json'), null);
   const rates = await fetchRates(prevRates);
   if (!rates.stale) writeFileSync(join(DATA, 'rates.json'), JSON.stringify(rates, null, 1));
@@ -502,8 +501,8 @@ async function main() {
   };
   const m = mailOf(index, TODAY);
 
-  writeFileSync(join(DATA, 'ledger.json'), ledgerJson(L));
-  writeFileSync(join(DATA, 'sold.json'), ledgerJson(S));
+  writeLedger(DATA, L);
+  writeSold(DATA, S);
   writeFileSync(join(DATA, 'edition.json'), JSON.stringify({ issue, date: TODAY }));
   writeFileSync(join(DATA, 'mail_meta.json'), JSON.stringify(m.meta, null, 1));
   writeFileSync(join(DATA, 'mail_lines.txt'), m.lines);
@@ -515,13 +514,6 @@ async function main() {
   writeFileSync(join(SITE, 'index.html'), INDEX_HTML);
   writeFileSync(join(SITE, '.nojekyll'), '');
   console.log(JSON.stringify({ issue, brands: index.counts.brands, cards: index.counts.cards, fresh: freshCards, stats, soldAdded, rates: rates.stale ? 'stale' : rates.date }));
-}
-// one listing a line: a day's change is a few lines of diff, not the whole file
-function ledgerJson(o) {
-  const { items, ...rest } = o;
-  const keys = Object.keys(items).sort();
-  return '{' + Object.entries(rest).map(([k, v]) => JSON.stringify(k) + ':' + JSON.stringify(v)).join(',') + (Object.keys(rest).length ? ',' : '') +
-    '"items":{\n' + keys.map((k) => JSON.stringify(k) + ':' + JSON.stringify(items[k])).join(',\n') + '\n}}\n';
 }
 
 const isMain = (() => { try { return realpathSync(fileURLToPath(import.meta.url)) === realpathSync(process.argv[1]); } catch { return false; } })();

@@ -16,9 +16,10 @@ Carol Christian Poell은 따로 있는 인덱스(`rozykuzy/ccp`)를 그대로 �
 | `grailed.mjs` · `ebay.mjs` | Grailed 검색 서비스 · eBay 공식 API(키가 있을 때만) |
 | `lib.mjs` | robots.txt 준수 · 호스트당 2.5초 · 이름을 밝힌 UA · 403/429/봇 확인 화면이면 그 호스트는 그날 멈춤 · 페이지 읽기 |
 | `classify.mjs` | 상품명 읽기 — 연도·시즌, 분류, 사이즈, 제외 |
-| `build.mjs` | 대장(`data/ledger.json`) 갱신 → `site/index.json` · `site/b/<slug>.json` · `site/new.json` · `data/mail_lines.txt` |
+| `build.mjs` | 대장(`data/ledger/`) 갱신 → `site/index.json` · `site/b/<slug>.json` · `site/new.json` · `data/mail_lines.txt` |
+| `store.mjs` | 대장과 낙찰 기록을 나눠 적고 읽는다 — 대장 16조각(`data/ledger/0–f.json` + `meta.json`), 낙찰 기록은 달마다(`data/sold/YYYY-MM.json`) |
 | `test.mjs` | 매일 수집 전에 도는 시험. 실패하면 그날은 발행하지 않는다 |
 | `test_corpus.json` | 실제 매물 제목 354건 (CCP, 2026-09-27, 판매자 정보 없음) |
 | `RUNBOOK.md` | 규칙 · 수집처 판정 · PC에서 돌리기 · 문제가 생기면 |
 
-`data/ledger.json`(대장)과 `data/sold.json`(낙찰 기록)은 지우지 않는다.
+`data/ledger/`(대장)과 `data/sold/`(낙찰 기록)은 지우지 않는다.

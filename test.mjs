@@ -20,6 +20,7 @@ import { classify, era, section, size, excludeReason, lastYear, SECTIONS } from 
 import { BRANDS, ACTIVE, BY_SLUG, brandsOf, queryPlan, queriesOf, grailedDesignated, designatedOf, fold, brandLabel } from './brands.mjs';
 import { updateLedger, updateSold, buildPayload, toKRW, FILES, markSeen, readAll, newCards, mailOf, photosOf, INDEX_HTML } from './build.mjs';
 import { parseArgs, FILES as SOURCE_FILES, QUEUES } from './collect.mjs';
+import { readLedger, writeLedger, readSold, writeSold, shardOf, SHARDS } from './store.mjs';
 
 const HERE = fileURLToPath(new URL('.', import.meta.url));
 let passed = 0, failed = 0; const failures = [];
@@ -788,6 +789,56 @@ await group('payload: one listing on two platforms is one card, three on one pla
   A.deepEqual(ph, ['b', 'c']);                                   // a dated card first, then the newest
 });
 
+// ── the ledger on disk: in pieces, and a day's commit only what changed ────
+await group('store: the ledger in sixteen pieces, last-seen only where it differs, sale records by month', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'store-'));
+  A.equal(readLedger(dir), null); A.equal(readSold(dir), null);                   // a first run
+  const mk = (id, file, last, extra = {}) => ({ id, file, src: 'x', t: 't ' + id, u: 'https://x/' + id, p: 100, cur: 'JPY', k: 873, first: '2026-10-01', last, gone: null, miss: 0, h: [['2026-10-01', 873, 100]], b: ['guidi'], ...extra });
+  const items = {};
+  for (let i = 0; i < 200; i++) { const id = 'yahoo:y' + i; items[id] = mk(id, 'yahoo', '2026-10-05'); }
+  items['yahoo:gone'] = mk('yahoo:gone', 'yahoo', '2026-10-03', { gone: '2026-10-05', miss: 2, ls: '2026-10-03' });
+  items['grailed:1'] = mk('grailed:1', 'grailed', '2026-10-04');
+  const L = { v: 1, start: '2026-10-01', state: { seen: { yahoo: '2026-10-05' } }, items };
+  writeLedger(dir, L);
+  const files = readdirSync(join(dir, 'ledger')).sort();
+  A.equal(files.length, SHARDS + 1); A.ok(files.includes('meta.json'));
+  const meta = JSON.parse(readFileSync(join(dir, 'ledger', 'meta.json'), 'utf8'));
+  A.deepEqual([meta.count, meta.lastOf, meta.start, meta.state.seen.yahoo], [202, { yahoo: '2026-10-05', grailed: '2026-10-04' }, '2026-10-01', '2026-10-05']);
+  const raw = Object.assign({}, ...files.filter((f) => f !== 'meta.json').map((f) => JSON.parse(readFileSync(join(dir, 'ledger', f), 'utf8')).items));
+  A.equal(raw['yahoo:y7'].last, undefined); A.equal(raw['yahoo:y7'].miss, undefined); A.equal(raw['yahoo:y7'].gone, undefined);
+  A.deepEqual([raw['yahoo:gone'].last, raw['yahoo:gone'].miss, raw['yahoo:gone'].gone], ['2026-10-03', 2, '2026-10-05']);
+  A.equal(readFileSync(join(dir, 'ledger', shardOf('yahoo:y7') + '.json'), 'utf8').split('\n').filter((l) => l.includes('"yahoo:y7"')).length, 1);   // one a line
+  // read back: exactly what was written
+  A.deepEqual(readLedger(dir), L);
+  // the next day: every listing seen again, one new — the pieces change only where that one lies
+  const before = Object.fromEntries(readdirSync(join(dir, 'ledger')).map((f) => [f, readFileSync(join(dir, 'ledger', f), 'utf8')]));
+  const L2 = readLedger(dir);
+  for (const x of Object.values(L2.items)) if (x.file === 'yahoo' && !x.gone) x.last = '2026-10-06';
+  L2.items['yahoo:new'] = mk('yahoo:new', 'yahoo', '2026-10-06', { first: '2026-10-06' });
+  writeLedger(dir, L2);
+  const changed = readdirSync(join(dir, 'ledger')).filter((f) => readFileSync(join(dir, 'ledger', f), 'utf8') !== before[f]).sort();
+  A.deepEqual(changed, [shardOf('yahoo:new') + '.json', 'meta.json'].sort());
+  A.equal(readLedger(dir).items['yahoo:y7'].last, '2026-10-06'); A.equal(readLedger(dir).items['grailed:1'].last, '2026-10-04');
+  // a piece that cannot be read, or one with fewer listings than meta.json counts, stops the reading
+  const f0 = join(dir, 'ledger', shardOf('yahoo:y7') + '.json'), keep = readFileSync(f0, 'utf8');
+  writeFileSync(f0, '{"items":{"yahoo:y7":'); A.throws(() => readLedger(dir), /unreadable/);
+  writeFileSync(f0, '{"items":{}}'); A.throws(() => readLedger(dir), /counts/);
+  writeFileSync(f0, keep); A.equal(Object.keys(readLedger(dir).items).length, 203);
+  // a ledger written whole before is read while there are no pieces
+  const old = mkdtempSync(join(tmpdir(), 'store-'));
+  writeFileSync(join(old, 'ledger.json'), JSON.stringify({ v: 1, items: { 'yahoo:a': mk('yahoo:a', 'yahoo', '2026-09-30') }, state: {} }));
+  writeFileSync(join(old, 'sold.json'), JSON.stringify({ v: 1, items: { 'yahoo:s': { id: 'yahoo:s', soldAt: '2026-09-21' } } }));
+  A.equal(readLedger(old).items['yahoo:a'].last, '2026-09-30'); A.equal(Object.keys(readSold(old).items).length, 1);
+  writeLedger(old, readLedger(old)); writeSold(old, readSold(old));
+  A.ok(existsSync(join(old, 'ledger.json')) && existsSync(join(old, 'sold.json')));      // left in place
+  A.equal(readLedger(old).items['yahoo:a'].last, '2026-09-30');
+  // sale records by the month of the sale
+  writeSold(dir, { v: 1, items: { 'yahoo:s1': { id: 'yahoo:s1', soldAt: '2026-08-20' }, 'yahoo:s2': { id: 'yahoo:s2', soldAt: '2026-09-21' }, 'yahoo:s3': { id: 'yahoo:s3', soldAt: '2026-09-30' } } });
+  A.deepEqual(readdirSync(join(dir, 'sold')).sort(), ['2026-08.json', '2026-09.json']);
+  A.deepEqual(Object.keys(readSold(dir).items).sort(), ['yahoo:s1', 'yahoo:s2', 'yahoo:s3']);
+  A.ok(readdirSync(dir, { recursive: true }).every((f) => !String(f).endsWith('.tmp')));
+});
+
 // ── the build as the workflow runs it ─────────────────────────────────────
 const PAYLOAD_KEYS = ['issue', 'issueLabel', 'date', 'dateKo', 'built', 'today', 'rates', 'counts', 'sections', 'sellers', 'yearSpan', 'sources', 'brand', 'items'];
 const ITEM_KEYS = new Set(['t', 'k', 'r', 'l', 'i', 's', 'f', 'c', 'e', 'q', 'qk', 'z', 'p', 'u', 'im', 'h', 'w', 'wd', 'ab', 'ae', 'aeq', 'x', 'ls', 'n', 'g', 'v', 'sc', 'so', 'sk', 'cn', 'mc']);
@@ -861,18 +912,26 @@ await group('build: outputs — index.json, b/<slug>.json, new.json, index.html,
   A.deepEqual(B.json('data/mail_meta.json'), { date: '2026-10-02', fresh: 2, brands: [['Guidi', 1], ['Rick Owens', 1]] });
   A.equal(B.read('data/mail_lines.txt'), 'Guidi 신규 1\nRick Owens 신규 1\n');
   // the ledger keeps the brands, the searches and nothing about sellers
-  const L = B.json('data/ledger.json');
+  const L = readLedger(B.data);
   A.deepEqual([L.items['yahoo:y0'].b, L.items['yahoo:y0'].qs, L.items['grailed:500'].d], [['guidi'], ['guidi'], ['rick-owens']]);
   A.deepEqual(Object.keys(B.json('data/status.json')).sort(), ['counts', 'day', 'hosts', 'issue', 'rates', 'soldAdded', 'sources', 'stats'].sort());
   // nothing about any seller, anywhere the build writes
-  for (const p of ['site/index.json', 'site/new.json', 'site/b/guidi.json', 'site/b/rick-owens.json', 'data/ledger.json', 'data/sold.json', 'data/status.json', 'data/mail_meta.json', 'data/mail_lines.txt'])
+  const pieces = [...readdirSync(join(B.data, 'ledger')).map((f) => 'data/ledger/' + f), ...readdirSync(join(B.data, 'sold')).map((f) => 'data/sold/' + f)];
+  for (const p of ['site/index.json', 'site/new.json', 'site/b/guidi.json', 'site/b/rick-owens.json', 'data/status.json', 'data/mail_meta.json', 'data/mail_lines.txt', ...pieces])
     A.equal(SELLERISH.test(B.read(p)), false, 'seller data in ' + p);
   // a ledger that cannot be read stops the build and is left as it was; so does one shorter than the last build's
-  writeFileSync(join(B.data, 'ledger.json'), '{"v":1,"items":{"yahoo:y1":');
+  const piece = 'data/ledger/' + shardOf('yahoo:y0') + '.json', whole = B.read(piece);
+  writeFileSync(join(B.dir, piece), '{"items":{"yahoo:y1":');
   A.throws(() => B.run('2026-10-03'));
-  A.equal(B.read('data/ledger.json'), '{"v":1,"items":{"yahoo:y1":');
-  writeFileSync(join(B.data, 'ledger.json'), JSON.stringify({ v: 1, items: {}, state: {} }));
+  A.equal(B.read(piece), '{"items":{"yahoo:y1":');
+  writeFileSync(join(B.dir, piece), '{"items":{}}');                                     // a piece emptied: fewer than meta.json counts
   A.throws(() => B.run('2026-10-03'));
+  A.equal(B.read(piece), '{"items":{}}');
+  writeFileSync(join(B.dir, piece), whole);
+  const meta = B.json('data/ledger/meta.json');
+  writeFileSync(join(B.data, 'ledger', 'meta.json'), JSON.stringify({ ...meta, count: 0 }));
+  for (const f of readdirSync(join(B.data, 'ledger'))) if (f !== 'meta.json') writeFileSync(join(B.data, 'ledger', f), '{"items":{}}');
+  A.throws(() => B.run('2026-10-03'));                                                   // …and fewer than the last build kept
 });
 await group('build: the day every source failed, quiet days, sale records by brand', () => {
   const B = buildRunner();
