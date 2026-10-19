@@ -190,6 +190,9 @@ export function era(title) {
 export const SECTIONS = ['아우터', '테일러링', '셔츠', '상의', '팬츠', '데님', '신발', '가방·소품', '주얼리', '기타'];
 const SECTION = [
   ['기타', /\bdress(?!\s*(?:shirt|pants?|trousers?|slacks|shoes?|boots?))(?:es)?\b|\bskirts?\b|ワンピース|スカート|ドレス(?!\s*(?:シャツ|パンツ|シューズ|ブーツ))|원피스|스커트|드레스(?!\s*(?:셔츠|팬츠|슈즈))/i],
+  // a sneaker named by its cut (High Top · Low-Top · Hi-Top · ハイカット) is a shoe, whatever else the title says
+  // (Eyelet Ring High Top is not a ring, Canvas High Top is not a top)
+  ['신발', /(?<![a-z])(?:low|high|hi|mid)[\s-]?tops?(?![a-z])|ハイカット|ローカット|ミッドカット|하이탑|로우탑|미드탑/i],
   ['주얼리', /\brings?\b|necklace|pendant|bracelet|bangle|earrings?|dog\s*tag|リング|ネックレス|ペンダント|ブレスレット|(?<!ー)ブレス(?!ト|ス|レ)|バングル|指輪|ピアス|イヤリング|ドッグタグ|반지|목걸이|팔찌|펜던트|귀걸이|이어링/i],
   ['가방·소품', /\bbags?\b|backpack|rucksack|\btote\b|pouch|wallet|\bpurse\b|バッグ|バックパック|リュック|ポーチ|財布|ウォレット|パース|鞄|가방|백팩|지갑|파우치|(?:베스트|토트|숄더)\s*백/i],
   ['신발', /boot(?!\s*-?cut)|sneakers?|\bshoes?\b|derbys?|derbies|loafers?|sandals?|slippers?|creepers?|\bbrogues?\b|ブーツ(?!カット)|スニーカー|シューズ|短靴|革靴|靴(?!下)|ダービー|ローファー|サンダル|スリッポン|부츠(?!컷)|스니커즈|신발|구두|더비|로퍼|샌들|워커/i],

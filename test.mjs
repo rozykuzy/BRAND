@@ -635,6 +635,11 @@ await group('titles: years from 1950 to this year, seasons, decades, claims, num
   A.deepEqual(['Guidi PM/2219 Dress Pants ドレスパンツ', '90年代 Guidi ブレーザー', 'S/S2007 Guidi -Button Ups', 'Guidi ハイネックレザー', 'Guidi High Neck knit',
     'Guidi dress', 'Guidi dress shoes', 'Guidi T-Shirt 48', 'Guidi vest bag', 'Guidi shirt jacket'].map(sec),
     ['팬츠', '테일러링', '셔츠', '아우터', '상의', '기타', '신발', '상의', '가방·소품', '아우터']);
+  // a sneaker named by its cut (PC trial 10/19: 153 of them filed under tops, one under jewellery)
+  A.deepEqual(['Rick Owens DRKSHDW Canvas High Top BFAJKKZG', 'Rick Owens DRKSHDW 23SS Eyelet Ring High Top Sneakers K37', 'Sz 43 Rick Owens Drkshdw Archive Nylon Hi-Top mo.jos',
+    'Rick Owens DRKSHDW Milk Low Top Ramones', 'Rick Owens DRKSHDW Black Satin High-Tops', 'リックオウエンス ダークシャドウ ハイカット 42', 'Guidi Mid-Top', '릭오웬스 다크쉐도우 하이탑',
+    'Rick Owens tank top', 'Rick Owens crop top', 'Uma Wang knit top', 'Rick Owens DRKSHDW hoodie'].map(sec),
+    ['신발', '신발', '신발', '신발', '신발', '신발', '신발', '신발', '상의', '상의', '상의', '상의']);
   A.equal(classify({ title: 'Guidi High Neck', cat: 'ジャケット/アウター(レザージャケット)' }).section, '아우터');
   A.equal(classify({ title: 'Guidi', cat: 'トップス(Tシャツ/カットソー(七分/長袖))' }).section, '상의');
   for (const t of ['Guidi リング 専用ケース付き', 'Guidi ジャケット 保存袋 専用ハンガー付き', 'Guidi 専用袋 箱付き ブーツ', 'Guidi coat with fake fur collar',
