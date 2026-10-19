@@ -343,7 +343,7 @@ await group('grailed: the plan — small brands whole, big brands by season word
   A.deepEqual(facetsOf(BY_SLUG.get('1017-alyx-9sm')), [['designers.name:1017 ALYX 9SM', 'designers.name:Alyx']]);
   A.deepEqual(facetsOf(BY_SLUG.get('dr-martens-x-rick-owens')), [['designers.name:Rick Owens'], ['designers.name:Dr. Martens']]);
   // Tabi is filed under Maison Margiela: its titleMust word is the search's words
-  A.deepEqual([queryOf(BY_SLUG.get('tabi-footwear')), queryOf(BY_SLUG.get('guidi')), queryOf(BY_SLUG.get('dr-martens-x-rick-owens'))], ['tabi', '', '']);
+  A.deepEqual([queryOf(BY_SLUG.get('tabi-footwear')), queryOf(BY_SLUG.get('guidi')), queryOf(BY_SLUG.get('dr-martens-x-rick-owens'))], ['', '', '']);
   A.equal(queryOf({ ...BY_SLUG.get('tabi-footwear'), grailedQuery: 'tabi boots' }), 'tabi boots');
   // the order of big brands turns with the day
   const firstBig = (d) => planGrailed(ACTIVE, d).find((s) => s.token).slug;
@@ -371,14 +371,16 @@ await group('grailed: the plan — small brands whole, big brands by season word
   r = await collectGrailed([BY_SLUG.get('guidi'), BY_SLUG.get('rick-owens')], () => {}, { ask: async () => ({ nbHits: 0, hits: [] }), cap: 1, day: '2026-10-19' });
   A.deepEqual([r.unread, r.done['g:rick-owens']], [['rick-owens'], undefined]);
   // excludeDesigners and the brands a hit's designers make it
-  A.deepEqual(grailedDesignated(['MM6', 'Maison Margiela'], ['maison-margiela']), ['tabi-footwear']);   // Tabi excludes no one; it still needs the word
+  A.deepEqual(grailedDesignated(['MM6', 'Maison Margiela'], ['maison-margiela']), []);   // MM6 is left out of Maison Margiela; Tabi Footwear is not filed under Margiela
   A.deepEqual(brandsOf('MM6 Maison Margiela SS19 skirt', grailedDesignated(['MM6', 'Maison Margiela'], ['maison-margiela'])).b, []);
-  A.deepEqual(grailedDesignated(['Maison Margiela'], []), ['maison-margiela', 'tabi-footwear']);
+  A.deepEqual(grailedDesignated(['Maison Margiela'], []), ['maison-margiela']);
   A.deepEqual(grailedDesignated(['Comme des Garcons PLAY', 'Comme des Garcons'], ['comme-des-garcons']), ['comme-des-garcons-play']);
   A.deepEqual(grailedDesignated(['Rick Owens', 'Dr. Martens'], []), ['dr-martens-x-rick-owens', 'rick-owens']);
   A.deepEqual(grailedDesignated(['Rick Owens'], []), ['rick-owens']);
   // Tabi needs the word, the collaboration does not, a big brand needs a date
-  A.deepEqual(brandsOf('Maison Margiela Tabi Boots 39', grailedDesignated(['Maison Margiela'])).b, ['tabi-footwear']);
+  A.deepEqual(brandsOf('Maison Margiela Tabi Boots 39', grailedDesignated(['Maison Margiela'])).b, []);   // filed as Margiela (big, undated); no other brand from the title
+  A.deepEqual(brandsOf('Rick Owens 2008AW off-white knit', grailedDesignated(['Rick Owens'])).b, ['rick-owens']);   // a colour on a filed listing is not Off-White
+  A.deepEqual(brandsOf('Rick Owens 2010 white tee both sleeves', grailedDesignated(['Rick Owens'])).b, ['rick-owens']);
   A.deepEqual(brandsOf('Maison Margiela GAT 42', grailedDesignated(['Maison Margiela'])).b, []);
   A.deepEqual(brandsOf('Maison Margiela SS19 GAT 42', grailedDesignated(['Maison Margiela'])).b, ['maison-margiela']);
   A.deepEqual(brandsOf('DM 1460 Bex Black', grailedDesignated(['Rick Owens', 'Dr. Martens'])).b, ['dr-martens-x-rick-owens']);
@@ -418,15 +420,17 @@ await group('registry: 131 brands, unique slugs, big brands on Grailed, searches
   A.equal(ACTIVE.length, 130); A.deepEqual(BRANDS.filter((b) => b.existing).map((b) => [b.slug, b.existing]), [['carol-christian-poell', 'ccp']]);
   A.equal(BRANDS.filter((b) => b.big).length, 20);
   for (const b of BRANDS) {
-    A.ok(/^[a-z0-9-]+$/.test(b.slug) && b.name && b.latin && b.latin[0], b.slug);
+    A.ok(/^[a-z0-9-]+$/.test(b.slug) && b.name && b.latin && (b.latin[0] || b.pages === false), b.slug);
     if (b.big) A.ok(b.grailed.length > 0, 'big brand without Grailed values: ' + b.slug);
   }
   const plan = queryPlan();
-  A.equal(plan.length, 210); A.equal(new Set(plan.map((p) => fold(p.q).replace(/[\s・]/g, ''))).size, 210);
-  for (const b of ACTIVE) A.ok(plan.some((p) => p.slugs.includes(b.slug)), 'no search for ' + b.slug);
+  A.ok(plan.length > 190); A.equal(new Set(plan.map((p) => fold(p.q).replace(/[\s・]/g, ''))).size, plan.length);
+  for (const b of ACTIVE) A.ok(b.pages === false ? !plan.some((p) => p.slugs.includes(b.slug)) : plan.some((p) => p.slugs.includes(b.slug)), 'searches for ' + b.slug);
+  A.deepEqual(['white', 'warm-me', 'tacet', 'aalto'].map((s) => queriesOf(BY_SLUG.get(s)).length), [0, 0, 0, 0]);
+  A.deepEqual(queriesOf(BY_SLUG.get('both')), ['both paris']);
   A.deepEqual(queriesOf(BY_SLUG.get('ann-demeulemeester')), ['ann demeulemeester', 'アンドゥムルメステール']);    // spaced and unspaced: one search
   A.deepEqual(queriesOf(BY_SLUG.get('dr-martens-x-rick-owens')), ['rick owens dr. martens']);
-  A.deepEqual(queriesOf(BY_SLUG.get('tabi-footwear')), ['tabi', '足袋', 'タビ']);
+  A.deepEqual(queriesOf(BY_SLUG.get('tabi-footwear')), ['tabi footwear']);
   A.equal(queryPlan([BY_SLUG.get('guidi')]).length, 2);
 });
 
@@ -441,8 +445,8 @@ await group('brands in titles: names, noisy words, look-alikes, several brands, 
     ['Boris Bidjan Saberi x Guidi boots', ['boris-bidjan-saberi', 'guidi']], ['Ann Demeulemeester lace up boots 39', ['ann-demeulemeester']],
     ['Comme des Garcons PLAY heart tee', ['comme-des-garcons-play']], ['Play Comme des Garcons cardigan', ['comme-des-garcons-play']],
     ['COMME des GARCONS HOMME PLUS AD2003 jacket', ['comme-des-garcons']], ['Noir Kei Ninomiya Comme des Garcons 2018AW top', ['comme-des-garcons-noir-kei-ninomiya']],
-    ['Maison Margiela 2019SS Tabi boots 39', ['maison-margiela', 'tabi-footwear']], ['Maison Margiela Tabi ankle boots 39', ['tabi-footwear']],
-    ['Margiela Tabis 38', ['tabi-footwear']], ['MM6 Maison Margiela 2015SS dress', [], 'excluded-designer'],
+    ['Maison Margiela 2019SS Tabi boots 39', ['maison-margiela']], ['Maison Margiela Tabi ankle boots 39', [], 'big-undated'],
+    ['Margiela Tabis 38', [], 'big-undated'], ['white cotton shirt 2004', [], 'no-brand'], ['both sides print tee', [], 'no-brand'], ['MM6 Maison Margiela 2015SS dress', [], 'excluded-designer'],
     ['Maison Martin Margiela H&M 2012 coat', [], 'excluded-designer'], ['Maison Margiela Replica GAT sneakers 2019', ['maison-margiela']],
     ['Balenciaga Triple S replica sneakers 2018', [], 'fake'], ['UNIQLO +J Jil Sander 2020AW down', [], 'excluded-designer'],
     ['Jil Sander 2004SS Raf Simons era coat', ['jil-sander']], ['See by Chloe 2012 bag', [], 'excluded-designer'],
@@ -459,7 +463,7 @@ await group('brands in titles: names, noisy words, look-alikes, several brands, 
     ['Juun.J coat 48', ['juun-j']], ['ＧＵＩＤＩ ブーツ', ['guidi']],
     // noisy brands: the whole word, never inside another
     ['BOTH Paris Gao high sneakers 42', ['both']], ['bothersome tee', [], 'no-brand'], ['Herno down jacket', ['herno']], ['hernon jacket', [], 'no-brand'],
-    ['sacai 2019AW bomber', ['sacai']], ['Peter Do blazer', ['peter-do']], ['peter dog collar', [], 'no-brand'], ['aalto knit', ['aalto']],
+    ['sacai 2019AW bomber', ['sacai']], ['Peter Do blazer', ['peter-do']], ['peter dog collar', [], 'no-brand'], ['aalto knit', [], 'no-brand'],
     ['aaltonen chair', [], 'no-brand'], ['07A tee', ['07a']], ['rp07a1 tee', [], 'no-brand'],
     // looking like, not being
     ['Rick Owens style leather jacket 2020', [], 'style-of'], ['Rick Owens inspired boots 2020', [], 'style-of'], ['inspired by Rick Owens 2020 boots', [], 'style-of'],
@@ -469,7 +473,7 @@ await group('brands in titles: names, noisy words, look-alikes, several brands, 
     ['リックオウエンス 19SS レザージャケット 48', ['rick-owens']], ['リック オウエンス ブーツ', [], 'big-undated'], ['リックオウエンス風 2019 ブーツ', [], 'style-of'],
     ['マルジェラ好きな方に 2005 ニット', [], 'style-of'], ['ヨウジヤマモト コムデギャルソン 好きな方に 2010 シャツ', [], 'style-of'],
     ['エルメス マルジェラ期 2003 ニット', [], 'period-of'], ['マルタンマルジェラ 本人期 ジャケット', [], 'big-undated'],
-    ['メゾンマルジェラ 2019AW 足袋ブーツ', ['maison-margiela', 'tabi-footwear']], ['タビ ブーツ マルジェラ', ['tabi-footwear']],
+    ['メゾンマルジェラ 2019AW 足袋ブーツ', ['maison-margiela']], ['タビ ブーツ マルジェラ', [], 'big-undated'],
     ['グイディ バックジップ ブーツ 42', ['guidi']], ['ボリスビジャンサベリ グイディ ブーツ', ['boris-bidjan-saberi', 'guidi']],
     ['プレイコムデギャルソン Tシャツ', ['comme-des-garcons-play']], ['ユニクロ ジルサンダー +J 2021AW', [], 'excluded-designer'],
     ['リックオウエンスではありません 2019', [], 'not-brand'], ['元マルジェラ デザイナー 2010 コート', [], 'not-brand'],

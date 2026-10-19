@@ -174,7 +174,9 @@ export function brandsOf(title, designated = []) {
   // on a search page, a title that says "…風" or "not …" about any of our names is not to be trusted for any
   if ((look.size || not.size) && !des.length) return { ...out, why: not.size ? 'not-brand' : 'style-of' };
   // a filed listing keeps the brand it was filed under, unless the title says it is only like it
-  const cand = [...des.filter((s) => !look.has(s) && !not.has(s)), ...(look.size || not.size ? [] : plain)];
+  // a filed listing is the brands it was filed under and no others: a Grailed title that says
+  // "off-white" or "white" about a Rick Owens sweater is a colour, "like Guidi" a comparison
+  const cand = des.length ? des.filter((s) => !look.has(s) && !not.has(s)) : (look.size || not.size ? [] : plain);
   let tierA = null;
   for (const slug of [...new Set(cand)]) {
     const m = M.get(slug), b = m.b, filed = des.includes(slug);
@@ -203,7 +205,9 @@ const WHY = ['not-brand', 'style-of', 'excluded-designer', 'big-undated', 'perio
 // house's (Dr. Martens x Rick Owens: "rick owens") searches with its required term added.
 const squash = (q) => fold(q).replace(SEPS, '');
 export function queriesOf(b) {
+  if (b.pages === false) return [];                // a common word: no searches (brands.json says why)
   let en = b.latin[0];
+  if (!en) return [...new Set(b.ja || [])];
   if (b.titleMust) { const must = anyOf(b.titleMust, {}); if (must && !must.test(fold(en))) en = en + ' ' + b.titleMust[0]; }
   const seen = new Set();
   return [en, ...(b.ja || [])].filter((q) => { const k = squash(q); if (!k || seen.has(k)) return false; seen.add(k); return true; });

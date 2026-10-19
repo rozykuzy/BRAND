@@ -74,10 +74,10 @@
    "big": false,
    "ja": [],
    "ko": [],
-   "latin": [
-    "aalto"
-   ],
-   "noisy": true
+   "latin": [],
+   "noisy": true,
+   "pages": false,
+   "note": "common word: only a site that files the listing under this brand counts (no title matching, no searches)"
   },
   {
    "slug": "aganovich",
@@ -287,9 +287,10 @@
    "ja": [],
    "ko": [],
    "latin": [
-    "both"
+    "both paris"
    ],
-   "noisy": true
+   "noisy": true,
+   "note": "the label is written BOTH Paris; the word both alone is not the brand"
   },
   {
    "slug": "by-walid",
@@ -1397,7 +1398,8 @@
    "latin": [
     "off-white"
    ],
-   "noisy": false
+   "noisy": false,
+   "note": "Grailed by designer; on search pages the name must be written OFF-WHITE as a brand, the colour is not the brand"
   },
   {
    "slug": "orolog",
@@ -1921,25 +1923,16 @@
   {
    "slug": "tabi-footwear",
    "name": "Tabi Footwear",
-   "grailed": [
-    "Maison Margiela"
-   ],
-   "grailedCount": 1485,
+   "grailed": [],
+   "grailedCount": 0,
    "big": false,
-   "ja": [
-    "足袋",
-    "タビ"
-   ],
+   "ja": [],
    "ko": [],
    "latin": [
-    "tabi"
+    "tabi footwear"
    ],
    "noisy": false,
-   "titleMust": [
-    "tabi",
-    "足袋",
-    "タビ"
-   ]
+   "note": "only the exact name; not mapped to any other house (unverified what the label is)"
   },
   {
    "slug": "tacet",
@@ -1949,10 +1942,10 @@
    "big": false,
    "ja": [],
    "ko": [],
-   "latin": [
-    "tacet"
-   ],
-   "noisy": true
+   "latin": [],
+   "noisy": true,
+   "pages": false,
+   "note": "common word: only a site that files the listing under this brand counts (no title matching, no searches)"
   },
   {
    "slug": "texas-robot",
@@ -2094,10 +2087,10 @@
    "big": false,
    "ja": [],
    "ko": [],
-   "latin": [
-    "warm me"
-   ],
-   "noisy": true
+   "latin": [],
+   "noisy": true,
+   "pages": false,
+   "note": "common word: only a site that files the listing under this brand counts (no title matching, no searches)"
   },
   {
    "slug": "weinsanto",
@@ -2139,10 +2132,10 @@
    "big": false,
    "ja": [],
    "ko": [],
-   "latin": [
-    "white"
-   ],
-   "noisy": true
+   "latin": [],
+   "noisy": true,
+   "pages": false,
+   "note": "common word: only a site that files the listing under this brand counts (no title matching, no searches)"
   },
   {
    "slug": "y-project",
