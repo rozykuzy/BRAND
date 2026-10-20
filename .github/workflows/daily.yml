@@ -1,11 +1,11 @@
 # Archive Index — Brands (rozykuzy/BRAND). Collect, build and publish once a day.
 #
-# 15:07 UTC is 00:07 KST. The build counts days in KST (lib.mjs today()).
+# 03:00 UTC is 12:00 KST (ROK, 2026-10-20). The build counts days in KST (lib.mjs today()).
 # Thirty-odd minutes of searches per host, the hosts side by side; Mercari draws
 # each of its ~210 search pages in a browser, so the whole run takes one to two
 # hours. GitHub starts a scheduled run late — two to six hours on these
-# repositories (rozykuzy/ccp, October 2026) — so the run is set just after
-# midnight KST: late as it may start, it is done before the 09:00 mail.
+# repositories (rozykuzy/ccp, October 2026) — so a day's brands come in the
+# afternoon, and the 09:00 mail carries the day before's.
 #
 # Once, by the repository owner:
 #   Settings → Pages → Source: "GitHub Actions"
@@ -15,7 +15,7 @@
 name: daily
 on:
   schedule:
-    - cron: '7 15 * * *'
+    - cron: '0 3 * * *'
   workflow_dispatch: {}
 
 permissions:

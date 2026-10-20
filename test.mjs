@@ -1030,7 +1030,7 @@ globalThis.fetch = async (url, init = {}) => {
 // ── the workflow and the documents ───────────────────────────────────────
 await group('workflow: schedule, the branch as it is, Node 22, test → collect → build, data committed, Pages deployed, secrets by name', () => {
   const y = readFileSync(join(HERE, '.github', 'workflows', 'daily.yml'), 'utf8');
-  A.match(y, /cron:\s*'7 15 \* \* \*'/); A.match(y, /actions\/checkout@v4\s+with:\s+ref: \$\{\{ github\.ref_name \}\}/); A.match(y, /workflow_dispatch/); A.match(y, /node-version:\s*22/); A.match(y, /timeout-minutes:\s*300/);
+  A.match(y, /cron:\s*'0 3 \* \* \*'/); A.match(y, /actions\/checkout@v4\s+with:\s+ref: \$\{\{ github\.ref_name \}\}/); A.match(y, /workflow_dispatch/); A.match(y, /node-version:\s*22/); A.match(y, /timeout-minutes:\s*300/);
   const at = (s) => y.indexOf(s);
   A.ok(at('node test.mjs') > 0 && at('node test.mjs') < at('node collect.mjs') && at('node collect.mjs') < at('node build.mjs'));
   A.ok(at('playwright') > 0 && at('playwright') < at('node collect.mjs'));

@@ -5,7 +5,7 @@ Carol Christian Poell 인덱스(`rozykuzy/ccp`)의 수집기·대장·조판을 
 
 - **저장소** `rozykuzy/BRAND` (공개). **데이터** https://rozykuzy.github.io/BRAND/ — `index.json` · `b/<slug>.json` · `new.json`
 - **보는 곳** 통합 사이트 https://rozykuzy.github.io/?view=brands (같은 origin에서 위 데이터를 읽는다). `site/index.html` 은 그리로 가는 링크 한 줄
-- **발행** GitHub Actions `daily` — 매일 15:07 UTC = **00:07 KST**, 최대 300분. PC가 필요 없다. GitHub은 예약 실행을 늦게 시작한다(`rozykuzy/ccp` 2026년 10월: 2~6시간). 그래도 09:00 메일 전에 끝나도록 자정 직후로 잡았다(2026-10-20, 그전 06:41)
+- **발행** GitHub Actions `daily` — 매일 03:00 UTC = **12:00 KST**(ROK, 2026-10-20 — 그전 06:41, 같은 날 오전 잠시 00:07), 최대 300분. PC가 필요 없다. GitHub은 예약 실행을 늦게 시작한다(`rozykuzy/ccp` 2026년 10월: 2~6시간) — 그날 브랜드는 오후에 나오고, 09:00 통합 메일은 전날 빌드를 싣는다
 - **메일** `data/mail_meta.json` · `data/mail_lines.txt` — 신규가 많은 브랜드 8개까지, 한 줄에 하나(`Rick Owens 신규 12`). 메일 작업이 이 줄을 가져다 쓴다
 - **브랜드 목록** `brands.json` (2026-10-19 정리). Carol Christian Poell(`existing: "ccp"`)은 수집하지 않고 기존 인덱스를 가리킨다
 
@@ -177,7 +177,7 @@ node test.mjs && node collect.mjs --only=yahoo --brands=guidi,uma-wang,rick-owen
 - 대장 148,587 · 매물 148,145 · 브랜드 122곳(매물 없는 곳: Fatherson Firenze · Made on Grand · MØSAIS · Sener Besim · Tacet · Tuinch · Warm Me · White, Carol Christian Poell은 기존 인덱스) · 판매 기록 1,770 · 첫날이라 신규 0
 - 소스: Grailed 130,715(호출 1,500 한도에 걸림, 못 읽은 검색 4) · 메루카리 7,131 · 야후옥션 5,894(낙찰 2,357) · 라쿠마 5,056 · 후루츠패밀리 1,933(브랜드 페이지 없음 46). PayPay플리마는 17번째 요청에서 429 → 그날 중단, 2nd STREET는 robots.txt가 HTML이라 읽지 않음, eBay는 키 없음
 - 호스트별 요청: Grailed(Algolia) 1,501 · 야후옥션 596 · 라쿠마 409 · 후루츠패밀리 131 · PayPay플리마 17 · 메루카리 205쪽(브라우저)
-- **예약 시각을 00:07 KST로**(10/20): GitHub이 예약 실행을 늦게 시작한다 — `rozykuzy/ccp` 최근 열흘 2~6시간, 이 저장소의 첫 예약(06:41)은 09:37에 시작. 06:41이면 매일 09:00 메일 뒤에 끝나므로 자정 직후로 옮겼다
+- **예약 시각**(10/20): GitHub이 예약 실행을 늦게 시작한다 — `rozykuzy/ccp` 최근 열흘 2~6시간, 이 저장소의 첫 예약(06:41)은 09:37에 시작. 오전에 00:07로 옮겼다가 같은 날 ROK가 **12:00 KST** 로 정했다(첫 예약 10/20 12:00). 통합 메일은 전날 빌드를 싣는다
 - **뒤에 줄 선 실행은 브랜치 끝에서 시작한다**(10/20): 전에는 줄 설 때의 커밋을 받아 앞 실행의 대장을 못 보고, 마지막 push에서 충돌로 실패했을 것이다(`checkout` 에 `ref: github.ref_name`)
 - 첫 데이터에서 고친 것(10/20): 인쇄물 약 200건(요지 야마모토 83 · 이세이 미야케 37 · 릭 오웬스 18 …), 유희왕 카드 82건(Bode — 카드 세트 번호 `BODE-JP038`), Coperni 99건(Copernicus · Copernica · Copernicia), Poiret 37건(위 titleMust), Zimmermann 악보·책 7건. 옛 코드와 새 코드로 같은 대장을 읽어 비교: 424건 빠짐, 새로 들어온 것 0, 분류가 바뀐 것 0
 
