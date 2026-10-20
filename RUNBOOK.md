@@ -5,7 +5,7 @@ Carol Christian Poell 인덱스(`rozykuzy/ccp`)의 수집기·대장·조판을 
 
 - **저장소** `rozykuzy/BRAND` (공개). **데이터** https://rozykuzy.github.io/BRAND/ — `index.json` · `b/<slug>.json` · `new.json`
 - **보는 곳** 통합 사이트 https://rozykuzy.github.io/?view=brands (같은 origin에서 위 데이터를 읽는다). `site/index.html` 은 그리로 가는 링크 한 줄
-- **발행** GitHub Actions `daily` — 매일 21:41 UTC = **06:41 KST**, 최대 300분. PC가 필요 없다
+- **발행** GitHub Actions `daily` — 매일 15:07 UTC = **00:07 KST**, 최대 300분. PC가 필요 없다. GitHub은 예약 실행을 늦게 시작한다(`rozykuzy/ccp` 2026년 10월: 2~6시간). 그래도 09:00 메일 전에 끝나도록 자정 직후로 잡았다(2026-10-20, 그전 06:41)
 - **메일** `data/mail_meta.json` · `data/mail_lines.txt` — 신규가 많은 브랜드 8개까지, 한 줄에 하나(`Rick Owens 신규 12`). 메일 작업이 이 줄을 가져다 쓴다
 - **브랜드 목록** `brands.json` (2026-10-19 정리). Carol Christian Poell(`existing: "ccp"`)은 수집하지 않고 기존 인덱스를 가리킨다
 

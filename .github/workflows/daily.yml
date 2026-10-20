@@ -1,9 +1,11 @@
 # Archive Index — Brands (rozykuzy/BRAND). Collect, build and publish once a day.
 #
-# 21:41 UTC is 06:41 KST. The build counts days in KST (lib.mjs today()).
+# 15:07 UTC is 00:07 KST. The build counts days in KST (lib.mjs today()).
 # Thirty-odd minutes of searches per host, the hosts side by side; Mercari draws
 # each of its ~210 search pages in a browser, so the whole run takes one to two
-# hours. GitHub may start a scheduled run late; the timeout leaves room for both.
+# hours. GitHub starts a scheduled run late — two to six hours on these
+# repositories (rozykuzy/ccp, October 2026) — so the run is set just after
+# midnight KST: late as it may start, it is done before the 09:00 mail.
 #
 # Once, by the repository owner:
 #   Settings → Pages → Source: "GitHub Actions"
@@ -13,7 +15,7 @@
 name: daily
 on:
   schedule:
-    - cron: '41 21 * * *'
+    - cron: '7 15 * * *'
   workflow_dispatch: {}
 
 permissions:
@@ -30,7 +32,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 300
     steps:
+      # the branch as it is when the job starts, not the commit it was queued on:
+      # a run that waited behind another (one started by hand, a late scheduled
+      # one) reads the ledger that run left, and its own commit goes on top of it
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
 
       # first, so a repository whose Pages is not yet set to "GitHub Actions"
       # stops here — before anything is collected or committed

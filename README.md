@@ -2,7 +2,7 @@
 
 데이터 https://rozykuzy.github.io/BRAND/ · 보는 곳 https://rozykuzy.github.io/?view=brands
 
-L'Eclaireur 패션 브랜드 131개(`brands.json`)의 중고 매물. 매일 06:41 KST 수집·정리·발행(`.github/workflows/daily.yml`).
+L'Eclaireur 패션 브랜드 131개(`brands.json`)의 중고 매물. 매일 00:07 KST 수집·정리·발행(`.github/workflows/daily.yml`).
 Carol Christian Poell은 따로 있는 인덱스(`rozykuzy/ccp`)를 그대로 쓴다.
 
 | 파일 | 하는 일 |
