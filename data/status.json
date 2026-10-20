@@ -1,0 +1,168 @@
+{
+ "day": "2026-10-20",
+ "issue": 1,
+ "rates": {
+  "USD": 1329,
+  "GBP": 1772,
+  "EUR": 1492,
+  "JPY": 840,
+  "more": {
+   "AUD": 928.77,
+   "BRL": 263.51,
+   "CAD": 944.64,
+   "CHF": 1611.44,
+   "CNY": 199,
+   "CZK": 61.31,
+   "DKK": 199.65,
+   "HKD": 169.4,
+   "HUF": 4.11,
+   "IDR": 0.07,
+   "ILS": 427.73,
+   "INR": 14,
+   "ISK": 10.94,
+   "MXN": 71.93,
+   "MYR": 325.66,
+   "NOK": 141.38,
+   "NZD": 754.02,
+   "PHP": 21.1,
+   "PLN": 341.4,
+   "RON": 280.18,
+   "SEK": 134.4,
+   "SGD": 1039.46,
+   "THB": 39.62,
+   "TRY": 26.83,
+   "ZAR": 80.9
+  },
+  "date": "2026-10-19",
+  "from": "ECB"
+ },
+ "stats": {
+  "added": 148587,
+  "back": 0,
+  "changed": 0,
+  "drops": 0,
+  "rises": 0,
+  "recur": 0,
+  "vanished": 0,
+  "ended": 0,
+  "held": [],
+  "notOurs": 198121,
+  "hidden": 0,
+  "flood": []
+ },
+ "soldAdded": 1770,
+ "sources": {
+  "ebay": {
+   "ok": false,
+   "skipped": "EBAY_CLIENT_ID / EBAY_CLIENT_SECRET not set"
+  },
+  "second": {
+   "ok": false,
+   "refused": true,
+   "error": "www.2ndstreet.jp: robots.txt answered with an HTML page — not reading the site",
+   "requests": 1,
+   "sec": 1
+  },
+  "yfm": {
+   "ok": false,
+   "refused": true,
+   "error": "HTTP 429 from paypayfleamarket.yahoo.co.jp",
+   "requests": 17,
+   "sec": 59
+  },
+  "fruits": {
+   "ok": true,
+   "requests": 131,
+   "read": 2588,
+   "kept": 1933,
+   "complete": false,
+   "pages": 130,
+   "missing": 46,
+   "failed": 0,
+   "sec": 326
+  },
+  "fruits_check": {
+   "ok": true,
+   "requests": 0,
+   "checked": 0,
+   "idle": true,
+   "sec": 0
+  },
+  "rakuma": {
+   "ok": true,
+   "requests": 409,
+   "read": 12070,
+   "kept": 5056,
+   "complete": false,
+   "searches": 204,
+   "cut": 204,
+   "failed": 0,
+   "pages": 408,
+   "sec": 1021
+  },
+  "yahoo": {
+   "ok": true,
+   "requests": 364,
+   "read": 9969,
+   "kept": 5894,
+   "complete": false,
+   "searches": 195,
+   "cut": 134,
+   "failed": 9,
+   "pages": 336,
+   "sec": 1063
+  },
+  "yahoo_sold": {
+   "ok": true,
+   "requests": 232,
+   "read": 4329,
+   "kept": 2357,
+   "complete": false,
+   "searches": 190,
+   "cut": 122,
+   "failed": 14,
+   "pages": 190,
+   "sec": 821
+  },
+  "mercari": {
+   "ok": true,
+   "requests": 205,
+   "read": 13128,
+   "kept": 7131,
+   "complete": false,
+   "searches": 204,
+   "cut": 146,
+   "pages": 204,
+   "sec": 1940
+  },
+  "grailed": {
+   "ok": true,
+   "requests": 1501,
+   "read": 313549,
+   "kept": 130715,
+   "complete": false,
+   "searches": 87,
+   "cut": 1,
+   "calls": 1500,
+   "capped": true,
+   "unread": 4,
+   "sec": 3776
+  }
+ },
+ "hosts": {
+  "auctions.yahoo.co.jp": 596,
+  "jp.mercari.com": 1,
+  "fril.jp": 409,
+  "paypayfleamarket.yahoo.co.jp": 17,
+  "www.2ndstreet.jp": 1,
+  "fruitsfamily.com": 131,
+  "mnrwefss2q-dsn.algolia.net": 1501
+ },
+ "counts": {
+  "entries": 148587,
+  "sold": 1770,
+  "brands": 122,
+  "cards": 148145,
+  "fresh": 0
+ }
+}

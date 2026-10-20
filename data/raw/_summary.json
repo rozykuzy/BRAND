@@ -1,0 +1,119 @@
+{
+ "startedAt": "2026-10-20T00:21:02.304Z",
+ "day": "2026-10-20",
+ "args": {
+  "only": null,
+  "brands": null,
+  "maxPages": null
+ },
+ "brands": 130,
+ "searches": 204,
+ "sources": {
+  "ebay": {
+   "ok": false,
+   "skipped": "EBAY_CLIENT_ID / EBAY_CLIENT_SECRET not set"
+  },
+  "second": {
+   "ok": false,
+   "refused": true,
+   "error": "www.2ndstreet.jp: robots.txt answered with an HTML page — not reading the site",
+   "requests": 1,
+   "sec": 1
+  },
+  "yfm": {
+   "ok": false,
+   "refused": true,
+   "error": "HTTP 429 from paypayfleamarket.yahoo.co.jp",
+   "requests": 17,
+   "sec": 59
+  },
+  "fruits": {
+   "ok": true,
+   "requests": 131,
+   "read": 2588,
+   "kept": 1933,
+   "complete": false,
+   "pages": 130,
+   "missing": 46,
+   "failed": 0,
+   "sec": 326
+  },
+  "fruits_check": {
+   "ok": true,
+   "requests": 0,
+   "checked": 0,
+   "idle": true,
+   "sec": 0
+  },
+  "rakuma": {
+   "ok": true,
+   "requests": 409,
+   "read": 12070,
+   "kept": 5056,
+   "complete": false,
+   "searches": 204,
+   "cut": 204,
+   "failed": 0,
+   "pages": 408,
+   "sec": 1021
+  },
+  "yahoo": {
+   "ok": true,
+   "requests": 364,
+   "read": 9969,
+   "kept": 5894,
+   "complete": false,
+   "searches": 195,
+   "cut": 134,
+   "failed": 9,
+   "pages": 336,
+   "sec": 1063
+  },
+  "yahoo_sold": {
+   "ok": true,
+   "requests": 232,
+   "read": 4329,
+   "kept": 2357,
+   "complete": false,
+   "searches": 190,
+   "cut": 122,
+   "failed": 14,
+   "pages": 190,
+   "sec": 821
+  },
+  "mercari": {
+   "ok": true,
+   "requests": 205,
+   "read": 13128,
+   "kept": 7131,
+   "complete": false,
+   "searches": 204,
+   "cut": 146,
+   "pages": 204,
+   "sec": 1940
+  },
+  "grailed": {
+   "ok": true,
+   "requests": 1501,
+   "read": 313549,
+   "kept": 130715,
+   "complete": false,
+   "searches": 87,
+   "cut": 1,
+   "calls": 1500,
+   "capped": true,
+   "unread": 4,
+   "sec": 3776
+  }
+ },
+ "finishedAt": "2026-10-20T01:23:58.561Z",
+ "hosts": {
+  "auctions.yahoo.co.jp": 596,
+  "jp.mercari.com": 1,
+  "fril.jp": 409,
+  "paypayfleamarket.yahoo.co.jp": 17,
+  "www.2ndstreet.jp": 1,
+  "fruitsfamily.com": 131,
+  "mnrwefss2q-dsn.algolia.net": 1501
+ }
+}
