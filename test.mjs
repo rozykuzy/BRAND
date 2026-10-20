@@ -466,6 +466,13 @@ await group('brands in titles: names, noisy words, look-alikes, several brands, 
     ['BOTH Paris Gao high sneakers 42', ['both']], ['bothersome tee', [], 'no-brand'], ['Herno down jacket', ['herno']], ['hernon jacket', [], 'no-brand'],
     ['sacai 2019AW bomber', ['sacai']], ['Peter Do blazer', ['peter-do']], ['peter dog collar', [], 'no-brand'], ['aalto knit', [], 'no-brand'],
     ['aaltonen chair', [], 'no-brand'], ['07A tee', ['07a']], ['rp07a1 tee', [], 'no-brand'],
+    // the first day's reading (2026-10-20): Copernica, Copernicus and a Yu-Gi-Oh! set are not Coperni or Bode;
+    // Poiret needs Paul Poiret or Paris written too (Liberty's Poiret print, a Japanese label, other houses' models)
+    ['COPERNICA プレストパウダー', [], 'no-brand'], ['コペルニカ ミルク', [], 'no-brand'], ['コペルニクス 天文 本', [], 'no-brand'],
+    ['Coperni Swipe bag 2022', ['coperni']], ['COPERNI Paris hoodie', ['coperni']], ['コペルニ ショルダーバッグ', ['coperni']],
+    ['遊戯王 白の聖女エクレシア スーパー BODE', [], 'not-garment'], ['Bode quilted shirt', ['bode']],
+    ['Merlette マーレットPOIRET ピンタックフレアスリーブ ロングドレス', [], 'title-must'], ['UNITED ARROWS libertyフラワースカート赤茶Poiret', [], 'title-must'],
+    ['90s POIRET 前身頃 切り替え 総柄 長袖シャツ', [], 'title-must'], ['ポール ポワレ PAUL POIRET a Paris スパンコールワンピース', ['poiret']], ['Poiret Paris 2019 silk dress', ['poiret']],
     // looking like, not being
     ['Rick Owens style leather jacket 2020', [], 'style-of'], ['Rick Owens inspired boots 2020', [], 'style-of'], ['inspired by Rick Owens 2020 boots', [], 'style-of'],
     ['Guidi like boots', [], 'style-of'], ['Guidi like new boots', ['guidi']], ['Rick Owens type boots 2020', [], 'style-of'],
@@ -649,6 +656,16 @@ await group('titles: years from 1950 to this year, seasons, decades, claims, num
     ['Guidi perfume 50ml', 'not-garment'], ['Guidi eau de parfum', 'not-garment'], ['ブランド不明 ブーツ', 'not-brand'], ['WTB guidi boots', 'wanted']])
     A.equal(excludeReason(t), why, t);
   A.equal(excludeReason('Maison Margiela Replica sneakers', { replicaLine: true }), null);
+  // printed matter, skin care, trading cards, sheet music (the first day's reading, 2026-10-20) — and what stays
+  const ex = (t, cat) => classify({ title: t, cat }).exclude || null;
+  for (const t of ['Rick Owens Lookbook - FW15 Mens Sphinx', 'Issey Miyake Men autumn /winter 2016 catalog lookbook', 'Rick Owens Rizzoli Hardcover Book 2011',
+    'アンダーカバー 非売品 2018ss ルックブック メンズ', 'ヨウジヤマモト 2023年 秋冬コレクション カタログ', 'FORNASETTI 洋書', 'Paul Poiret and Mariano Fortuny 図録',
+    '●ポワレ M´EMOIRE DE LA MODE 光琳社', 'MEMOIRE DE LA MODE POIRET ポワレ', 'コペルニカ 化粧水', '遊戯王 白の聖女エクレシア スーパー BODE', '楽譜 ピアノソロ ショパン ノクターン集 Zimmermann編'])
+    A.equal(ex(t), 'not-garment', t);
+  for (const [t, cat] of [['Undercover SS13 Lookbook Leopard Panel Shirt'], ['Undercover AW03 Catalogue Wallet'], ['SACAI 2023 book shelf print pleated dress JP1 S'],
+    ['Dries Van Noten FW22 Lookbook Leopard Print Merino Wool Card', 'top'], ['コムデギャルソン カタログ掲載 2004AW ジャケット'], ['A Cold Wall Foundation T-Shirt Big Logo Pink'],
+    ['Juun.J ファンデーション ベースボールキャップ'], ['Bode Color Book Blanket Stitch Shirt'], ['展覧会限定 Tシャツ Yohji Yamamoto']])
+    A.equal(ex(t, cat), null, t);
 });
 await group('titles: 354 real titles (CCP, 2026-09-27) read the same, and no year out of range', () => {
   const corpus = JSON.parse(readFileSync(new URL('./test_corpus.json', import.meta.url), 'utf8')).items;

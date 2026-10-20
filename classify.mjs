@@ -15,7 +15,9 @@
 //   wanted       구매) · 구해요 · WTB — someone asking to buy
 //   rental       렌탈 · レンタル
 //   fake         レプリカ · replica · 가품 (Maison Margiela's own Replica line is not one)
-//   not-garment  perfume, cosmetics, records and books, car parts, an empty box
+//   not-garment  perfume, cosmetics, records and books, car parts, an empty box,
+//                trading cards, sheet music; printed matter (a lookbook, a catalogue)
+//                that names nothing to wear or carry
 //
 // Before any number is read as a year, the title is cleared of the numbers
 // that are not years: prices (定価612.700円 · 参考上代998800円 · ¥19,800),
@@ -51,6 +53,10 @@ const NOT_GARMENT = new RegExp([
   '(?<![a-z0-9])(?:cd|dvd|lp|blu-?ray|vhs)(?![a-z0-9])', 'レコード(?!\\s*バッグ)', '(?<![a-z])(?:vinyl\\s*record|magazine|poster)(?![a-z])', '雑誌(?!\\s*(?:掲載|着用|で))', '写真集', '書籍', '作品集', 'ポスター(?!\\s*バッグ)',
   '年式', '車検', '走行距離', 'エンジン(?!ニア)', 'ディーゼル\\s*(?:車|エンジン|発電機|ポンプ)', '(?:フロント|リア)\\s*アンダー\\s*カバー', 'ホイール', 'タイヤ', 'バンパー', 'ラジエーター',
   '(?<![a-z])(?:engine|forklift)(?![a-z])',          // not "tractor": a tractor sole is a boot's
+  // the first day's reading (2026-10-20): skin care (Copernica's toner, a Korean POIRET's), Yu-Gi-Oh! cards
+  // (the BODE-JP038 set), sheet music (Zimmermann the publisher). Not "foundation": A-Cold-Wall*'s line
+  '化粧水', '美容液', '乳液', '化粧下地', 'メイク\\s*アップ\\s*ベース', 'スキンケア', '(?<![a-z])skin\\s*care(?![a-z])', '스킨케어',
+  '遊戯王', '(?<![ァ-ヶー])トレカ(?![ァ-ヶー])', 'トレーディング\\s*カード', 'ポケモン\\s*カード', '(?<![a-z])(?:yu-?gi-?oh|trading\\s*cards?)(?![a-z])', '楽譜',
   '空箱', '箱のみ', '袋のみ', '紙袋のみ', 'ショッパーのみ', 'ハンガーのみ', 'タグのみ', '(?<![a-z])(?:empty\\s*box|box\\s*only|dust\\s*bag\\s*only)(?![a-z])',
 ].join('|'), 'i');
 
@@ -251,10 +257,23 @@ export function size(title, sec = section(title)) {
 // new, unworn — as the title says it (新品同様 "like new" is used)
 export const NEW_RE = /新品(?!\s*同様|\s*に近い)|未使用(?!\s*に近い)|未着用|デッドストック|deadstock|\bbnwt\b|\bnwt\b|new\s*with\s*tags|unworn|새상품|새\s*상품|미착용/i;
 
+// printed matter: a lookbook, a catalogue, a book, an exhibition's catalogue. A collection's
+// catalogue carries its season and so would read as a dated piece. It is left out when neither
+// the title nor the seller's category names a thing to wear or carry: "Undercover SS13 Lookbook
+// Leopard Panel Shirt", "AW03 Catalogue Wallet", a dress with a book-shelf print stay.
+const PRINTED = new RegExp([
+  '(?<![a-z])(?:look\\s*-?\\s*books?|catalog(?:ue)?s?|booklets?|books?|hard\\s*cover|hardback|paperback|zine)(?![a-z])',
+  'ルックブック', 'カタログ', 'ブランドブック', 'アートブック', '洋書', '図録', '初版', '展覧会', '衣装展', '美術館', 'ムック',
+  'm[^a-z0-9]{0,3}e?moire\\s*de\\s*la\\s*mode', '룩북', '카탈로그', '도록', '화보집',     // Mémoire de la mode: a series of books on couturiers
+].join('|'), 'i');
+const wearable = (s) => SECTION.some(([, re]) => re.test(s));
+export const printed = (title, cat) => { const t = nk(title); return PRINTED.test(t) && !wearable(t) && !(cat && wearable(nk(cat))); };
+
 // item: { title, cat?, size?, replicaLine? } — which brand it is has been settled (brands.mjs)
 export function classify(item) {
   const why = excludeReason(item.title, { replicaLine: !!item.replicaLine });
   if (why) return { exclude: why };
+  if (printed(item.title, item.cat)) return { exclude: 'not-garment' };
   const e = era(item.title);
   // what the title does not say, the category the seller filed it under may
   // (Rakuma: 靴/シューズ(ブーツ) · Grailed: footwear.boots); the title comes first

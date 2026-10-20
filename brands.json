@@ -527,7 +527,8 @@
    "latin": [
     "coperni"
    ],
-   "noisy": false
+   "noisy": true,
+   "note": "the whole word only (2026-10-20): COPERNICA and コペルニカ are a skin-care brand, コペルニクス a Yu-Gi-Oh! card"
   },
   {
    "slug": "cornelian-taurus",
@@ -1618,7 +1619,14 @@
    "latin": [
     "poiret"
    ],
-   "noisy": true
+   "noisy": true,
+   "titleMust": [
+    "paul poiret",
+    "ポール ポワレ",
+    "paris",
+    "パリ"
+   ],
+   "note": "Paul Poiret or Paris must be written too (2026-10-20): Liberty's Poiret print, a Japanese label POIRET, Korean skin care and other houses' models (Merlette, Black Sign) share the name"
   },
   {
    "slug": "preciously",
