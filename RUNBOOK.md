@@ -1,6 +1,6 @@
 # ARCHIVE INDEX — Brands · 일간 발행 지침
 
-L'Eclaireur 패션 브랜드 131개의 중고 매물을 매일 모아 브랜드별 데이터로 발행한다.
+L'Eclaireur 패션 브랜드 130개의 중고 매물을 매일 모아 브랜드별 데이터로 발행한다(131개에서 07A를 ROK 요청으로 뺌, 2026-10-20).
 Carol Christian Poell 인덱스(`rozykuzy/ccp`)의 수집기·대장·조판을 여러 브랜드로 넓힌 것이다. 같은 원칙, 같은 코드.
 
 - **저장소** `rozykuzy/BRAND` (공개). **데이터** https://rozykuzy.github.io/BRAND/ — `index.json` · `b/<slug>.json` · `new.json`
@@ -109,7 +109,7 @@ CCP의 `classify.mjs` 에서 CCP 전용(이름, 모델 번호 `LM/2498` 등, CCP
 
 ## 내보내는 것
 
-- `site/index.json` — `{ built, today, date, rates, counts, sources, brands: [131개] }`. 브랜드마다 `s` slug · `n` 이름 · `c` 카드 수 · `nw` 오늘 신규 카드 · `big` · `so` 낙찰 기록 수 · `srcs` 판매처별 매물 수 · `ph` 사진 2장까지(연도 표기 카드 먼저, 새것 먼저) · `upd` 그 브랜드 매물을 마지막으로 본 날 · `q` `{en, ja, ko}` 검색어. Carol Christian Poell은 `ex: "ccp"` 만
+- `site/index.json` — `{ built, today, date, rates, counts, sources, brands: [130개] }`. 브랜드마다 `s` slug · `n` 이름 · `c` 카드 수 · `nw` 오늘 신규 카드 · `big` · `so` 낙찰 기록 수 · `srcs` 판매처별 매물 수 · `ph` 사진 2장까지(연도 표기 카드 먼저, 새것 먼저) · `upd` 그 브랜드 매물을 마지막으로 본 날 · `q` `{en, ja, ko}` 검색어. Carol Christian Poell은 `ex: "ccp"` 만
 - `site/b/<slug>.json` — CCP 페이지의 데이터와 같은 모양(`issue` · `date` · `counts` · `sections` · `sellers` · `yearSpan` · `sources` · `items[]` 의 `t k r l i s f c e q qk z p u h w wd ab ae aeq x ls n g v so sk …`) + `brand: {s, n, big}`. 같은 제목 묶기도 CCP와 같다. 브랜드 130개 모두(0건이어도)
 - `site/new.json` — `{ today, items }` 오늘 신규 카드, 새것 먼저, 400장까지. 카드마다 `b`(첫 브랜드), 여러 브랜드면 `bs`
 - `data/mail_meta.json` — `{ date, fresh, brands: [[이름, 수], …] }` 신규 많은 순 8개. `data/mail_lines.txt` — 한 줄에 하나(`Rick Owens 신규 12`)
@@ -180,6 +180,8 @@ node test.mjs && node collect.mjs --only=yahoo --brands=guidi,uma-wang,rick-owen
 - **예약 시각**(10/20): GitHub이 예약 실행을 늦게 시작한다 — `rozykuzy/ccp` 최근 열흘 2~6시간, 이 저장소의 첫 예약(06:41)은 09:37에 시작. 오전에 00:07로 옮겼다가 같은 날 ROK가 **12:00 KST** 로 정했다(첫 예약 10/20 12:00). 통합 메일은 전날 빌드를 싣는다
 - **뒤에 줄 선 실행은 브랜치 끝에서 시작한다**(10/20): 전에는 줄 설 때의 커밋을 받아 앞 실행의 대장을 못 보고, 마지막 push에서 충돌로 실패했을 것이다(`checkout` 에 `ref: github.ref_name`)
 - 첫 데이터에서 고친 것(10/20): 인쇄물 약 200건(요지 야마모토 83 · 이세이 미야케 37 · 릭 오웬스 18 …), 유희왕 카드 82건(Bode — 카드 세트 번호 `BODE-JP038`), Coperni 99건(Copernicus · Copernica · Copernicia), Poiret 37건(위 titleMust), Zimmermann 악보·책 7건. 옛 코드와 새 코드로 같은 대장을 읽어 비교: 424건 빠짐, 새로 들어온 것 0, 분류가 바뀐 것 0
+
+- **07A 뺌**(ROK, 10/20): `brands.json` 에서 지워 130개. 대장의 07A 매물은 그대로 두고(대장은 줄지 않는다) 읽을 때 어느 브랜드에도 들지 않는다. 사이트의 `?brand=07a` 는 브랜드 목록으로 간다
 
 ## 확인하지 못한 것 (2026-10-19)
 

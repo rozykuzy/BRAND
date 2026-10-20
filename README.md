@@ -2,12 +2,12 @@
 
 데이터 https://rozykuzy.github.io/BRAND/ · 보는 곳 https://rozykuzy.github.io/?view=brands
 
-L'Eclaireur 패션 브랜드 131개(`brands.json`)의 중고 매물. 매일 12:00 KST 수집·정리·발행(`.github/workflows/daily.yml`).
+L'Eclaireur 패션 브랜드 130개(`brands.json`, 07A는 ROK 요청으로 뺌 — 2026-10-20)의 중고 매물. 매일 12:00 KST 수집·정리·발행(`.github/workflows/daily.yml`).
 Carol Christian Poell은 따로 있는 인덱스(`rozykuzy/ccp`)를 그대로 쓴다.
 
 | 파일 | 하는 일 |
 |---|---|
-| `brands.json` | 브랜드 131개 — 이름 · Grailed 디자이너 이름 · 일본어/한국어 표기 · 큰 브랜드 · 흔한 낱말 표시 |
+| `brands.json` | 브랜드 130개 — 이름 · Grailed 디자이너 이름 · 일본어/한국어 표기 · 큰 브랜드 · 흔한 낱말 표시 |
 | `brands.mjs` | 상품명이 어느 브랜드의 매물인지 읽는다 · 검색어 목록(브랜드마다 라틴 이름 + 일본어 표기) |
 | `collect.mjs` | 모든 수집기 → `data/raw/*.json`. `--only` · `--brands` · `--max-pages` 로 일부만 |
 | `sources.mjs` | 야후옥션(진행 · 낙찰) · 라쿠마 · 야후 플리마 · 세컨드스트리트 검색 페이지 |

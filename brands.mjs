@@ -1,4 +1,4 @@
-// The 131 brands of brands.json, and how a listing is read for them.
+// The brands of brands.json (130 — 07A left out at ROK's word, 2026-10-20), and how a listing is read for them.
 //
 // A search page also returns look-alikes (descriptions that mention a name, "…風",
 // "inspired by …"), so on a search page a listing belongs to a brand only when its

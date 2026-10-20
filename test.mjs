@@ -416,9 +416,9 @@ await group('ebay: the seller\'s currency, skipped without keys, one search a br
 });
 
 // ── the registry ─────────────────────────────────────────────────────────
-await group('registry: 131 brands, unique slugs, big brands on Grailed, searches', () => {
-  A.equal(BRANDS.length, 131); A.equal(new Set(BRANDS.map((b) => b.slug)).size, 131);
-  A.equal(ACTIVE.length, 130); A.deepEqual(BRANDS.filter((b) => b.existing).map((b) => [b.slug, b.existing]), [['carol-christian-poell', 'ccp']]);
+await group('registry: 130 brands (07A left out), unique slugs, big brands on Grailed, searches', () => {
+  A.equal(BRANDS.length, 130); A.equal(new Set(BRANDS.map((b) => b.slug)).size, 130); A.equal(BRANDS.some((b) => b.slug === '07a'), false);
+  A.equal(ACTIVE.length, 129); A.deepEqual(BRANDS.filter((b) => b.existing).map((b) => [b.slug, b.existing]), [['carol-christian-poell', 'ccp']]);
   A.equal(BRANDS.filter((b) => b.big).length, 20);
   for (const b of BRANDS) {
     A.ok(/^[a-z0-9-]+$/.test(b.slug) && b.name && b.latin && (b.latin[0] || b.pages === false), b.slug);
@@ -465,7 +465,7 @@ await group('brands in titles: names, noisy words, look-alikes, several brands, 
     // noisy brands: the whole word, never inside another
     ['BOTH Paris Gao high sneakers 42', ['both']], ['bothersome tee', [], 'no-brand'], ['Herno down jacket', ['herno']], ['hernon jacket', [], 'no-brand'],
     ['sacai 2019AW bomber', ['sacai']], ['Peter Do blazer', ['peter-do']], ['peter dog collar', [], 'no-brand'], ['aalto knit', [], 'no-brand'],
-    ['aaltonen chair', [], 'no-brand'], ['07A tee', ['07a']], ['rp07a1 tee', [], 'no-brand'],
+    ['aaltonen chair', [], 'no-brand'], ['07A tee', [], 'no-brand'], ['rp07a1 tee', [], 'no-brand'],
     // the first day's reading (2026-10-20): Copernica, Copernicus and a Yu-Gi-Oh! set are not Coperni or Bode;
     // Poiret needs Paul Poiret or Paris written too (Liberty's Poiret print, a Japanese label, other houses' models)
     ['COPERNICA プレストパウダー', [], 'no-brand'], ['コペルニカ ミルク', [], 'no-brand'], ['コペルニクス 天文 本', [], 'no-brand'],
@@ -897,10 +897,10 @@ await group('build: outputs — index.json, b/<slug>.json, new.json, index.html,
         { yahoo: { ok: true, complete: true }, grailed: { ok: true, complete: true } });
   o = B.run('2026-10-02'); A.deepEqual([o.issue, o.fresh], [2, 2]);
   o = B.run('2026-10-02'); A.equal(o.issue, 2);                  // a second run the same day is the same issue
-  // index.json: all 131, CCP by reference only
+  // index.json: all 130, CCP by reference only
   const ix = B.json('site/index.json');
   A.deepEqual(Object.keys(ix).sort(), ['brands', 'built', 'counts', 'date', 'rates', 'sources', 'today'].sort());
-  A.deepEqual([ix.today, ix.date, ix.brands.length], ['2026-10-02', '2026.10.02', 131]);
+  A.deepEqual([ix.today, ix.date, ix.brands.length], ['2026-10-02', '2026.10.02', 130]);
   A.deepEqual(ix.brands.map((e) => e.s), BRANDS.map((b) => b.slug));
   A.deepEqual(ix.brands.find((e) => e.s === 'carol-christian-poell'), { s: 'carol-christian-poell', n: 'Carol Christian Poell', ex: 'ccp' });
   const gd = ix.brands.find((e) => e.s === 'guidi'), ro = ix.brands.find((e) => e.s === 'rick-owens'), um = ix.brands.find((e) => e.s === 'uma-wang');
@@ -913,7 +913,7 @@ await group('build: outputs — index.json, b/<slug>.json, new.json, index.html,
   A.ok(ix.sources.some((s) => s.name === '야후옥션' && s.seen === '2026-10-02'));
   // b/<slug>.json: the CCP page's shape, plus the brand
   const files = readdirSync(join(B.site, 'b')).sort();
-  A.equal(files.length, 130); A.equal(files.includes('carol-christian-poell.json'), false);
+  A.equal(files.length, 129); A.equal(files.includes('carol-christian-poell.json'), false);
   const P = B.json('site/b/guidi.json');
   A.deepEqual(Object.keys(P).sort(), [...PAYLOAD_KEYS].sort());
   A.deepEqual(Object.keys(P.counts).sort(), ['changed', 'entries', 'fresh', 'gone', 'grouped', 'items', 'sold'].sort());
