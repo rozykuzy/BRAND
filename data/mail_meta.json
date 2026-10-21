@@ -1,5 +1,38 @@
 {
- "date": "2026-10-20",
- "fresh": 0,
- "brands": []
+ "date": "2026-10-21",
+ "fresh": 5004,
+ "brands": [
+  [
+   "Yohji Yamamoto",
+   358
+  ],
+  [
+   "DRKSHDW",
+   312
+  ],
+  [
+   "Sacai",
+   265
+  ],
+  [
+   "Saint Laurent",
+   244
+  ],
+  [
+   "Stella McCartney",
+   238
+  ],
+  [
+   "Courrèges",
+   237
+  ],
+  [
+   "Nina Ricci",
+   230
+  ],
+  [
+   "Rick Owens",
+   215
+  ]
+ ]
 }

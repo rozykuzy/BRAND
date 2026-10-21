@@ -1,56 +1,56 @@
 {
- "day": "2026-10-20",
- "issue": 1,
+ "day": "2026-10-21",
+ "issue": 2,
  "rates": {
-  "USD": 1329,
+  "USD": 1328,
   "GBP": 1772,
-  "EUR": 1492,
+  "EUR": 1489,
   "JPY": 840,
   "more": {
-   "AUD": 928.77,
-   "BRL": 263.51,
-   "CAD": 944.64,
-   "CHF": 1611.44,
-   "CNY": 199,
-   "CZK": 61.31,
-   "DKK": 199.65,
-   "HKD": 169.4,
-   "HUF": 4.11,
+   "AUD": 927.49,
+   "BRL": 264.32,
+   "CAD": 945.02,
+   "CHF": 1612.18,
+   "CNY": 198.84,
+   "CZK": 61.21,
+   "DKK": 199.23,
+   "HKD": 169.18,
+   "HUF": 4.08,
    "IDR": 0.07,
-   "ILS": 427.73,
-   "INR": 14,
-   "ISK": 10.94,
-   "MXN": 71.93,
-   "MYR": 325.66,
-   "NOK": 141.38,
-   "NZD": 754.02,
-   "PHP": 21.1,
-   "PLN": 341.4,
-   "RON": 280.18,
-   "SEK": 134.4,
-   "SGD": 1039.46,
-   "THB": 39.62,
-   "TRY": 26.83,
-   "ZAR": 80.9
+   "ILS": 427.27,
+   "INR": 13.99,
+   "ISK": 10.93,
+   "MXN": 71.69,
+   "MYR": 325.23,
+   "NOK": 141.5,
+   "NZD": 754.09,
+   "PHP": 21.03,
+   "PLN": 340.24,
+   "RON": 279.35,
+   "SEK": 133.88,
+   "SGD": 1038.62,
+   "THB": 39.46,
+   "TRY": 26.78,
+   "ZAR": 80.6
   },
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "from": "ECB"
  },
  "stats": {
-  "added": 4561,
-  "back": 0,
-  "changed": 0,
-  "drops": 0,
-  "rises": 0,
+  "added": 5030,
+  "back": 8,
+  "changed": 2458,
+  "drops": 2115,
+  "rises": 343,
   "recur": 0,
-  "vanished": 52,
-  "ended": 43,
+  "vanished": 531,
+  "ended": 521,
   "held": [],
-  "notOurs": 227004,
-  "hidden": 181,
+  "notOurs": 222800,
+  "hidden": 154,
   "flood": []
  },
- "soldAdded": 32,
+ "soldAdded": 127,
  "sources": {
   "ebay": {
    "ok": false,
@@ -59,7 +59,7 @@
   "second": {
    "ok": false,
    "refused": true,
-   "error": "www.2ndstreet.jp: robots.txt answered with an HTML page — not reading the site",
+   "error": "www.2ndstreet.jp: robots.txt answered HTTP 403 — not reading the site",
    "requests": 1,
    "sec": 1
   },
@@ -73,13 +73,13 @@
   "fruits": {
    "ok": true,
    "requests": 130,
-   "read": 2540,
-   "kept": 1885,
+   "read": 2587,
+   "kept": 1954,
    "complete": false,
    "pages": 129,
    "missing": 45,
    "failed": 0,
-   "sec": 331
+   "sec": 324
   },
   "fruits_check": {
    "ok": true,
@@ -91,62 +91,62 @@
   "rakuma": {
    "ok": true,
    "requests": 407,
-   "read": 11983,
-   "kept": 4904,
+   "read": 11965,
+   "kept": 4888,
    "complete": false,
    "searches": 203,
    "cut": 203,
    "failed": 0,
    "pages": 406,
-   "sec": 1016
+   "sec": 1017
   },
   "yahoo": {
    "ok": true,
    "requests": 362,
-   "read": 9928,
-   "kept": 5821,
+   "read": 9913,
+   "kept": 5864,
    "complete": false,
    "searches": 194,
    "cut": 134,
    "failed": 9,
    "pages": 334,
-   "sec": 1060
+   "sec": 1062
   },
   "yahoo_sold": {
    "ok": true,
    "requests": 231,
-   "read": 4282,
-   "kept": 2339,
+   "read": 4283,
+   "kept": 2336,
    "complete": false,
    "searches": 189,
    "cut": 121,
    "failed": 14,
    "pages": 189,
-   "sec": 826
+   "sec": 825
   },
   "mercari": {
    "ok": true,
    "requests": 204,
-   "read": 13053,
-   "kept": 7080,
+   "read": 12987,
+   "kept": 6987,
    "complete": false,
    "searches": 203,
    "cut": 145,
    "pages": 203,
-   "sec": 2099
+   "sec": 2039
   },
   "grailed": {
    "ok": true,
    "requests": 1501,
-   "read": 336086,
-   "kept": 124295,
+   "read": 331983,
+   "kept": 124407,
    "complete": false,
    "searches": 85,
    "cut": 1,
    "calls": 1500,
    "capped": true,
    "unread": 6,
-   "sec": 3801
+   "sec": 3784
   }
  },
  "hosts": {
@@ -159,10 +159,10 @@
   "mnrwefss2q-dsn.algolia.net": 1501
  },
  "counts": {
-  "entries": 153148,
-  "sold": 1802,
+  "entries": 158178,
+  "sold": 1929,
   "brands": 121,
-  "cards": 152152,
-  "fresh": 0
+  "cards": 156602,
+  "fresh": 5004
  }
 }
