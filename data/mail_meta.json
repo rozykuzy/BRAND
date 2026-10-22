@@ -1,38 +1,38 @@
 {
- "date": "2026-10-21",
- "fresh": 5004,
+ "date": "2026-10-22",
+ "fresh": 6088,
  "brands": [
   [
-   "Yohji Yamamoto",
-   358
-  ],
-  [
-   "DRKSHDW",
-   312
-  ],
-  [
-   "Sacai",
-   265
-  ],
-  [
-   "Saint Laurent",
-   244
-  ],
-  [
-   "Stella McCartney",
-   238
-  ],
-  [
-   "Courrèges",
-   237
-  ],
-  [
-   "Nina Ricci",
-   230
+   "Balenciaga",
+   2066
   ],
   [
    "Rick Owens",
-   215
+   242
+  ],
+  [
+   "Sacai",
+   241
+  ],
+  [
+   "Courrèges",
+   235
+  ],
+  [
+   "J.W Anderson",
+   197
+  ],
+  [
+   "Stella McCartney",
+   191
+  ],
+  [
+   "DRKSHDW",
+   185
+  ],
+  [
+   "Saint Laurent",
+   159
   ]
  ]
 }
