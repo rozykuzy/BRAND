@@ -1,6 +1,6 @@
 {
- "startedAt": "2026-10-23T08:03:38.416Z",
- "day": "2026-10-23",
+ "startedAt": "2026-10-24T07:42:26.752Z",
+ "day": "2026-10-24",
  "args": {
   "only": null,
   "brands": null,
@@ -30,13 +30,13 @@
   "fruits": {
    "ok": true,
    "requests": 130,
-   "read": 2514,
-   "kept": 1930,
+   "read": 2595,
+   "kept": 1966,
    "complete": false,
    "pages": 129,
    "missing": 45,
    "failed": 0,
-   "sec": 332
+   "sec": 323
   },
   "fruits_check": {
    "ok": true,
@@ -47,8 +47,8 @@
   "rakuma": {
    "ok": true,
    "requests": 407,
-   "read": 11902,
-   "kept": 4905,
+   "read": 11924,
+   "kept": 4896,
    "complete": false,
    "searches": 203,
    "cut": 203,
@@ -58,56 +58,56 @@
   },
   "yahoo": {
    "ok": true,
-   "requests": 362,
-   "read": 9923,
-   "kept": 5888,
+   "requests": 363,
+   "read": 9941,
+   "kept": 5919,
    "complete": false,
    "searches": 194,
-   "cut": 135,
+   "cut": 136,
    "failed": 9,
-   "pages": 334,
-   "sec": 1062
+   "pages": 335,
+   "sec": 1061
   },
   "yahoo_sold": {
    "ok": true,
    "requests": 231,
-   "read": 4282,
-   "kept": 2335,
+   "read": 4274,
+   "kept": 2313,
    "complete": false,
    "searches": 189,
    "cut": 121,
    "failed": 14,
    "pages": 189,
-   "sec": 824
+   "sec": 817
   },
   "mercari": {
    "ok": true,
    "requests": 204,
-   "read": 13711,
-   "kept": 7027,
+   "read": 13775,
+   "kept": 6993,
    "complete": false,
    "searches": 203,
    "cut": 145,
    "pages": 203,
-   "sec": 2077
+   "sec": 1978
   },
   "grailed": {
    "ok": true,
    "requests": 1501,
-   "read": 315209,
-   "kept": 123871,
+   "read": 304269,
+   "kept": 123177,
    "complete": false,
    "searches": 85,
    "cut": 1,
    "calls": 1500,
    "capped": true,
    "unread": 6,
-   "sec": 3793
+   "sec": 3783
   }
  },
- "finishedAt": "2026-10-23T09:06:50.985Z",
+ "finishedAt": "2026-10-24T08:45:29.274Z",
  "hosts": {
-  "auctions.yahoo.co.jp": 593,
+  "auctions.yahoo.co.jp": 594,
   "jp.mercari.com": 1,
   "fril.jp": 407,
   "paypayfleamarket.yahoo.co.jp": 17,
