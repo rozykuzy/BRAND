@@ -1,6 +1,6 @@
 {
- "startedAt": "2026-10-28T09:06:08.595Z",
- "day": "2026-10-28",
+ "startedAt": "2026-10-29T09:04:07.933Z",
+ "day": "2026-10-29",
  "args": {
   "only": null,
   "brands": null,
@@ -25,13 +25,13 @@
    "refused": true,
    "error": "HTTP 429 from paypayfleamarket.yahoo.co.jp",
    "requests": 17,
-   "sec": 65
+   "sec": 62
   },
   "fruits": {
    "ok": true,
    "requests": 130,
    "read": 2599,
-   "kept": 1953,
+   "kept": 1947,
    "complete": false,
    "pages": 129,
    "missing": 45,
@@ -47,8 +47,8 @@
   "rakuma": {
    "ok": true,
    "requests": 407,
-   "read": 11980,
-   "kept": 5003,
+   "read": 11933,
+   "kept": 5039,
    "complete": false,
    "searches": 203,
    "cut": 203,
@@ -58,21 +58,21 @@
   },
   "yahoo": {
    "ok": true,
-   "requests": 365,
-   "read": 9969,
-   "kept": 5915,
+   "requests": 362,
+   "read": 9971,
+   "kept": 5952,
    "complete": false,
-   "searches": 193,
-   "cut": 133,
-   "failed": 10,
+   "searches": 194,
+   "cut": 134,
+   "failed": 9,
    "pages": 334,
-   "sec": 1081
+   "sec": 1056
   },
   "yahoo_sold": {
    "ok": true,
    "requests": 231,
-   "read": 4292,
-   "kept": 2329,
+   "read": 4303,
+   "kept": 2341,
    "complete": false,
    "searches": 189,
    "cut": 120,
@@ -83,31 +83,31 @@
   "mercari": {
    "ok": true,
    "requests": 204,
-   "read": 13640,
-   "kept": 6910,
+   "read": 13570,
+   "kept": 6907,
    "complete": false,
    "searches": 203,
    "cut": 146,
    "pages": 203,
-   "sec": 2024
+   "sec": 2059
   },
   "grailed": {
    "ok": true,
    "requests": 1501,
-   "read": 307019,
-   "kept": 127773,
+   "read": 295583,
+   "kept": 124687,
    "complete": false,
    "searches": 85,
    "cut": 1,
    "calls": 1500,
    "capped": true,
    "unread": 6,
-   "sec": 3789
+   "sec": 3795
   }
  },
- "finishedAt": "2026-10-28T10:09:17.381Z",
+ "finishedAt": "2026-10-29T10:07:23.438Z",
  "hosts": {
-  "auctions.yahoo.co.jp": 596,
+  "auctions.yahoo.co.jp": 593,
   "jp.mercari.com": 1,
   "fril.jp": 407,
   "paypayfleamarket.yahoo.co.jp": 17,
