@@ -1,6 +1,6 @@
 {
- "startedAt": "2026-10-31T09:02:38.487Z",
- "day": "2026-10-31",
+ "startedAt": "2026-11-01T09:52:25.589Z",
+ "day": "2026-11-01",
  "args": {
   "only": null,
   "brands": null,
@@ -25,13 +25,13 @@
    "refused": true,
    "error": "HTTP 429 from paypayfleamarket.yahoo.co.jp",
    "requests": 17,
-   "sec": 62
+   "sec": 63
   },
   "fruits": {
    "ok": true,
    "requests": 130,
-   "read": 2600,
-   "kept": 1948,
+   "read": 2601,
+   "kept": 1944,
    "complete": false,
    "pages": 129,
    "missing": 45,
@@ -47,20 +47,20 @@
   "rakuma": {
    "ok": true,
    "requests": 407,
-   "read": 11954,
-   "kept": 4959,
+   "read": 11960,
+   "kept": 4932,
    "complete": false,
    "searches": 203,
    "cut": 203,
    "failed": 0,
    "pages": 406,
-   "sec": 1016
+   "sec": 1017
   },
   "yahoo": {
    "ok": true,
    "requests": 364,
-   "read": 9926,
-   "kept": 5939,
+   "read": 9939,
+   "kept": 5928,
    "complete": false,
    "searches": 194,
    "cut": 136,
@@ -71,41 +71,41 @@
   "yahoo_sold": {
    "ok": true,
    "requests": 231,
-   "read": 4315,
-   "kept": 2370,
+   "read": 4318,
+   "kept": 2381,
    "complete": false,
    "searches": 189,
-   "cut": 120,
+   "cut": 123,
    "failed": 14,
    "pages": 189,
-   "sec": 812
+   "sec": 811
   },
   "mercari": {
    "ok": true,
    "requests": 204,
-   "read": 13649,
-   "kept": 6976,
+   "read": 13709,
+   "kept": 7036,
    "complete": false,
    "searches": 203,
-   "cut": 145,
+   "cut": 146,
    "pages": 203,
-   "sec": 1952
+   "sec": 2072
   },
   "grailed": {
    "ok": true,
    "requests": 1501,
-   "read": 294935,
-   "kept": 111083,
+   "read": 341746,
+   "kept": 110785,
    "complete": false,
-   "searches": 85,
-   "cut": 2,
+   "searches": 82,
+   "cut": 1,
    "calls": 1500,
    "capped": true,
-   "unread": 6,
-   "sec": 3779
+   "unread": 9,
+   "sec": 3802
   }
  },
- "finishedAt": "2026-10-31T10:05:37.027Z",
+ "finishedAt": "2026-11-01T10:55:47.215Z",
  "hosts": {
   "auctions.yahoo.co.jp": 595,
   "jp.mercari.com": 1,
