@@ -1,6 +1,6 @@
 {
- "day": "2026-11-01",
- "issue": 12,
+ "day": "2026-11-02",
+ "issue": 13,
  "rates": {
   "USD": 1335,
   "GBP": 1789,
@@ -37,20 +37,20 @@
   "from": "ECB"
  },
  "stats": {
-  "added": 4109,
-  "back": 492,
-  "changed": 8422,
-  "drops": 7820,
-  "rises": 602,
+  "added": 4275,
+  "back": 320,
+  "changed": 4402,
+  "drops": 4136,
+  "rises": 266,
   "recur": 0,
-  "vanished": 2866,
-  "ended": 751,
+  "vanished": 2187,
+  "ended": 1015,
   "held": [],
-  "notOurs": 246715,
-  "hidden": 143,
+  "notOurs": 212390,
+  "hidden": 123,
   "flood": []
  },
- "soldAdded": 205,
+ "soldAdded": 278,
  "sources": {
   "ebay": {
    "ok": false,
@@ -73,8 +73,8 @@
   "fruits": {
    "ok": true,
    "requests": 130,
-   "read": 2601,
-   "kept": 1944,
+   "read": 2604,
+   "kept": 1957,
    "complete": false,
    "pages": 129,
    "missing": 45,
@@ -85,13 +85,13 @@
    "ok": true,
    "requests": 200,
    "checked": 200,
-   "sec": 500
+   "sec": 501
   },
   "rakuma": {
    "ok": true,
    "requests": 407,
-   "read": 11960,
-   "kept": 4932,
+   "read": 11945,
+   "kept": 5029,
    "complete": false,
    "searches": 203,
    "cut": 203,
@@ -101,55 +101,55 @@
   },
   "yahoo": {
    "ok": true,
-   "requests": 364,
-   "read": 9939,
-   "kept": 5928,
+   "requests": 363,
+   "read": 9838,
+   "kept": 5905,
    "complete": false,
    "searches": 194,
-   "cut": 136,
+   "cut": 133,
    "failed": 9,
-   "pages": 336,
-   "sec": 1059
+   "pages": 335,
+   "sec": 1063
   },
   "yahoo_sold": {
    "ok": true,
    "requests": 231,
-   "read": 4318,
-   "kept": 2381,
+   "read": 4315,
+   "kept": 2379,
    "complete": false,
    "searches": 189,
    "cut": 123,
    "failed": 14,
    "pages": 189,
-   "sec": 811
+   "sec": 819
   },
   "mercari": {
    "ok": true,
    "requests": 204,
-   "read": 13709,
-   "kept": 7036,
+   "read": 13524,
+   "kept": 6943,
    "complete": false,
    "searches": 203,
-   "cut": 146,
+   "cut": 147,
    "pages": 203,
-   "sec": 2072
+   "sec": 2115
   },
   "grailed": {
    "ok": true,
    "requests": 1501,
-   "read": 341746,
-   "kept": 110785,
+   "read": 309862,
+   "kept": 113023,
    "complete": false,
-   "searches": 82,
+   "searches": 85,
    "cut": 1,
    "calls": 1500,
    "capped": true,
-   "unread": 9,
-   "sec": 3802
+   "unread": 6,
+   "sec": 3798
   }
  },
  "hosts": {
-  "auctions.yahoo.co.jp": 595,
+  "auctions.yahoo.co.jp": 594,
   "jp.mercari.com": 1,
   "fril.jp": 407,
   "paypayfleamarket.yahoo.co.jp": 17,
@@ -158,10 +158,10 @@
   "mnrwefss2q-dsn.algolia.net": 1501
  },
  "counts": {
-  "entries": 215376,
-  "sold": 3809,
+  "entries": 219651,
+  "sold": 4087,
   "brands": 121,
-  "cards": 179083,
-  "fresh": 4104
+  "cards": 181480,
+  "fresh": 4266
  }
 }
