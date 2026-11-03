@@ -1,38 +1,38 @@
 {
- "date": "2026-11-02",
- "fresh": 4266,
+ "date": "2026-11-03",
+ "fresh": 4385,
  "brands": [
   [
-   "Maison Margiela",
-   369
-  ],
-  [
-   "Yohji Yamamoto",
-   254
-  ],
-  [
-   "Junya Watanabe",
-   220
-  ],
-  [
-   "Stella McCartney",
-   198
-  ],
-  [
-   "Sacai",
-   189
-  ],
-  [
-   "Comme des Garçons",
-   186
-  ],
-  [
-   "J.W Anderson",
-   181
+   "Song for the Mute",
+   500
   ],
   [
    "Balenciaga",
-   169
+   373
+  ],
+  [
+   "Ann Demeulemeester",
+   245
+  ],
+  [
+   "Sacai",
+   198
+  ],
+  [
+   "J.W Anderson",
+   193
+  ],
+  [
+   "Comme des Garçons",
+   154
+  ],
+  [
+   "Stella McCartney",
+   150
+  ],
+  [
+   "Courrèges",
+   138
   ]
  ]
 }
