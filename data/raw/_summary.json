@@ -1,6 +1,6 @@
 {
- "startedAt": "2026-11-04T10:06:21.479Z",
- "day": "2026-11-04",
+ "startedAt": "2026-11-05T10:00:18.131Z",
+ "day": "2026-11-05",
  "args": {
   "only": null,
   "brands": null,
@@ -30,8 +30,8 @@
   "fruits": {
    "ok": true,
    "requests": 130,
-   "read": 2602,
-   "kept": 1960,
+   "read": 2599,
+   "kept": 1966,
    "complete": false,
    "pages": 129,
    "missing": 45,
@@ -42,13 +42,13 @@
    "ok": true,
    "requests": 200,
    "checked": 200,
-   "sec": 501
+   "sec": 500
   },
   "rakuma": {
    "ok": true,
    "requests": 407,
-   "read": 11938,
-   "kept": 4883,
+   "read": 11947,
+   "kept": 4919,
    "complete": false,
    "searches": 203,
    "cut": 203,
@@ -58,56 +58,56 @@
   },
   "yahoo": {
    "ok": true,
-   "requests": 366,
-   "read": 9966,
-   "kept": 5903,
+   "requests": 364,
+   "read": 9982,
+   "kept": 5893,
    "complete": false,
-   "searches": 193,
+   "searches": 194,
    "cut": 134,
-   "failed": 10,
-   "pages": 335,
-   "sec": 1088
+   "failed": 9,
+   "pages": 336,
+   "sec": 1065
   },
   "yahoo_sold": {
    "ok": true,
    "requests": 231,
-   "read": 4326,
-   "kept": 2380,
+   "read": 4322,
+   "kept": 2383,
    "complete": false,
    "searches": 189,
-   "cut": 122,
+   "cut": 123,
    "failed": 14,
    "pages": 189,
-   "sec": 817
+   "sec": 818
   },
   "mercari": {
    "ok": true,
    "requests": 204,
-   "read": 13749,
-   "kept": 6951,
+   "read": 13721,
+   "kept": 7011,
    "complete": false,
    "searches": 203,
    "cut": 146,
    "pages": 203,
-   "sec": 2096
+   "sec": 1980
   },
   "grailed": {
    "ok": true,
    "requests": 1501,
-   "read": 336432,
-   "kept": 112305,
+   "read": 317466,
+   "kept": 123569,
    "complete": false,
-   "searches": 85,
+   "searches": 88,
    "cut": 1,
    "calls": 1500,
    "capped": true,
-   "unread": 6,
-   "sec": 3801
+   "unread": 3,
+   "sec": 3773
   }
  },
- "finishedAt": "2026-11-04T11:09:42.843Z",
+ "finishedAt": "2026-11-05T11:03:11.081Z",
  "hosts": {
-  "auctions.yahoo.co.jp": 597,
+  "auctions.yahoo.co.jp": 595,
   "jp.mercari.com": 1,
   "fril.jp": 407,
   "paypayfleamarket.yahoo.co.jp": 17,
