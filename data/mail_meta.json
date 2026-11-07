@@ -1,38 +1,38 @@
 {
- "date": "2026-11-06",
- "fresh": 3364,
+ "date": "2026-11-07",
+ "fresh": 3016,
  "brands": [
   [
-   "Saint Laurent",
-   330
-  ],
-  [
-   "DRKSHDW",
-   205
-  ],
-  [
-   "Comme des Garçons",
-   204
-  ],
-  [
    "Nina Ricci",
-   172
+   237
+  ],
+  [
+   "Saint Laurent",
+   197
   ],
   [
    "Sacai",
-   152
+   177
   ],
   [
-   "Courrèges",
-   151
-  ],
-  [
-   "Stella McCartney",
-   137
+   "Comme des Garçons",
+   168
   ],
   [
    "J.W Anderson",
-   125
+   147
+  ],
+  [
+   "Courrèges",
+   143
+  ],
+  [
+   "Stella McCartney",
+   128
+  ],
+  [
+   "Comme des Garçons Play",
+   99
   ]
  ]
 }
