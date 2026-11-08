@@ -1,6 +1,6 @@
 {
- "startedAt": "2026-11-07T09:23:57.610Z",
- "day": "2026-11-07",
+ "startedAt": "2026-11-08T09:40:22.980Z",
+ "day": "2026-11-08",
  "args": {
   "only": null,
   "brands": null,
@@ -25,13 +25,13 @@
    "refused": true,
    "error": "HTTP 429 from paypayfleamarket.yahoo.co.jp",
    "requests": 17,
-   "sec": 66
+   "sec": 63
   },
   "fruits": {
    "ok": true,
    "requests": 130,
-   "read": 2600,
-   "kept": 1976,
+   "read": 2601,
+   "kept": 1974,
    "complete": false,
    "pages": 129,
    "missing": 45,
@@ -42,70 +42,70 @@
    "ok": true,
    "requests": 200,
    "checked": 200,
-   "sec": 501
+   "sec": 500
   },
   "rakuma": {
    "ok": true,
    "requests": 407,
-   "read": 11976,
-   "kept": 4908,
+   "read": 11965,
+   "kept": 4933,
    "complete": false,
    "searches": 203,
    "cut": 203,
    "failed": 0,
    "pages": 406,
-   "sec": 1018
+   "sec": 1016
   },
   "yahoo": {
    "ok": true,
    "requests": 362,
-   "read": 9976,
-   "kept": 5896,
+   "read": 9917,
+   "kept": 5861,
    "complete": false,
    "searches": 194,
-   "cut": 133,
+   "cut": 132,
    "failed": 9,
    "pages": 334,
-   "sec": 1061
+   "sec": 1057
   },
   "yahoo_sold": {
    "ok": true,
    "requests": 231,
-   "read": 4269,
-   "kept": 2391,
+   "read": 4260,
+   "kept": 2370,
    "complete": false,
    "searches": 189,
-   "cut": 122,
+   "cut": 123,
    "failed": 14,
    "pages": 189,
-   "sec": 819
+   "sec": 817
   },
   "mercari": {
    "ok": true,
    "requests": 204,
-   "read": 13762,
-   "kept": 6990,
+   "read": 13702,
+   "kept": 6920,
    "complete": false,
    "searches": 203,
    "cut": 146,
    "pages": 203,
-   "sec": 2084
+   "sec": 1946
   },
   "grailed": {
    "ok": true,
    "requests": 1501,
-   "read": 326029,
-   "kept": 118718,
+   "read": 298347,
+   "kept": 124528,
    "complete": false,
-   "searches": 84,
+   "searches": 85,
    "cut": 1,
    "calls": 1500,
    "capped": true,
-   "unread": 7,
-   "sec": 3800
+   "unread": 6,
+   "sec": 3774
   }
  },
- "finishedAt": "2026-11-07T10:27:17.256Z",
+ "finishedAt": "2026-11-08T10:43:16.488Z",
  "hosts": {
   "auctions.yahoo.co.jp": 593,
   "jp.mercari.com": 1,
