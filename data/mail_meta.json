@@ -1,38 +1,38 @@
 {
- "date": "2026-11-11",
- "fresh": 2869,
+ "date": "2026-11-12",
+ "fresh": 3952,
  "brands": [
   [
+   "Balenciaga",
+   720
+  ],
+  [
    "Saint Laurent",
-   259
+   191
   ],
   [
    "Sacai",
-   176
+   158
   ],
   [
-   "DRKSHDW",
-   130
-  ],
-  [
-   "Maison Margiela",
-   129
-  ],
-  [
-   "Herno",
-   125
+   "Yohji Yamamoto",
+   158
   ],
   [
    "J.W Anderson",
-   120
+   155
   ],
   [
    "Stella McCartney",
-   120
+   148
   ],
   [
-   "Nina Ricci",
-   118
+   "Courrèges",
+   145
+  ],
+  [
+   "Maison Margiela",
+   131
   ]
  ]
 }
