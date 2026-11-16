@@ -1,38 +1,38 @@
 {
- "date": "2026-11-15",
- "fresh": 3725,
+ "date": "2026-11-16",
+ "fresh": 3100,
  "brands": [
   [
-   "Balmain",
-   280
-  ],
-  [
-   "Céline",
-   273
-  ],
-  [
-   "J.W Anderson",
-   200
-  ],
-  [
-   "Balenciaga",
-   194
-  ],
-  [
    "Stella McCartney",
-   179
+   189
   ],
   [
-   "Saint Laurent",
-   170
+   "DRKSHDW",
+   176
   ],
   [
    "Sacai",
    165
   ],
   [
-   "DRKSHDW",
-   153
+   "Saint Laurent",
+   164
+  ],
+  [
+   "J.W Anderson",
+   156
+  ],
+  [
+   "Courrèges",
+   140
+  ],
+  [
+   "Herno",
+   126
+  ],
+  [
+   "Nina Ricci",
+   123
   ]
  ]
 }
