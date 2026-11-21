@@ -1,38 +1,38 @@
 {
- "date": "2026-11-20",
- "fresh": 3354,
+ "date": "2026-11-21",
+ "fresh": 2560,
  "brands": [
   [
-   "Comme des Garçons",
-   491
-  ],
-  [
-   "Yohji Yamamoto",
-   247
+   "J.W Anderson",
+   144
   ],
   [
    "Sacai",
-   163
-  ],
-  [
-   "J.W Anderson",
-   132
-  ],
-  [
-   "Diesel",
-   125
-  ],
-  [
-   "Courrèges",
-   124
-  ],
-  [
-   "Nina Ricci",
-   120
+   131
   ],
   [
    "Stella McCartney",
-   118
+   129
+  ],
+  [
+   "Comme des Garçons",
+   117
+  ],
+  [
+   "Undercover",
+   117
+  ],
+  [
+   "Nina Ricci",
+   112
+  ],
+  [
+   "Courrèges",
+   105
+  ],
+  [
+   "Comme des Garçons Play",
+   96
   ]
  ]
 }
