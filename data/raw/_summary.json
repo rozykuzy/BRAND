@@ -1,6 +1,6 @@
 {
- "startedAt": "2026-11-23T11:28:06.719Z",
- "day": "2026-11-23",
+ "startedAt": "2026-11-24T13:03:12.719Z",
+ "day": "2026-11-24",
  "args": {
   "only": null,
   "brands": null,
@@ -18,99 +18,99 @@
    "refused": true,
    "error": "www.2ndstreet.jp: robots.txt answered HTTP 403 — not reading the site",
    "requests": 1,
-   "sec": 1
+   "sec": 0
   },
   "yfm": {
    "ok": false,
    "refused": true,
    "error": "HTTP 429 from paypayfleamarket.yahoo.co.jp",
-   "requests": 30,
-   "sec": 129
+   "requests": 17,
+   "sec": 62
   },
   "fruits": {
    "ok": true,
    "requests": 130,
-   "read": 2597,
-   "kept": 1959,
+   "read": 2600,
+   "kept": 1955,
    "complete": false,
    "pages": 129,
    "missing": 45,
    "failed": 0,
-   "sec": 324
+   "sec": 326
   },
   "fruits_check": {
    "ok": true,
    "requests": 200,
    "checked": 200,
-   "sec": 500
+   "sec": 505
   },
   "rakuma": {
    "ok": true,
    "requests": 407,
-   "read": 11965,
-   "kept": 4950,
+   "read": 11961,
+   "kept": 4899,
    "complete": false,
    "searches": 203,
    "cut": 203,
    "failed": 0,
    "pages": 406,
-   "sec": 1017
+   "sec": 1016
   },
   "yahoo": {
    "ok": true,
-   "requests": 725,
-   "read": 9926,
-   "kept": 5902,
+   "requests": 707,
+   "read": 10892,
+   "kept": 5947,
    "complete": false,
-   "searches": 194,
-   "cut": 135,
-   "failed": 9,
-   "pages": 336,
-   "sec": 1958
+   "searches": 203,
+   "cut": 142,
+   "failed": 0,
+   "pages": 354,
+   "sec": 1766
   },
   "mercari": {
    "ok": true,
    "requests": 204,
-   "read": 14073,
-   "kept": 7034,
+   "read": 14153,
+   "kept": 7101,
    "complete": false,
    "searches": 203,
    "cut": 149,
    "pages": 203,
-   "sec": 1976
+   "sec": 1961
   },
   "yahoo_sold": {
    "ok": true,
-   "requests": 231,
-   "read": 4270,
-   "kept": 2366,
+   "requests": 203,
+   "read": 5073,
+   "kept": 2335,
    "complete": false,
-   "searches": 189,
-   "cut": 123,
-   "failed": 14,
-   "pages": 189,
-   "sec": 814
+   "searches": 203,
+   "cut": 140,
+   "failed": 0,
+   "pages": 203,
+   "sec": 508
   },
   "grailed": {
    "ok": true,
    "requests": 1501,
-   "read": 330897,
-   "kept": 117911,
+   "read": 334831,
+   "kept": 118255,
    "complete": false,
-   "searches": 84,
+   "searches": 83,
    "cut": 1,
    "calls": 1500,
    "capped": true,
-   "unread": 7,
-   "sec": 3790
+   "unread": 8,
+   "sec": 3780
   }
  },
- "finishedAt": "2026-11-23T12:31:16.691Z",
+ "finishedAt": "2026-11-24T14:06:12.907Z",
  "hosts": {
-  "auctions.yahoo.co.jp": 956,
+  "auctions.yahoo.co.jp": 910,
   "jp.mercari.com": 1,
   "fril.jp": 407,
-  "paypayfleamarket.yahoo.co.jp": 30,
+  "paypayfleamarket.yahoo.co.jp": 17,
   "www.2ndstreet.jp": 1,
   "fruitsfamily.com": 330,
   "mnrwefss2q-dsn.algolia.net": 1501
