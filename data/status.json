@@ -1,56 +1,56 @@
 {
- "day": "2026-11-24",
- "issue": 35,
+ "day": "2026-11-25",
+ "issue": 36,
  "rates": {
-  "USD": 1349,
-  "GBP": 1763,
-  "EUR": 1476,
-  "JPY": 848,
+  "USD": 1345,
+  "GBP": 1761,
+  "EUR": 1474,
+  "JPY": 845,
   "more": {
-   "AUD": 892.52,
-   "BRL": 224.89,
-   "CAD": 939.16,
-   "CHF": 1606.26,
-   "CNY": 202.39,
+   "AUD": 892.95,
+   "BRL": 229.06,
+   "CAD": 938.43,
+   "CHF": 1605.13,
+   "CNY": 201.74,
    "CZK": 60.34,
-   "DKK": 197.4,
-   "HKD": 172.03,
-   "HUF": 3.96,
+   "DKK": 197.21,
+   "HKD": 171.45,
+   "HUF": 3.99,
    "IDR": 0.07,
-   "ILS": 402.67,
-   "INR": 14.52,
-   "ISK": 10.75,
-   "MXN": 70.09,
-   "MYR": 327.16,
-   "NOK": 137.53,
-   "NZD": 734.85,
-   "PHP": 21.12,
-   "PLN": 330.92,
-   "RON": 275.88,
-   "SEK": 131.3,
-   "SGD": 1044.68,
-   "THB": 39.62,
-   "TRY": 26.66,
-   "ZAR": 77.04
+   "ILS": 402.53,
+   "INR": 14.47,
+   "ISK": 10.74,
+   "MXN": 69.78,
+   "MYR": 326.7,
+   "NOK": 137.31,
+   "NZD": 735.6,
+   "PHP": 21.08,
+   "PLN": 330.5,
+   "RON": 275.81,
+   "SEK": 131.36,
+   "SGD": 1042.35,
+   "THB": 39.63,
+   "TRY": 26.56,
+   "ZAR": 76.64
   },
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "from": "ECB"
  },
  "stats": {
-  "added": 2998,
-  "back": 929,
-  "changed": 11527,
-  "drops": 11019,
-  "rises": 508,
+  "added": 3250,
+  "back": 1031,
+  "changed": 8860,
+  "drops": 8346,
+  "rises": 514,
   "recur": 0,
-  "vanished": 2046,
-  "ended": 1039,
+  "vanished": 1423,
+  "ended": 652,
   "held": [],
-  "notOurs": 233797,
-  "hidden": 75,
+  "notOurs": 215098,
+  "hidden": 116,
   "flood": []
  },
- "soldAdded": 262,
+ "soldAdded": 92,
  "sources": {
   "ebay": {
    "ok": false,
@@ -61,72 +61,72 @@
    "refused": true,
    "error": "www.2ndstreet.jp: robots.txt answered HTTP 403 — not reading the site",
    "requests": 1,
-   "sec": 0
+   "sec": 1
   },
   "yfm": {
    "ok": false,
    "refused": true,
    "error": "HTTP 429 from paypayfleamarket.yahoo.co.jp",
    "requests": 17,
-   "sec": 62
+   "sec": 63
   },
   "fruits": {
    "ok": true,
    "requests": 130,
-   "read": 2600,
-   "kept": 1955,
+   "read": 2602,
+   "kept": 1957,
    "complete": false,
    "pages": 129,
    "missing": 45,
    "failed": 0,
-   "sec": 326
+   "sec": 325
   },
   "fruits_check": {
    "ok": true,
    "requests": 200,
    "checked": 200,
-   "sec": 505
+   "sec": 501
   },
   "rakuma": {
    "ok": true,
    "requests": 407,
-   "read": 11961,
-   "kept": 4899,
+   "read": 12009,
+   "kept": 4817,
    "complete": false,
    "searches": 203,
    "cut": 203,
    "failed": 0,
    "pages": 406,
-   "sec": 1016
+   "sec": 1018
   },
   "yahoo": {
    "ok": true,
-   "requests": 707,
-   "read": 10892,
-   "kept": 5947,
+   "requests": 705,
+   "read": 10790,
+   "kept": 5931,
    "complete": false,
    "searches": 203,
-   "cut": 142,
+   "cut": 143,
    "failed": 0,
-   "pages": 354,
-   "sec": 1766
+   "pages": 353,
+   "sec": 1763
   },
   "mercari": {
    "ok": true,
    "requests": 204,
-   "read": 14153,
-   "kept": 7101,
+   "read": 14164,
+   "kept": 7070,
    "complete": false,
    "searches": 203,
    "cut": 149,
    "pages": 203,
-   "sec": 1961
+   "sec": 2072
   },
   "yahoo_sold": {
    "ok": true,
    "requests": 203,
-   "read": 5073,
-   "kept": 2335,
+   "read": 5077,
+   "kept": 2330,
    "complete": false,
    "searches": 203,
    "cut": 140,
@@ -137,19 +137,19 @@
   "grailed": {
    "ok": true,
    "requests": 1501,
-   "read": 334831,
-   "kept": 118255,
+   "read": 312520,
+   "kept": 114673,
    "complete": false,
-   "searches": 83,
+   "searches": 85,
    "cut": 1,
    "calls": 1500,
    "capped": true,
-   "unread": 8,
-   "sec": 3780
+   "unread": 6,
+   "sec": 3784
   }
  },
  "hosts": {
-  "auctions.yahoo.co.jp": 910,
+  "auctions.yahoo.co.jp": 908,
   "jp.mercari.com": 1,
   "fril.jp": 407,
   "paypayfleamarket.yahoo.co.jp": 17,
@@ -158,10 +158,10 @@
   "mnrwefss2q-dsn.algolia.net": 1501
  },
  "counts": {
-  "entries": 296782,
-  "sold": 8147,
+  "entries": 300032,
+  "sold": 8239,
   "brands": 119,
-  "cards": 223757,
-  "fresh": 2989
+  "cards": 226614,
+  "fresh": 3247
  }
 }
