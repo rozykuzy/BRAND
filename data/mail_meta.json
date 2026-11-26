@@ -1,38 +1,38 @@
 {
- "date": "2026-11-25",
- "fresh": 3247,
+ "date": "2026-11-26",
+ "fresh": 2655,
  "brands": [
   [
    "Comme des Garçons",
-   231
+   174
+  ],
+  [
+   "Nina Ricci",
+   149
   ],
   [
    "Sacai",
-   229
-  ],
-  [
-   "DRKSHDW",
-   159
-  ],
-  [
-   "Rick Owens",
-   153
-  ],
-  [
-   "Stella McCartney",
-   146
+   147
   ],
   [
    "J.W Anderson",
-   143
+   133
   ],
   [
-   "Moncler",
-   139
+   "Casablanca",
+   123
+  ],
+  [
+   "Stella McCartney",
+   121
+  ],
+  [
+   "Courrèges",
+   115
   ],
   [
    "Herno",
-   137
+   103
   ]
  ]
 }
