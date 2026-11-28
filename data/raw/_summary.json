@@ -1,6 +1,6 @@
 {
- "startedAt": "2026-11-27T11:33:55.753Z",
- "day": "2026-11-27",
+ "startedAt": "2026-11-28T11:02:46.781Z",
+ "day": "2026-11-28",
  "args": {
   "only": null,
   "brands": null,
@@ -25,30 +25,30 @@
    "refused": true,
    "error": "HTTP 429 from paypayfleamarket.yahoo.co.jp",
    "requests": 17,
-   "sec": 63
+   "sec": 64
   },
   "fruits": {
    "ok": true,
    "requests": 130,
-   "read": 2600,
-   "kept": 1987,
+   "read": 2606,
+   "kept": 1960,
    "complete": false,
    "pages": 129,
    "missing": 45,
    "failed": 0,
-   "sec": 324
+   "sec": 323
   },
   "fruits_check": {
    "ok": true,
    "requests": 200,
    "checked": 200,
-   "sec": 500
+   "sec": 503
   },
   "rakuma": {
    "ok": true,
    "requests": 407,
-   "read": 11995,
-   "kept": 4879,
+   "read": 11928,
+   "kept": 4851,
    "complete": false,
    "searches": 203,
    "cut": 203,
@@ -59,11 +59,11 @@
   "yahoo": {
    "ok": true,
    "requests": 703,
-   "read": 10756,
-   "kept": 5958,
+   "read": 10725,
+   "kept": 6004,
    "complete": false,
    "searches": 203,
-   "cut": 141,
+   "cut": 142,
    "failed": 0,
    "pages": 352,
    "sec": 1757
@@ -71,19 +71,19 @@
   "mercari": {
    "ok": true,
    "requests": 204,
-   "read": 14204,
-   "kept": 7081,
+   "read": 14063,
+   "kept": 7062,
    "complete": false,
    "searches": 203,
    "cut": 149,
    "pages": 203,
-   "sec": 2020
+   "sec": 2107
   },
   "yahoo_sold": {
    "ok": true,
    "requests": 203,
-   "read": 5087,
-   "kept": 2320,
+   "read": 5076,
+   "kept": 2316,
    "complete": false,
    "searches": 203,
    "cut": 139,
@@ -94,18 +94,18 @@
   "grailed": {
    "ok": true,
    "requests": 1501,
-   "read": 312040,
-   "kept": 127368,
+   "read": 305853,
+   "kept": 127055,
    "complete": false,
-   "searches": 85,
+   "searches": 84,
    "cut": 1,
    "calls": 1500,
    "capped": true,
-   "unread": 6,
-   "sec": 3784
+   "unread": 7,
+   "sec": 3795
   }
  },
- "finishedAt": "2026-11-27T12:36:59.501Z",
+ "finishedAt": "2026-11-28T12:06:01.537Z",
  "hosts": {
   "auctions.yahoo.co.jp": 906,
   "jp.mercari.com": 1,
